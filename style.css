@@ -8,13 +8,13 @@
 :root {
     --pink-main: #FF4D8D;
     --pink-light: #FF85AD;
-    --pink-pale: #FFD0E0;
+    --pink-pale: #FFE4EC;
+    --pink-bg: #FFF0F5;
     --pink-hot: #FF1A6C;
-    --black: #0A0A0A;
     --white: #FFFFFF;
-    --blue-accent: #4D79FF;
-    --orange-accent: #FF8A4D;
-    --gray: #888;
+    --text-dark: #4A1A2C;
+    --text-medium: #8B4A6B;
+    --text-light: #B87A9A;
     --font-en: 'Outfit', sans-serif;
     --font-jp: 'Zen Kaku Gothic New', sans-serif;
 }
@@ -31,8 +31,8 @@ html {
 
 body {
     font-family: var(--font-jp);
-    background: var(--black);
-    color: var(--white);
+    background: var(--pink-bg);
+    color: var(--text-dark);
     overflow-x: hidden;
     cursor: default;
 }
@@ -60,7 +60,7 @@ body {
     width: 2px;
     height: 100%;
     background: linear-gradient(to bottom, transparent, var(--pink-main), transparent);
-    opacity: 0.5;
+    opacity: 0.3;
 }
 
 /* Animated Background Lines */
@@ -117,11 +117,12 @@ body {
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 0.9;
-    background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 50%, var(--pink-main) 100%);
+    background: linear-gradient(135deg, var(--pink-hot) 0%, var(--pink-main) 50%, var(--pink-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
+    text-shadow: 0 4px 30px rgba(255, 77, 141, 0.3);
 }
 
 .hero-title::after {
@@ -130,22 +131,22 @@ body {
     top: 4px;
     left: 4px;
     z-index: -1;
-    background: var(--pink-hot);
+    background: var(--pink-pale);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 .hero-subtitle {
     font-size: 1rem;
-    color: var(--gray);
+    color: var(--text-medium);
     margin-top: 30px;
     letter-spacing: 0.3em;
 }
 
 .hero-subtitle span {
-    color: var(--pink-main);
+    color: var(--pink-hot);
 }
 
 /* Scroll Indicator */
@@ -158,7 +159,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    color: var(--gray);
+    color: var(--text-light);
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     animation: bounce 2s ease-in-out infinite;
@@ -168,7 +169,7 @@ body {
     content: '';
     width: 1px;
     height: 40px;
-    background: linear-gradient(to bottom, var(--pink-main), transparent);
+    background: linear-gradient(to bottom, var(--pink-main), var(--pink-pale));
 }
 
 @keyframes bounce {
@@ -190,14 +191,15 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    mix-blend-mode: difference;
+    background: rgba(255, 240, 245, 0.8);
+    backdrop-filter: blur(10px);
 }
 
 .nav-logo {
     font-family: var(--font-en);
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--white);
+    color: var(--pink-hot);
     text-decoration: none;
     letter-spacing: 0.1em;
 }
@@ -211,7 +213,7 @@ body {
 .nav-links a {
     font-family: var(--font-en);
     font-size: 0.8rem;
-    color: var(--white);
+    color: var(--text-dark);
     text-decoration: none;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -249,7 +251,7 @@ body {
     align-items: flex-end;
     margin-bottom: 60px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 77, 141, 0.2);
+    border-bottom: 1px solid rgba(255, 77, 141, 0.3);
 }
 
 .section-number {
@@ -268,7 +270,7 @@ body {
 
 .section-subtitle {
     font-size: 0.8rem;
-    color: var(--gray);
+    color: var(--text-medium);
     letter-spacing: 0.2em;
 }
 
@@ -284,13 +286,15 @@ body {
     align-items: center;
     gap: 40px;
     padding: 40px;
-    background: linear-gradient(135deg, rgba(255, 77, 141, 0.05) 0%, transparent 100%);
-    border: 1px solid rgba(255, 77, 141, 0.1);
+    background: var(--white);
+    border: 2px solid var(--pink-pale);
+    border-radius: 8px;
     text-decoration: none;
     color: inherit;
     position: relative;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(255, 77, 141, 0.1);
 }
 
 .story-card::before {
@@ -300,7 +304,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, var(--pink-hot) 0%, var(--pink-main) 100%);
+    background: linear-gradient(135deg, var(--pink-pale) 0%, var(--white) 100%);
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: -1;
@@ -309,10 +313,11 @@ body {
 .story-card:hover {
     transform: translateX(10px);
     border-color: var(--pink-main);
+    box-shadow: 0 8px 30px rgba(255, 77, 141, 0.2);
 }
 
 .story-card:hover::before {
-    opacity: 0.1;
+    opacity: 1;
 }
 
 .story-number {
@@ -338,7 +343,7 @@ body {
 
 .story-content p {
     font-size: 0.9rem;
-    color: var(--gray);
+    color: var(--text-medium);
     line-height: 1.8;
 }
 
@@ -393,11 +398,11 @@ body {
     margin: 0 auto;
     font-size: 1.1rem;
     line-height: 2.2;
-    color: var(--gray);
+    color: var(--text-medium);
 }
 
 .about-text em {
-    color: var(--pink-light);
+    color: var(--pink-hot);
     font-style: normal;
 }
 
@@ -417,14 +422,15 @@ body {
 .footer {
     padding: 60px 40px;
     text-align: center;
-    border-top: 1px solid rgba(255, 77, 141, 0.1);
+    border-top: 2px solid var(--pink-pale);
+    background: var(--white);
 }
 
 .footer-logo {
     font-family: var(--font-en);
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(90deg, var(--pink-main), var(--pink-light));
+    background: linear-gradient(90deg, var(--pink-hot), var(--pink-main));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -433,7 +439,7 @@ body {
 
 .footer-text {
     font-size: 0.75rem;
-    color: var(--gray);
+    color: var(--text-light);
     letter-spacing: 0.1em;
 }
 
@@ -458,7 +464,7 @@ body {
     left: 40px;
     font-family: var(--font-en);
     font-size: 0.8rem;
-    color: var(--gray);
+    color: var(--text-medium);
     text-decoration: none;
     letter-spacing: 0.1em;
     display: flex;
@@ -468,7 +474,7 @@ body {
 }
 
 .chapter-back:hover {
-    color: var(--pink-main);
+    color: var(--pink-hot);
 }
 
 .chapter-number {
@@ -490,7 +496,7 @@ body {
 
 .chapter-meta {
     font-size: 0.8rem;
-    color: var(--gray);
+    color: var(--text-light);
     letter-spacing: 0.2em;
 }
 
@@ -504,7 +510,7 @@ body {
 .novel-text {
     font-size: 1.05rem;
     line-height: 2.4;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-dark);
 }
 
 .novel-text p {
@@ -515,7 +521,7 @@ body {
 .novel-text p:first-child {
     text-indent: 0;
     font-size: 1.2rem;
-    color: var(--white);
+    color: var(--text-dark);
 }
 
 .novel-text .scene-break {
@@ -532,7 +538,7 @@ body {
 
 .novel-text em {
     font-style: normal;
-    color: var(--pink-light);
+    color: var(--pink-hot);
     padding: 0 2px;
 }
 
@@ -543,25 +549,27 @@ body {
     max-width: 720px;
     margin: 0 auto;
     padding: 40px;
-    border-top: 1px solid rgba(255, 77, 141, 0.1);
+    border-top: 2px solid var(--pink-pale);
 }
 
 .nav-btn {
     font-family: var(--font-en);
     font-size: 0.8rem;
-    color: var(--gray);
+    color: var(--text-medium);
     text-decoration: none;
     letter-spacing: 0.1em;
     padding: 15px 30px;
-    border: 1px solid rgba(255, 77, 141, 0.2);
+    border: 2px solid var(--pink-pale);
+    border-radius: 4px;
     transition: all 0.3s ease;
     text-transform: uppercase;
+    background: var(--white);
 }
 
 .nav-btn:hover {
-    color: var(--pink-main);
+    color: var(--pink-hot);
     border-color: var(--pink-main);
-    background: rgba(255, 77, 141, 0.05);
+    background: var(--pink-pale);
 }
 
 /* Reading Progress */
@@ -684,7 +692,7 @@ body {
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 77, 141, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 77, 141, 0.2) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
     transform: translate(-50%, -50%);
@@ -699,13 +707,18 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--black);
+    background: var(--pink-pale);
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--pink-main);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--pink-hot);
 }
