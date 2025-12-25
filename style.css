@@ -12,9 +12,9 @@
     --pink-bg: #FFF0F5;
     --pink-hot: #FF1A6C;
     --white: #FFFFFF;
-    --text-dark: #4A1A2C;
-    --text-medium: #8B4A6B;
-    --text-light: #B87A9A;
+    --text-dark: #2D0A1A;
+    --text-medium: #6B2A4A;
+    --text-light: #9B5A7A;
     --font-en: 'Outfit', sans-serif;
     --font-jp: 'Zen Kaku Gothic New', sans-serif;
 }
@@ -448,7 +448,7 @@ body {
    ======================================== */
 
 .chapter-hero {
-    min-height: 50vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -456,6 +456,30 @@ body {
     text-align: center;
     padding: 120px 40px 60px;
     position: relative;
+    background: linear-gradient(180deg, var(--pink-bg) 0%, var(--white) 100%);
+    overflow: hidden;
+}
+
+.chapter-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 77, 141, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.chapter-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink-main), transparent);
 }
 
 .chapter-back {
@@ -470,45 +494,84 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: color 0.3s ease;
+    padding: 10px 20px;
+    border: 1px solid var(--pink-pale);
+    border-radius: 30px;
+    background: var(--white);
+    transition: all 0.3s ease;
 }
 
 .chapter-back:hover {
     color: var(--pink-hot);
+    border-color: var(--pink-main);
+    background: var(--pink-pale);
 }
 
 .chapter-number {
     font-family: var(--font-en);
-    font-size: 8rem;
+    font-size: 10rem;
     font-weight: 800;
     color: transparent;
-    -webkit-text-stroke: 1px var(--pink-main);
+    -webkit-text-stroke: 2px var(--pink-main);
     line-height: 1;
     margin-bottom: 20px;
+    position: relative;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.chapter-number::after {
+    content: attr(data-num);
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    -webkit-text-stroke: 2px var(--pink-pale);
+    z-index: -1;
 }
 
 .chapter-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: 0.15em;
     margin-bottom: 20px;
+    color: var(--text-dark);
+    animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 
 .chapter-meta {
+    font-family: var(--font-en);
     font-size: 0.8rem;
-    color: var(--text-light);
-    letter-spacing: 0.2em;
+    color: var(--pink-main);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border: 1px solid var(--pink-main);
+    border-radius: 20px;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 /* Novel Content */
 .novel-wrapper {
     max-width: 720px;
     margin: 0 auto;
-    padding: 60px 40px 120px;
+    padding: 80px 40px 120px;
+    background: var(--white);
+    position: relative;
+}
+
+.novel-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink-pale), var(--pink-main), var(--pink-pale));
+    border-radius: 2px;
 }
 
 .novel-text {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 2.4;
     color: var(--text-dark);
 }
@@ -520,16 +583,41 @@ body {
 
 .novel-text p:first-child {
     text-indent: 0;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid var(--pink-main);
 }
 
 .novel-text .scene-break {
     text-align: center;
     margin: 4em 0;
     color: var(--pink-main);
-    letter-spacing: 1em;
-    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+    font-size: 1rem;
+    position: relative;
+}
+
+.novel-text .scene-break::before,
+.novel-text .scene-break::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--pink-pale));
+}
+
+.novel-text .scene-break::before {
+    right: calc(50% + 40px);
+    background: linear-gradient(90deg, transparent, var(--pink-pale));
+}
+
+.novel-text .scene-break::after {
+    left: calc(50% + 40px);
+    background: linear-gradient(90deg, var(--pink-pale), transparent);
 }
 
 .novel-text .dialogue {
@@ -540,36 +628,40 @@ body {
     font-style: normal;
     color: var(--pink-hot);
     padding: 0 2px;
+    font-weight: 500;
 }
 
 /* Chapter Navigation */
 .chapter-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
     max-width: 720px;
     margin: 0 auto;
-    padding: 40px;
-    border-top: 2px solid var(--pink-pale);
+    padding: 60px 40px;
+    background: var(--white);
 }
 
 .nav-btn {
     font-family: var(--font-en);
-    font-size: 0.8rem;
-    color: var(--text-medium);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-dark);
     text-decoration: none;
-    letter-spacing: 0.1em;
-    padding: 15px 30px;
-    border: 2px solid var(--pink-pale);
-    border-radius: 4px;
+    letter-spacing: 0.15em;
+    padding: 18px 40px;
+    border: 2px solid var(--pink-main);
+    border-radius: 50px;
     transition: all 0.3s ease;
     text-transform: uppercase;
     background: var(--white);
 }
 
 .nav-btn:hover {
-    color: var(--pink-hot);
-    border-color: var(--pink-main);
-    background: var(--pink-pale);
+    color: var(--white);
+    background: linear-gradient(135deg, var(--pink-hot), var(--pink-main));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
 }
 
 /* Reading Progress */
@@ -632,29 +724,43 @@ body {
         position: relative;
         top: auto;
         left: auto;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .chapter-hero {
-        padding: 80px 20px 40px;
+        padding: 100px 20px 50px;
+        min-height: 50vh;
     }
 
     .chapter-number {
-        font-size: 5rem;
+        font-size: 6rem;
+    }
+
+    .chapter-title {
+        font-size: 1.8rem;
     }
 
     .novel-wrapper {
-        padding: 40px 20px 80px;
+        padding: 60px 25px 80px;
+    }
+
+    .novel-text {
+        font-size: 1rem;
+    }
+
+    .novel-text p:first-child {
+        font-size: 1.1rem;
     }
 
     .chapter-nav {
         flex-direction: column;
         gap: 15px;
-        padding: 30px 20px;
+        padding: 40px 20px;
     }
 
     .nav-btn {
         text-align: center;
+        padding: 15px 30px;
     }
 }
 
