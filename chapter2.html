@@ -161,13 +161,6 @@
         <p class="footer-text">Inspired by Natori</p>
     </footer>
 
-    <script>
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('progress').style.width = scrolled + '%';
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

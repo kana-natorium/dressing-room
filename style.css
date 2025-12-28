@@ -828,3 +828,138 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--pink-hot);
 }
+
+/* ========================================
+   JS ANIMATION STYLES
+   テキストスプリット・3Dチルト・スクロールアニメーション
+   ======================================== */
+
+/* Text Split Animation */
+.split-animated .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(-90deg);
+    animation: charReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.split-animated .line {
+    display: inline-block;
+    overflow: hidden;
+}
+
+@keyframes charReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+/* 3D Card Tilt */
+.story-card {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+    box-shadow:
+        0 25px 50px rgba(255, 77, 141, 0.25),
+        0 0 0 1px rgba(255, 77, 141, 0.1);
+}
+
+.story-card .story-content,
+.story-card .story-number,
+.story-card .story-tag {
+    transform: translateZ(30px);
+}
+
+.story-card .story-arrow {
+    transform: translateZ(50px);
+}
+
+/* Scroll Animations */
+.animate-ready {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for story cards */
+.story-card.animate-ready:nth-child(1) { transition-delay: 0.1s; }
+.story-card.animate-ready:nth-child(2) { transition-delay: 0.2s; }
+.story-card.animate-ready:nth-child(3) { transition-delay: 0.3s; }
+
+/* Novel paragraphs stagger */
+.novel-text p.animate-ready:nth-child(1) { transition-delay: 0.05s; }
+.novel-text p.animate-ready:nth-child(2) { transition-delay: 0.1s; }
+.novel-text p.animate-ready:nth-child(3) { transition-delay: 0.15s; }
+.novel-text p.animate-ready:nth-child(4) { transition-delay: 0.2s; }
+.novel-text p.animate-ready:nth-child(5) { transition-delay: 0.25s; }
+
+/* Enhanced Cursor Glow */
+.cursor-glow {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero parallax smoothing */
+.hero-title,
+.hero-subtitle,
+.hero-label {
+    transition: opacity 0.1s ease-out;
+    will-change: transform, opacity;
+}
+
+/* Glitch effect for title on hover */
+.hero-title:hover .char {
+    animation: glitch 0.3s ease infinite alternate;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 0 var(--pink-hot), -2px 0 var(--pink-light);
+    }
+    100% {
+        text-shadow: -2px 0 var(--pink-hot), 2px 0 var(--pink-light);
+    }
+}
+
+/* Magnetic button effect */
+.nav-btn {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Floating animation for scroll indicator */
+.scroll-indicator {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-15px); }
+}
+
+/* Shimmer effect for story tags */
+.story-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.story-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.story-card:hover .story-tag::before {
+    left: 100%;
+}
