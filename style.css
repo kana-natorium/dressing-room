@@ -83,16 +83,48 @@ body {
     animation: lineMove 8s ease-in-out infinite;
 }
 
-.bg-lines span:nth-child(1) { left: 10%; animation-delay: 0s; }
-.bg-lines span:nth-child(2) { left: 25%; animation-delay: 1s; }
-.bg-lines span:nth-child(3) { left: 40%; animation-delay: 2s; }
-.bg-lines span:nth-child(4) { left: 60%; animation-delay: 1.5s; }
-.bg-lines span:nth-child(5) { left: 75%; animation-delay: 0.5s; }
-.bg-lines span:nth-child(6) { left: 90%; animation-delay: 2.5s; }
+.bg-lines span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bg-lines span:nth-child(2) {
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.bg-lines span:nth-child(3) {
+    left: 40%;
+    animation-delay: 2s;
+}
+
+.bg-lines span:nth-child(4) {
+    left: 60%;
+    animation-delay: 1.5s;
+}
+
+.bg-lines span:nth-child(5) {
+    left: 75%;
+    animation-delay: 0.5s;
+}
+
+.bg-lines span:nth-child(6) {
+    left: 90%;
+    animation-delay: 2.5s;
+}
 
 @keyframes lineMove {
-    0%, 100% { opacity: 0.05; transform: scaleY(0.5); }
-    50% { opacity: 0.2; transform: scaleY(1); }
+
+    0%,
+    100% {
+        opacity: 0.05;
+        transform: scaleY(0.5);
+    }
+
+    50% {
+        opacity: 0.2;
+        transform: scaleY(1);
+    }
 }
 
 /* Title */
@@ -117,26 +149,28 @@ body {
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 0.9;
+    position: relative;
+    /* Move background styles to .char for split text */
+}
+
+.hero-title .char {
     background: linear-gradient(135deg, var(--pink-hot) 0%, var(--pink-main) 50%, var(--pink-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    position: relative;
-    text-shadow: 0 4px 30px rgba(255, 77, 141, 0.3);
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
 }
 
-.hero-title::after {
-    content: 'DRESSING ROOM';
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    z-index: -1;
-    background: var(--pink-pale);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    opacity: 0.5;
+.hero-title .char:hover {
+    -webkit-text-fill-color: var(--white);
+    transform: translateY(-15px) scale(1.1) rotate(5deg) !important;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+    z-index: 20;
 }
+
+
 
 .hero-subtitle {
     font-size: 1rem;
@@ -173,8 +207,15 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
 }
 
 /* ========================================
@@ -427,14 +468,23 @@ body {
 }
 
 .footer-logo {
+    display: inline-block;
     font-family: var(--font-en);
     font-size: 1.5rem;
     font-weight: 700;
+    text-decoration: none;
     background: linear-gradient(90deg, var(--pink-hot), var(--pink-main));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 5px 15px rgba(255, 77, 141, 0.3));
+    opacity: 0.8;
 }
 
 .footer-text {
@@ -773,6 +823,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -780,7 +831,7 @@ body {
 }
 
 .hero-content {
-    animation: fadeInUp 1s ease-out;
+    animation: fadeInUp 1s ease-out both;
 }
 
 .story-card {
@@ -788,9 +839,17 @@ body {
     animation-fill-mode: both;
 }
 
-.story-card:nth-child(1) { animation-delay: 0.1s; }
-.story-card:nth-child(2) { animation-delay: 0.2s; }
-.story-card:nth-child(3) { animation-delay: 0.3s; }
+.story-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.story-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.story-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
 
 /* Cursor Glow Effect */
 .cursor-glow {
@@ -827,4 +886,103 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--pink-hot);
+}
+
+/* ========================================
+   JS ANIMATION STYLES
+   ======================================== */
+
+/* Text Split Animation */
+.split-animated .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) rotateX(-90deg);
+    /* Further increased duration to 1.5s */
+    animation: charReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.split-animated .line {
+    display: inline-block;
+}
+
+@keyframes charReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+/* 3D Card Tilt */
+.story-card {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+    box-shadow:
+        0 25px 50px rgba(255, 77, 141, 0.25),
+        0 0 0 1px rgba(255, 77, 141, 0.1);
+}
+
+/* Scroll Animations */
+.animate-ready {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Enhanced Cursor Glow */
+.cursor-glow {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hero parallax smoothing */
+.hero-title,
+.hero-subtitle,
+.hero-label {
+    transition: opacity 0.1s ease-out;
+    will-change: transform, opacity;
+}
+
+/* Floating animation for scroll indicator */
+.scroll-indicator {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-15px);
+    }
+}
+
+/* Shimmer effect for story tags */
+.story-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.story-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 77, 141, 0.6), transparent);
+    transition: left 0.5s ease;
+}
+
+.story-card:hover .story-tag::before {
+    left: 100%;
 }
