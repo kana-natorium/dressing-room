@@ -11,7 +11,7 @@
 <body>
     <!-- Navigation -->
     <nav class="nav">
-        <a href="index.html" class="nav-logo">DRESSING ROOM</a>
+        <a href="index.html" class="nav-logo">DRESSING<br>ROOM</a>
         <ul class="nav-links">
             <li><a href="#stories">Stories</a></li>
             <li><a href="#about">About</a></li>
@@ -105,6 +105,30 @@
         <p class="footer-text">Novel Collection 2025</p>
     </footer>
 
+    <!-- Reader Overlay (小説を読むためのエリア) -->
+    <div id="reader-overlay" class="reader-overlay">
+        <div class="reader-close" id="reader-close">BACK TO MENU</div>
+        <div id="reader-content" class="reader-content">
+            <!-- ここに小説の中身が流し込まれる -->
+        </div>
+    </div>
+    <!-- 小説のデータ（普段は隠しておく） -->
+    <div id="story-data" style="display: none;">
+        <div id="data-chapter1">
+            <header class="chapter-hero">
+                <div class="chapter-number">01</div>
+                <h1 class="chapter-title">楽屋の鏡</h1>
+                <p class="chapter-meta">Short Story</p>
+            </header>
+            <article class="novel-text">
+                <p>楽屋の鏡は、いつも私を見ている。</p>
+                <p>午後七時。開演まであと一時間。私は化粧台の前に座り、いつものルーティンを始める。ファンデーション、アイシャドウ、そして真っ赤なルージュ。毎晩同じ手順で、毎晩同じ顔を作り上げる。</p>
+                <p><span class="dialogue">「今日も満員御礼だって」</span></p>
+                <!-- （以下、本当はもっと続くけど、まずはここまででテストしよう） -->
+                <p>……物語は続く。</p>
+            </article>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 

@@ -3,20 +3,27 @@
    PV Style: Pink, Fashionable, Runway
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Syne:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap');
 
 :root {
-    --pink-main: #FF4D8D;
-    --pink-light: #FF85AD;
-    --pink-pale: #FFE4EC;
-    --pink-bg: #FFF0F5;
+    --pink-neon: #FF007A;
     --pink-hot: #FF1A6C;
+    --pink-deep: #D40065;
+    --pink-bg: #FF2E8C;
+    --pink-pale: #FFE4EC;
+    --neon-blue: #00F0FF;
     --white: #FFFFFF;
-    --text-dark: #2D0A1A;
-    --text-medium: #6B2A4A;
-    --text-light: #9B5A7A;
+    --text-main: #FFFFFF;
+    --text-accent: #2D0A1A;
     --font-en: 'Outfit', sans-serif;
+    --font-en-bold: 'Syne', sans-serif;
     --font-jp: 'Zen Kaku Gothic New', sans-serif;
+    --pink-main: #FF4D8D;
+    --pink-light: #FF94B8;
+    --pink-glow: rgba(255, 0, 122, 0.5);
+    --text-dark: #2D0A1A;
+    --text-medium: #6B2D44;
+    --text-light: #A37C8A;
 }
 
 * {
@@ -32,9 +39,13 @@ html {
 body {
     font-family: var(--font-jp);
     background: var(--pink-bg);
-    color: var(--text-dark);
+    color: var(--text-main);
     overflow-x: hidden;
     cursor: default;
+    /* Dot pattern background - adjusted for pink bg */
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
 }
 
 /* ========================================
@@ -136,47 +147,54 @@ body {
 
 .hero-label {
     font-family: var(--font-en);
-    font-size: 0.75rem;
-    letter-spacing: 0.5em;
-    color: var(--pink-light);
-    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    color: var(--white);
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
 }
 
 .hero-title {
-    font-family: var(--font-en);
+    font-family: var(--font-en-bold);
+    /* Adjusted clamp for 15-inch PC to prevent overflow while staying huge */
     font-size: clamp(3rem, 15vw, 10rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 0.9;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.85;
     position: relative;
-    /* Move background styles to .char for split text */
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .hero-title .char {
-    background: linear-gradient(135deg, var(--pink-hot) 0%, var(--pink-main) 50%, var(--pink-light) 100%);
+    background: linear-gradient(180deg, var(--white) 50%, var(--pink-pale) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
 }
 
 .hero-title .char:hover {
     -webkit-text-fill-color: var(--white);
-    transform: translateY(-15px) scale(1.1) rotate(5deg) !important;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+    background: none;
+    -webkit-background-clip: text;
+    transform: translateY(-20px) scale(1.15) rotate(-3deg) !important;
+    filter: drop-shadow(0 0 30px var(--white)) drop-shadow(0 0 50px var(--pink-neon));
     z-index: 20;
 }
 
-
-
 .hero-subtitle {
-    font-size: 1rem;
-    color: var(--text-medium);
-    margin-top: 30px;
-    letter-spacing: 0.3em;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-top: 40px;
+    letter-spacing: 0.4em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle span {
@@ -227,22 +245,26 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 40px;
+    padding: 25px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: rgba(255, 240, 245, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 46, 140, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-logo {
-    font-family: var(--font-en);
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--pink-hot);
+    font-family: var(--font-en-bold);
+    font-weight: 800;
+    font-size: 1.1rem;
+    line-height: 0.9;
+    color: var(--white);
     text-decoration: none;
     letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .nav-links {
@@ -253,22 +275,25 @@ body {
 
 .nav-links a {
     font-family: var(--font-en);
-    font-size: 0.8rem;
-    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--white);
     text-decoration: none;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     position: relative;
+    padding: 5px 0;
 }
 
 .nav-links a::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     width: 0;
-    height: 1px;
-    background: var(--pink-main);
+    height: 2px;
+    background: var(--pink-neon);
+    box-shadow: 0 0 10px var(--pink-glow);
     transition: width 0.3s ease;
 }
 
@@ -326,16 +351,16 @@ body {
     grid-template-columns: 100px 1fr auto;
     align-items: center;
     gap: 40px;
-    padding: 40px;
-    background: var(--white);
-    border: 2px solid var(--pink-pale);
-    border-radius: 8px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
     text-decoration: none;
-    color: inherit;
+    color: var(--white);
     position: relative;
     overflow: hidden;
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 20px rgba(255, 77, 141, 0.1);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .story-card::before {
@@ -352,13 +377,23 @@ body {
 }
 
 .story-card:hover {
-    transform: translateX(10px);
-    border-color: var(--pink-main);
-    box-shadow: 0 8px 30px rgba(255, 77, 141, 0.2);
+    transform: translateY(-10px);
+    background: var(--neon-blue);
+    border-color: var(--white);
+    box-shadow: 0 20px 50px rgba(0, 240, 255, 0.4);
 }
 
 .story-card:hover::before {
-    opacity: 1;
+    opacity: 0;
+}
+
+.story-card:hover .story-number,
+.story-card:hover .story-content h3,
+.story-card:hover .story-content p,
+.story-card:hover .story-arrow,
+.story-card:hover .story-tag {
+    color: var(--pink-deep);
+    -webkit-text-stroke-color: var(--pink-deep);
 }
 
 .story-number {
@@ -435,24 +470,30 @@ body {
 }
 
 .about-text {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
     line-height: 2.2;
-    color: var(--text-medium);
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .about-text em {
-    color: var(--pink-hot);
+    color: var(--text-accent);
+    background: var(--white);
+    padding: 2px 10px;
     font-style: normal;
 }
 
 .about-credit {
     margin-top: 60px;
     font-family: var(--font-en);
-    font-size: 0.8rem;
-    color: var(--pink-main);
-    letter-spacing: 0.3em;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--white);
+    opacity: 0.8;
+    letter-spacing: 0.4em;
     text-transform: uppercase;
 }
 
@@ -469,28 +510,27 @@ body {
 
 .footer-logo {
     display: inline-block;
-    font-family: var(--font-en);
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: var(--font-en-bold);
+    font-size: 1.8rem;
+    font-weight: 900;
     text-decoration: none;
-    background: linear-gradient(90deg, var(--pink-hot), var(--pink-main));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--pink-neon);
     margin-bottom: 20px;
     transition: all 0.3s ease;
+    text-shadow: 0 0 15px rgba(255, 0, 122, 0.3);
 }
 
 .footer-logo:hover {
-    transform: translateY(-5px);
-    filter: drop-shadow(0 5px 15px rgba(255, 77, 141, 0.3));
-    opacity: 0.8;
+    transform: translateY(-5px) scale(1.05);
+    opacity: 1;
 }
 
 .footer-text {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    opacity: 0.6;
+    letter-spacing: 0.2em;
 }
 
 /* ========================================
@@ -985,4 +1025,86 @@ body {
 
 .story-card:hover .story-tag::before {
     left: 100%;
+}
+
+/* ========================================
+   READER OVERLAY (読書モードの見た目)
+   ======================================== */
+.reader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--white);
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 100px 200px;
+    /* これが「スイッチ」だ。今は隠しておく */
+    display: none;
+}
+
+.reader-close {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    font-family: var(--font-en);
+    font-size: 0.8em;
+    color: var(--pink-hot);
+    cursor: pointer;
+    border: 1px solid var(--pink-hot);
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    z-index: 20001;
+    background: var(--white);
+}
+
+.reader-close:hover {
+    background: var(--pink-hot);
+    color: var(--white);
+}
+
+.reader-content {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* 読書モード内の特別調整（ID指定で優先度を最強にする） */
+
+#reader-overlay .chapter-hero {
+    min-height: auto !important;
+    padding: 60px 40px 40px !important;
+    background: transparent !important;
+}
+
+#reader-overlay .chapter-hero::before,
+#reader-overlay .chapter-hero::after {
+    display: none !important;
+}
+
+#reader-overlay .chapter-number {
+    font-size: 4rem !important;
+    color: var(--pink-main) !important;
+    -webkit-text-stroke: 1px var(--pink-main) !important;
+    animation: none !important;
+    margin-bottom: 10px !important;
+}
+
+#reader-overlay .chapter-title {
+    font-size: 2rem !important;
+    margin-bottom: 20px !important;
+    color: var(--text-dark) !important;
+}
+
+#reader-overlay .novel-wrapper {
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    background: transparent !important;
+}
+
+#reader-overlay .reader-content {
+    max-width: 800px !important;
+    margin: 0 auto !important;
 }
