@@ -572,30 +572,6 @@ body {
     background: linear-gradient(90deg, transparent, var(--pink-main), transparent);
 }
 
-.chapter-back {
-    position: absolute;
-    top: 100px;
-    left: 40px;
-    font-family: var(--font-en);
-    font-size: 0.8rem;
-    color: var(--text-medium);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    border: 1px solid var(--pink-pale);
-    border-radius: 30px;
-    background: var(--white);
-    transition: all 0.3s ease;
-}
-
-.chapter-back:hover {
-    color: var(--pink-hot);
-    border-color: var(--pink-main);
-    background: var(--pink-pale);
-}
 
 .chapter-number {
     font-family: var(--font-en);
@@ -640,26 +616,6 @@ body {
 }
 
 /* Novel Content */
-.novel-wrapper {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 80px 40px 120px;
-    background: var(--white);
-    position: relative;
-}
-
-.novel-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--pink-pale), var(--pink-main), var(--pink-pale));
-    border-radius: 2px;
-}
-
 .novel-text {
     font-size: 1.1rem;
     line-height: 2.4;
@@ -721,55 +677,16 @@ body {
     font-weight: 500;
 }
 
-/* Chapter Navigation */
-.chapter-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 60px 40px;
-    background: var(--white);
-}
-
-.nav-btn {
-    font-family: var(--font-en);
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    text-decoration: none;
-    letter-spacing: 0.15em;
-    padding: 18px 40px;
-    border: 2px solid var(--pink-main);
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    background: var(--white);
-}
-
-.nav-btn:hover {
-    color: var(--white);
-    background: linear-gradient(135deg, var(--pink-hot), var(--pink-main));
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 77, 141, 0.3);
-}
-
-/* Reading Progress */
-.reading-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--pink-hot), var(--pink-main), var(--pink-light));
-    z-index: 1000;
-}
-
 /* ========================================
    RESPONSIVE
    ======================================== */
 
 @media (max-width: 768px) {
+    .hero-title {
+        /* 8文字のDRESSINGが1行に収まるよう調整 */
+        font-size: clamp(2.5rem, 11vw, 6rem);
+    }
+
     .nav {
         padding: 15px 20px;
     }
@@ -810,13 +727,6 @@ body {
         font-size: 0.6rem;
     }
 
-    .chapter-back {
-        position: relative;
-        top: auto;
-        left: auto;
-        margin-bottom: 30px;
-    }
-
     .chapter-hero {
         padding: 100px 20px 50px;
         min-height: 50vh;
@@ -830,27 +740,12 @@ body {
         font-size: 1.8rem;
     }
 
-    .novel-wrapper {
-        padding: 60px 25px 80px;
-    }
-
     .novel-text {
         font-size: 1rem;
     }
 
     .novel-text p:first-child {
         font-size: 1.1rem;
-    }
-
-    .chapter-nav {
-        flex-direction: column;
-        gap: 15px;
-        padding: 40px 20px;
-    }
-
-    .nav-btn {
-        text-align: center;
-        padding: 15px 30px;
     }
 }
 
@@ -1038,10 +933,10 @@ body {
     height: 100vh;
     background: var(--white);
     z-index: 2000;
+    padding: 100px 40px;
     overflow-y: auto;
-    padding: 100px 200px;
-    /* これが「スイッチ」だ。今は隠しておく */
     display: none;
+    /* 初期状態は隠す */
 }
 
 .reader-close {
@@ -1049,14 +944,14 @@ body {
     top: 40px;
     right: 40px;
     font-family: var(--font-en);
-    font-size: 0.8em;
+    font-size: 0.8rem;
     color: var(--pink-hot);
     cursor: pointer;
     border: 1px solid var(--pink-hot);
     padding: 10px 20px;
     border-radius: 30px;
     transition: all 0.3s ease;
-    z-index: 20001;
+    z-index: 2001;
     background: var(--white);
 }
 
@@ -1066,16 +961,16 @@ body {
 }
 
 .reader-content {
-    max-width: 720px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
-/* 読書モード内の特別調整（ID指定で優先度を最強にする） */
-
+/* 読書モード内の個別要素調整（優先度を確保しつつ整理） */
 #reader-overlay .chapter-hero {
     min-height: auto !important;
-    padding: 60px 40px 40px !important;
+    padding: 60px 0 40px !important;
     background: transparent !important;
+    border-bottom: none;
 }
 
 #reader-overlay .chapter-hero::before,
@@ -1092,19 +987,8 @@ body {
 }
 
 #reader-overlay .chapter-title {
-    font-size: 2rem !important;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
     margin-bottom: 20px !important;
     color: var(--text-dark) !important;
-}
-
-#reader-overlay .novel-wrapper {
-    box-shadow: none !important;
-    padding: 0 !important;
-    max-width: 100% !important;
-    background: transparent !important;
-}
-
-#reader-overlay .reader-content {
-    max-width: 800px !important;
-    margin: 0 auto !important;
+    animation: none !important;
 }
