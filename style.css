@@ -737,11 +737,11 @@ body {
     }
 
     .chapter-number {
-        font-size: 6rem;
+        font-size: 2.5rem;
     }
 
     .chapter-title {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .novel-text {
@@ -1489,7 +1489,9 @@ main {
 
 @media (max-width: 768px) {
     .novel-wrapper {
-        padding: 40px 20px;
+        padding: 30px 16px;
+        margin: 0 10px;
+        border-radius: 16px;
     }
 
     .chapter-back {
