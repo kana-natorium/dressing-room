@@ -1578,4 +1578,9 @@ main {
     .chapter-meta::after {
         font-size: 0.8rem;
     }
+
+    /* スマホではアイコンを減らす（偶数番目を非表示） */
+    .decoration-layer .deco-sprite:nth-child(even) {
+        display: none;
+    }
 }
