@@ -189,7 +189,7 @@ body {
     display: inline-block;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .hero-title .char:hover {
