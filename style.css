@@ -182,14 +182,14 @@ body {
 }
 
 .hero-title .char {
-    background: linear-gradient(180deg, var(--white) 50%, var(--pink-pale) 100%);
+    background: linear-gradient(180deg, var(--white) 40%, #FFE4EC 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
 }
 
 .hero-title .char:hover {
@@ -264,7 +264,7 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: rgba(255, 46, 140, 0.8);
+    background: rgba(250, 125, 164, 0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
