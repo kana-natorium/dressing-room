@@ -1240,68 +1240,69 @@ main {
 .deco-sprite.diamond::before {
     content: '';
     position: absolute;
-    top: -8px;
-    right: -8px;
-    width: 10px;
-    height: 10px;
-    background: white;
+    top: -6px;
+    right: -6px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
-    box-shadow: 0 0 12px white, 0 0 20px rgba(255, 255, 255, 0.8);
-    animation: sparkle 1.5s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 184, 201, 0.6);
+    animation: sparkle 2s ease-in-out infinite;
     z-index: 5;
 }
 
-/* Coin Style */
+/* Coin Style - Stylish Rose Gold */
 .deco-sprite.coin {
-    width: 32px !important;
-    height: 32px !important;
-    background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 50%, var(--accent-yellow) 100%);
+    width: 28px !important;
+    height: 28px !important;
+    background: linear-gradient(135deg, #FFB8C9 0%, #FF8FAB 50%, #FFB8C9 100%);
     border-radius: 50% !important;
-    border: 3px solid #D4A017 !important;
+    border: 2px solid rgba(255, 255, 255, 0.6) !important;
     box-shadow:
-        inset -4px -4px 0 #D4A017,
-        inset 4px 4px 0 #FFE55C,
-        0 4px 12px rgba(255, 200, 87, 0.4) !important;
+        0 4px 15px rgba(255, 77, 141, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5) !important;
+    opacity: 0.85;
 }
 
-/* Diamond Style */
+/* Diamond Style - Stylish Pink Geometric */
 .deco-sprite.diamond {
     width: 0;
     height: 0;
     background: none;
     border-style: solid;
     border-color: transparent;
-    border-left-width: 15px;
-    border-right-width: 15px;
-    border-bottom: 25px solid var(--accent-turquoise);
+    border-left-width: 12px;
+    border-right-width: 12px;
+    border-bottom: 20px solid rgba(255, 143, 171, 0.8);
     border-top-width: 0;
-    filter: drop-shadow(0 5px 10px rgba(125, 211, 192, 0.4));
+    filter: drop-shadow(0 4px 12px rgba(255, 77, 141, 0.25));
+    opacity: 0.9;
 }
 
 .deco-sprite.diamond::after {
     content: '';
     position: absolute;
-    top: 25px;
-    left: -15px;
+    top: 20px;
+    left: -12px;
     width: 0 !important;
     height: 0 !important;
     border-style: solid !important;
     border-color: transparent !important;
-    border-left-width: 15px !important;
-    border-right-width: 15px !important;
-    border-top: 15px solid var(--accent-cyan) !important;
+    border-left-width: 12px !important;
+    border-right-width: 12px !important;
+    border-top: 12px solid rgba(255, 184, 201, 0.9) !important;
     border-bottom-width: 0 !important;
 }
 
-/* Heart Style */
+/* Heart Style - Stylish Pink Outline */
 .deco-sprite.heart {
     --base-rotate: -45deg;
-    width: 25px;
-    height: 25px;
-    background: linear-gradient(135deg, var(--accent-mint) 0%, #D5F5E3 50%, var(--accent-mint) 100%);
-    box-shadow:
-        inset -3px -3px 0 var(--accent-green),
-        0 5px 12px rgba(107, 191, 89, 0.35);
+    width: 22px;
+    height: 22px;
+    background: transparent;
+    border: 2px solid rgba(255, 143, 171, 0.7);
+    box-shadow: 0 4px 12px rgba(255, 77, 141, 0.2);
+    opacity: 0.85;
 }
 
 .deco-sprite.heart::before,
@@ -1310,9 +1311,9 @@ main {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: inherit;
+    background: transparent;
+    border: 2px solid rgba(255, 143, 171, 0.7);
     border-radius: 50%;
-    box-shadow: inherit;
 }
 
 .deco-sprite.heart::before {
@@ -1431,21 +1432,21 @@ main {
 }
 
 .status-item .icon.coin {
-    width: 20px !important;
-    height: 20px !important;
-    background: linear-gradient(135deg, var(--accent-yellow), var(--accent-orange));
+    width: 18px !important;
+    height: 18px !important;
+    background: linear-gradient(135deg, #FFB8C9, #FF8FAB);
     border-radius: 50% !important;
-    border: 2px solid #D4A017 !important;
-    box-shadow: 0 2px 6px rgba(255, 200, 87, 0.3) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 2px 6px rgba(255, 77, 141, 0.25) !important;
 }
 
 .status-item .icon.diamond {
     width: 0 !important;
     height: 0 !important;
-    border-left: 10px solid transparent !important;
-    border-right: 10px solid transparent !important;
-    border-bottom: 16px solid var(--accent-turquoise) !important;
-    filter: drop-shadow(0 2px 4px rgba(125, 211, 192, 0.4)) !important;
+    border-left: 8px solid transparent !important;
+    border-right: 8px solid transparent !important;
+    border-bottom: 14px solid rgba(255, 143, 171, 0.85) !important;
+    filter: drop-shadow(0 2px 4px rgba(255, 77, 141, 0.25)) !important;
 }
 
 .status-item .icon.heart {
@@ -1566,14 +1567,14 @@ main {
     }
 
     .status-item .icon.coin {
-        width: 14px;
-        height: 14px;
+        width: 14px !important;
+        height: 14px !important;
     }
 
     .status-item .icon.diamond {
-        border-left-width: 7px;
-        border-right-width: 7px;
-        border-bottom-width: 10px;
+        border-left-width: 6px !important;
+        border-right-width: 6px !important;
+        border-bottom-width: 10px !important;
     }
 
     /* Chapter Title Effects Mobile */
