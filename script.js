@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCardTilt();
     initScrollAnimations();
     initReadingProgress();
+    initScrollIndicator();
 });
 
 /* パララックス効果 */
@@ -148,4 +149,16 @@ if (cursor) {
         requestAnimationFrame(animateCursor);
     }
     animateCursor();
+}
+
+/* スクロールインジケーター クリックでスクロール */
+function initScrollIndicator() {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const storiesSection = document.querySelector('#stories');
+
+    if (!scrollIndicator || !storiesSection) return;
+
+    scrollIndicator.addEventListener('click', () => {
+        storiesSection.scrollIntoView({ behavior: 'smooth' });
+    });
 }

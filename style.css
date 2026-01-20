@@ -3,7 +3,7 @@
    PV Style: Pink, Fashionable, Runway
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Syne:wght@700;800&family=Zen+Kaku+Gothic+New:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Syne:wght@700;800&family=Noto+Serif+JP:wght@400;500;700&display=swap');
 
 :root {
     /* Original Pink Palette */
@@ -34,9 +34,9 @@
     --text-light: #A37C8A;
 
     /* Fonts */
-    --font-en: 'Outfit', sans-serif;
+    --font-en: 'Times New Roman', 'EB Garamond', serif;
     --font-en-bold: 'Syne', sans-serif;
-    --font-jp: 'Zen Kaku Gothic New', sans-serif;
+    --font-jp: 'Noto Serif JP', 'Noto Serif CJK JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif;
 }
 
 * {
@@ -78,11 +78,11 @@ body {
 .hero::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 65%;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: 100%;
+    height: 35%;
     background: linear-gradient(to bottom, transparent, var(--pink-main), transparent);
     opacity: 0.3;
 }
@@ -206,7 +206,7 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-main);
-    margin-top: 40px;
+    margin-top: 20px;
     letter-spacing: 0.4em;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -225,10 +225,16 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    color: var(--text-light);
+    color: #FFFFFF;
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     animation: bounce 2s ease-in-out infinite;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 0.7;
 }
 
 .scroll-indicator::after {
@@ -342,7 +348,7 @@ body {
 }
 
 .section-title {
-    font-family: var(--font-en);
+    font-family: 'Times New Roman', serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
     letter-spacing: -0.02em;
@@ -362,7 +368,7 @@ body {
 
 .story-card {
     display: grid;
-    grid-template-columns: 100px 1fr auto;
+    grid-template-columns: 1fr auto;
     align-items: center;
     gap: 40px;
     padding: 50px;
@@ -401,28 +407,13 @@ body {
     opacity: 0;
 }
 
-.story-card:hover .story-number,
 .story-card:hover .story-content h3,
 .story-card:hover .story-content p,
 .story-card:hover .story-arrow,
 .story-card:hover .story-tag {
     color: var(--pink-deep);
-    -webkit-text-stroke-color: var(--pink-deep);
 }
 
-.story-number {
-    font-family: var(--font-en);
-    font-size: 4rem;
-    font-weight: 800;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--pink-main);
-    line-height: 1;
-}
-
-.story-card:hover .story-number {
-    color: var(--pink-main);
-    -webkit-text-stroke: none;
-}
 
 .story-content h3 {
     font-size: 1.5rem;
@@ -601,8 +592,8 @@ body {
 
 
 .chapter-number {
-    font-family: var(--font-en-bold);
-    font-size: 4rem;
+    font-family: 'Times New Roman', serif;
+    font-size: 6rem;
     font-weight: 900;
     background: linear-gradient(180deg, var(--white) 50%, var(--pink-pale) 100%);
     -webkit-background-clip: text;
@@ -625,6 +616,7 @@ body {
 }
 
 .chapter-title {
+    font-family: 'Times New Roman', serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 600;
     letter-spacing: 0.15em;
@@ -736,13 +728,9 @@ body {
     }
 
     .story-card {
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 25px;
-    }
-
-    .story-number {
-        font-size: 2.5rem;
     }
 
     .story-arrow {
@@ -1132,6 +1120,7 @@ main {
     border: 3px solid rgba(255, 255, 255, 0.7);
     border-radius: 8px;
     display: flex;
+    font-family: 'Outfit', sans-serif;
     align-items: center;
     justify-content: center;
     font-size: 0.85rem;
