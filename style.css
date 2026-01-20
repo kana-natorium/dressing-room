@@ -515,6 +515,32 @@ body {
     text-transform: uppercase;
 }
 
+/* スマホ用改行（PCでは非表示） */
+.sp-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sp-only {
+        display: inline;
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+        line-height: 1.9;
+        text-align: center;
+    }
+
+    .about-text p {
+        margin-bottom: 1em;
+    }
+
+    .about-credit {
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+    }
+}
+
 /* ========================================
    FOOTER
    ======================================== */
