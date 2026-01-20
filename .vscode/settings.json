@@ -1,0 +1,7 @@
+{
+    "CodeGPT.apiKey": "OpenAI",
+    "gitlens.worktrees.promptForLocation": true,
+    "claudeCode.disableLoginPrompt": false,
+    "task.problemMatchers.neverPrompt": false,
+    "cursorcode.prompt": ""
+}

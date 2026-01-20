@@ -3,7 +3,6 @@
    ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initReader();    // ★これ！これを戻すんだ！
     initParallax();
     initTextSplit();
     initCardTilt();
@@ -149,33 +148,4 @@ if (cursor) {
         requestAnimationFrame(animateCursor);
     }
     animateCursor();
-}
-/* 読書モードの制御 */
-function initReader() {
-    const overlay = document.getElementById('reader-overlay');
-    const closeBtn = document.getElementById('reader-close');
-    const cards = document.querySelectorAll('.story-card');
-
-    // 1. 各カードをクリックした時の動き
-    cards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            e.preventDefault(); // ページが移動するのを止める
-            overlay.style.display = 'block'; // 透明人間スイッチをオン！
-
-            // 隠しておいた小説データをコピーして持ってくる
-            const originalContent = document.getElementById('data-chapter1').innerHTML;
-            document.getElementById('reader-content').innerHTML = originalContent;
-
-            // ★ここに追加：透明になっている本文を強制的に表示させる！
-            const novelPs = document.querySelectorAll('#reader-content .novel-text p');
-            novelPs.forEach(p => p.style.opacity = "1");
-            novelPs.forEach(p => p.style.transform = "none");
-
-        });
-    });
-
-    // 2. 閉じるボタンを押した時の動き
-    closeBtn.addEventListener('click', () => {
-        overlay.style.display = 'none'; // またスイッチをオフにする
-    });
 }

@@ -5,11 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>深夜のドレス - DRESSING ROOM</title>
+    <meta name="description" content="DRESSING ROOM Short Story: 深夜のドレス。引退を決めた最後の夜、十年間を過ごした楽屋に別れを告げる物語。">
+
+    <!-- OGP -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="深夜のドレス - DRESSING ROOM">
+    <meta property="og:description" content="引退を決めた最後の夜。デビュー公演で着た純白のドレスを纏い、十年間を過ごした楽屋に別れを告げる。鏡の向こうの物語が終わり、新しい私の物語が始まる。">
+    <meta property="og:site_name" content="DRESSING ROOM">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="深夜のドレス - DRESSING ROOM">
+    <meta name="twitter:description" content="引退を決めた最後の夜、十年間を過ごした楽屋に別れを告げる物語。">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="reading-progress" id="progress"></div>
+
+    <!-- Decoration Layer -->
+    <div class="decoration-layer">
+        <div class="deco-sprite heart" style="top: 10%; left: 4%;"></div>
+        <div class="deco-sprite coin" style="top: 22%; right: 6%;"></div>
+        <div class="deco-sprite diamond" style="top: 38%; left: 7%;"></div>
+        <div class="deco-sprite heart" style="top: 55%; right: 4%;"></div>
+        <div class="deco-sprite coin" style="top: 70%; left: 5%;"></div>
+        <div class="deco-sprite diamond" style="top: 82%; right: 8%;"></div>
+    </div>
 
     <!-- Navigation -->
     <nav class="nav">
@@ -22,7 +45,21 @@
 
     <!-- Chapter Hero -->
     <header class="chapter-hero">
-        <a href="index.html" class="chapter-back">← Back to Stories</a>
+        <!-- デザインアクセント -->
+        <div class="accent-box"></div>
+        <div class="accent-pink"></div>
+
+        <!-- Game Status Bar -->
+        <div class="game-status-bar">
+            <div class="status-item">
+                <span class="icon coin"></span>
+                <span>5,000</span>
+            </div>
+            <div class="status-item">
+                <span class="icon diamond"></span>
+                <span>★</span>
+            </div>
+        </div>
         <div class="chapter-number">03</div>
         <h1 class="chapter-title">深夜のドレス</h1>
         <p class="chapter-meta">Short Story</p>
@@ -210,14 +247,16 @@
 
     <!-- Chapter Navigation -->
     <nav class="chapter-nav">
-        <a href="chapter2.html" class="nav-btn">← Prev</a>
-        <a href="index.html" class="nav-btn">Stories →</a>
+        <a href="index.html" class="chapter-back">
+            <span class="esc-glow">Esc</span>
+            <span class="warning-stripe"></span>
+        </a>
     </nav>
 
     <!-- Footer -->
     <footer class="footer">
         <a href="index.html" class="footer-logo">DRESSING ROOM</a>
-        <p class="footer-text">Inspired by Natori</p>
+        <p class="footer-text">Novel Collection 2025</p>
     </footer>
 
     <script>

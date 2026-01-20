@@ -5,11 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>楽屋の鏡 - DRESSING ROOM</title>
+    <meta name="description" content="DRESSING ROOM Short Story: 楽屋の鏡。鏡の中の『彼女』と本当の私。その境界線を描くショートストーリー。">
+
+    <!-- OGP -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="楽屋の鏡 - DRESSING ROOM">
+    <meta property="og:description"
+        content="「今日も満員御礼だって」マネージャーの声。楽屋の鏡の前、私はいつものルーティンを始める。鏡の中の『彼女』と本当の私。その境界線を描くショートストーリー。">
+    <meta property="og:site_name" content="DRESSING ROOM">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="楽屋の鏡 - DRESSING ROOM">
+    <meta name="twitter:description" content="鏡の中の『彼女』と本当の私。その境界線を描くショートストーリー。">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="reading-progress" id="progress"></div>
+
+
 
     <!-- Navigation -->
     <nav class="nav">
@@ -22,10 +38,23 @@
 
     <!-- Chapter Hero -->
     <header class="chapter-hero">
-        <a href="index.html" class="chapter-back">← Back to Stories</a>
-        <div class="chapter-number">01</div>
+        <!-- デザインアクセント -->
+        <div class="accent-box"></div>
+        <div class="accent-pink"></div>
+
+        <!-- Game Status Bar -->
+        <div class="game-status-bar">
+            <div class="status-item">
+                <span class="icon coin"></span>
+                <span>1,234</span>
+            </div>
+            <div class="status-item">
+                <span class="icon diamond"></span>
+                <span>★</span>
+            </div>
+        </div>
+        <div class="chapter-number">NOVEL</div>
         <h1 class="chapter-title">楽屋の鏡</h1>
-        <p class="chapter-meta">Short Story</p>
     </header>
 
     <!-- Novel Content -->
@@ -130,10 +159,11 @@
         </article>
     </main>
 
-    <!-- Chapter Navigation -->
     <nav class="chapter-nav">
-        <a href="index.html" class="nav-btn">← Stories</a>
-        <a href="chapter2.html" class="nav-btn">Next →</a>
+        <a href="index.html" class="chapter-back">
+            <span class="esc-glow">Esc</span>
+            <span class="warning-stripe"></span>
+        </a>
     </nav>
 
     <!-- Footer -->
@@ -150,6 +180,16 @@
             document.getElementById('progress').style.width = scrolled + '%';
         });
     </script>
+    <!-- Decoration Layer -->
+    <div class="decoration-layer">
+        <div class="deco-sprite coin" style="top: 15%; left: 5%;"></div>
+        <div class="deco-sprite diamond" style="top: 25%; right: 50px;"></div>
+        <div class="deco-sprite heart" style="top: 45%; left: 40px;"></div>
+        <div class="deco-sprite diamond" style="top: 50%; right: 30px;"></div>
+        <div class="deco-sprite coin" style="top: 60%; right: 45px;"></div>
+        <div class="deco-sprite diamond" style="top: 75%; left: 60px;"></div>
+        <div class="deco-sprite heart" style="top: 85%; right: 55px;"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 

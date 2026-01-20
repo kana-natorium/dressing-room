@@ -11,7 +11,7 @@
 <body>
     <!-- Navigation -->
     <nav class="nav">
-        <a href="index.html" class="nav-logo">DRESSING<br>ROOM</a>
+        <a href="index.html" class="nav-logo">DRESSING ROOM</a>
         <ul class="nav-links">
             <li><a href="#stories">Stories</a></li>
             <li><a href="#about">About</a></li>
@@ -41,12 +41,12 @@
         <div class="scroll-indicator">SCROLL</div>
     </section>
 
-    <!-- Stories Section -->
+    <!-- NOVEL Section -->
     <section class="stories-section" id="stories">
         <div class="section-header">
             <div>
-                <p class="section-number">01 — 03</p>
-                <h2 class="section-title">Stories</h2>
+                <p class="section-number">01</p>
+                <h2 class="section-title">NOVEL</h2>
             </div>
             <p class="section-subtitle">収録作品</p>
         </div>
@@ -61,24 +61,27 @@
                 <span class="story-tag">Short Story</span>
                 <span class="story-arrow">→</span>
             </a>
+        </div>
+    </section>
 
-            <a href="chapter2.html" class="story-card">
+    <!-- NOTE Section -->
+    <section class="stories-section" id="note">
+        <div class="section-header">
+            <div>
+                <p class="section-number">02</p>
+                <h2 class="section-title">NOTE</h2>
+            </div>
+            <p class="section-subtitle">制作ノート</p>
+        </div>
+
+        <div class="story-grid">
+            <a href="note.html" class="story-card">
                 <div class="story-number">02</div>
                 <div class="story-content">
-                    <h3>仮面の下</h3>
-                    <p>完璧な笑顔の裏側には、誰にも言えない秘密が隠されていた。</p>
+                    <h3>PRODUCTION NOTE</h3>
+                    <p>このサイトの制作背景と技術的な解説。AIとの共創プロセスについて。</p>
                 </div>
-                <span class="story-tag">Short Story</span>
-                <span class="story-arrow">→</span>
-            </a>
-
-            <a href="chapter3.html" class="story-card">
-                <div class="story-number">03</div>
-                <div class="story-content">
-                    <h3>深夜のドレス</h3>
-                    <p>誰もいない楽屋で、彼女は最後の衣装を纏う。それは別れの儀式だった。</p>
-                </div>
-                <span class="story-tag">Short Story</span>
+                <span class="story-tag">Note</span>
                 <span class="story-arrow">→</span>
             </a>
         </div>
@@ -88,12 +91,8 @@
     <section class="about-section" id="about">
         <div class="about-text">
             <p>
-                舞台裏の孤独、仮面の下の本音、<br>
-                そして<em>鏡に映る本当の自分</em>を探す物語。
-            </p>
-            <p>
-                なとりの楽曲「DRESSING ROOM」に<br>
-                インスパイアされた短編小説集。
+                このサイトは、なとりの楽曲『DRESSING ROOM』に着想を得た世界観をもとに構成されています。<br>
+                制作の流れや技術的な情報については、<a href="note.html">[制作ノート]</a>をご覧ください。
             </p>
         </div>
         <p class="about-credit">Inspired by Natori「DRESSING ROOM」</p>
@@ -101,34 +100,10 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <a href="#" class="footer-logo">DRESSING ROOM</a>
-        <p class="footer-text">Novel Collection 2025</p>
+        <a href="index.html" class="footer-logo">DRESSING ROOM</a>
+        <p class="footer-text">Novel Collection 2026</p>
     </footer>
 
-    <!-- Reader Overlay (小説を読むためのエリア) -->
-    <div id="reader-overlay" class="reader-overlay">
-        <div class="reader-close" id="reader-close">BACK TO MENU</div>
-        <div id="reader-content" class="reader-content">
-            <!-- ここに小説の中身が流し込まれる -->
-        </div>
-    </div>
-    <!-- 小説のデータ（普段は隠しておく） -->
-    <div id="story-data" style="display: none;">
-        <div id="data-chapter1">
-            <header class="chapter-hero">
-                <div class="chapter-number">01</div>
-                <h1 class="chapter-title">楽屋の鏡</h1>
-                <p class="chapter-meta">Short Story</p>
-            </header>
-            <article class="novel-text">
-                <p>楽屋の鏡は、いつも私を見ている。</p>
-                <p>午後七時。開演まであと一時間。私は化粧台の前に座り、いつものルーティンを始める。ファンデーション、アイシャドウ、そして真っ赤なルージュ。毎晩同じ手順で、毎晩同じ顔を作り上げる。</p>
-                <p><span class="dialogue">「今日も満員御礼だって」</span></p>
-                <!-- （以下、本当はもっと続くけど、まずはここまででテストしよう） -->
-                <p>……物語は続く。</p>
-            </article>
-        </div>
-    </div>
     <script src="script.js"></script>
 </body>
 
