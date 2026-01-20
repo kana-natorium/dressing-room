@@ -1294,14 +1294,14 @@ main {
     border-bottom-width: 0 !important;
 }
 
-/* Heart Style - Stylish Mint (色味キープ、軽やか) */
+/* Heart Style - Stylish Mint (色味しっかり) */
 .deco-sprite.heart {
     --base-rotate: -45deg;
-    width: 20px;
-    height: 20px;
-    background: linear-gradient(135deg, rgba(168, 230, 207, 0.9) 0%, rgba(125, 211, 192, 0.85) 100%);
-    box-shadow: 0 4px 10px rgba(107, 191, 150, 0.3);
-    opacity: 0.9;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #A8E6CF 0%, #7DD3C0 100%);
+    box-shadow: 0 4px 12px rgba(107, 191, 150, 0.4);
+    opacity: 0.85;
     border: none;
 }
 
@@ -1311,9 +1311,10 @@ main {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(168, 230, 207, 0.9) 0%, rgba(125, 211, 192, 0.85) 100%);
+    background: linear-gradient(135deg, #A8E6CF 0%, #7DD3C0 100%);
     border-radius: 50%;
     border: none;
+    box-shadow: none;
 }
 
 .deco-sprite.heart::before {
