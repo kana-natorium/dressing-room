@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 28" width="32" height="28">
+  <!-- ピクセルアート風ハート（シャープ、PV風） -->
+  <!-- 外枠（ダークブルー） -->
+  <path d="M4 2h6v-2h4v2h4v-2h6v2h4v2h2v4h-2v4h-2v4h-2v2h-2v2h-2v2h-2v2h-2v2h-2v-2h-2v-2h-2v-2h-2v-2h-2v-4h-2v-4h-2v-4h2z" fill="#4A5568"/>
+  <!-- メイン（ライトブルー/パープル） -->
+  <path d="M4 4h6v-2h4v2h4v-2h6v2h2v4h-2v4h-2v2h-2v2h-2v2h-2v2h-2v-2h-2v-2h-2v-2h-2v-4h-2v-4h2z" fill="#A0AEC0"/>
+  <!-- 内側（ブルー） -->
+  <path d="M6 6h4v-2h2v2h4v-2h2v2h4v2h-2v4h-2v2h-2v2h-2v-2h-2v-2h-2v-4h-2v-2h-2z" fill="#CBD5E0"/>
+  <!-- ハイライト -->
+  <path d="M6 4h4v2h-2v2h-2zM20 4h4v2h-2v2h-2z" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- ピクセルアート風ダイヤモンド -->
+  <!-- 外枠（ダークブルー） -->
+  <path d="M12 0h8v2h4v2h4v2h2v4h-2v2h-2v2h-2v2h-2v2h-2v2h-2v2h-2v2h-2v-2h-2v-2h-2v-2h-2v-2h-2v-2h-2v-2h-2v-4h2v-2h4v-2h4z" fill="#4169E1"/>
+  <!-- メイン上部（明るいブルー） -->
+  <path d="M12 2h8v2h4v2h2v2h-4v2h-4v-2h-4v2h-4v-2h-4v-2h2v-2h4z" fill="#87CEEB"/>
+  <!-- メイン下部（ブルー） -->
+  <path d="M10 10h12v2h-2v2h-2v2h-2v2h-2v-2h-2v-2h-2v-2h-2v-2h2z" fill="#5BC0EB"/>
+  <!-- ハイライト -->
+  <path d="M14 4h4v2h-4zM10 6h2v2h-2zM20 6h2v2h-2z" fill="#FFFFFF"/>
+  <!-- 中央ライン -->
+  <path d="M6 8h20v2h-20z" fill="#4682B4"/>
+</svg>

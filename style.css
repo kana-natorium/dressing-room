@@ -1251,80 +1251,50 @@ main {
     z-index: 5;
 }
 
-/* Coin Style - Stylish Gold (色味キープ、フラット) */
+/* Coin Style - SVGピクセルアート風 */
 .deco-sprite.coin {
-    width: 26px !important;
-    height: 26px !important;
-    background: linear-gradient(145deg, #FFD875 0%, #FFBC42 50%, #F5A623 100%);
-    border-radius: 50% !important;
-    border: 2px solid rgba(255, 255, 255, 0.5) !important;
-    box-shadow:
-        0 4px 12px rgba(245, 166, 35, 0.35),
-        inset 0 1px 2px rgba(255, 255, 255, 0.6) !important;
+    width: 28px !important;
+    height: 36px !important;
+    background: url('assets/coin.svg') no-repeat center center;
+    background-size: contain;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
     opacity: 0.9;
+    filter: drop-shadow(0 3px 6px rgba(184, 134, 11, 0.4));
 }
 
-/* Diamond Style - Stylish Cyan (色味キープ、スムーズ) */
+/* Diamond Style - SVGピクセルアート風 */
 .deco-sprite.diamond {
-    width: 0;
-    height: 0;
-    background: none;
-    border-style: solid;
-    border-color: transparent;
-    border-left-width: 12px;
-    border-right-width: 12px;
-    border-bottom: 20px solid rgba(91, 192, 235, 0.85);
-    border-top-width: 0;
-    filter: drop-shadow(0 4px 12px rgba(91, 192, 235, 0.35));
+    width: 32px !important;
+    height: 32px !important;
+    background: url('assets/diamond.svg') no-repeat center center;
+    background-size: contain;
+    border: none !important;
     opacity: 0.9;
+    filter: drop-shadow(0 3px 6px rgba(65, 105, 225, 0.4));
 }
 
 .deco-sprite.diamond::after {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: -12px;
-    width: 0 !important;
-    height: 0 !important;
-    border-style: solid !important;
-    border-color: transparent !important;
-    border-left-width: 12px !important;
-    border-right-width: 12px !important;
-    border-top: 12px solid rgba(125, 211, 235, 0.9) !important;
-    border-bottom-width: 0 !important;
+    display: none !important;
 }
 
-/* Heart Style - Stylish Mint (立体感キープ) */
+/* Heart Style - SVGピクセルアート風 */
 .deco-sprite.heart {
-    --base-rotate: -45deg;
-    width: 25px;
-    height: 25px;
-    background: linear-gradient(135deg, #A8E6CF 0%, #D5F5E3 50%, #A8E6CF 100%);
-    box-shadow:
-        inset -3px -3px 0 #6BBF59,
-        0 5px 12px rgba(107, 191, 89, 0.35);
-    opacity: 0.85;
+    --base-rotate: 0deg;
+    width: 32px !important;
+    height: 28px !important;
+    background: url('assets/heart.svg') no-repeat center center;
+    background-size: contain;
+    border: none !important;
+    box-shadow: none !important;
+    opacity: 0.9;
+    filter: drop-shadow(0 3px 6px rgba(74, 85, 104, 0.3));
 }
 
 .deco-sprite.heart::before,
 .deco-sprite.heart::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    border-radius: 50%;
-    box-shadow: inherit;
-}
-
-.deco-sprite.heart::before {
-    top: -50%;
-    left: 0;
-}
-
-.deco-sprite.heart::after {
-    top: 0;
-    left: 50%;
+    display: none !important;
 }
 
 /* Animation Defs */
@@ -1434,20 +1404,21 @@ main {
 
 .status-item .icon.coin {
     width: 18px !important;
-    height: 18px !important;
-    background: linear-gradient(145deg, #FFD875, #F5A623);
-    border-radius: 50% !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.5) !important;
-    box-shadow: 0 2px 6px rgba(245, 166, 35, 0.3) !important;
+    height: 24px !important;
+    background: url('assets/coin.svg') no-repeat center center !important;
+    background-size: contain !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 .status-item .icon.diamond {
-    width: 0 !important;
-    height: 0 !important;
-    border-left: 8px solid transparent !important;
-    border-right: 8px solid transparent !important;
-    border-bottom: 14px solid rgba(91, 192, 235, 0.85) !important;
-    filter: drop-shadow(0 2px 4px rgba(91, 192, 235, 0.3)) !important;
+    width: 20px !important;
+    height: 20px !important;
+    background: url('assets/diamond.svg') no-repeat center center !important;
+    background-size: contain !important;
+    border: none !important;
+    filter: none !important;
 }
 
 .status-item .icon.heart {
