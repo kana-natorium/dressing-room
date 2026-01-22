@@ -189,7 +189,7 @@ body {
     display: inline-block;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: default;
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+    /* filter削除でくっきり */
 }
 
 .hero-title .char:hover {
@@ -206,7 +206,7 @@ body {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--text-main);
-    margin-top: 20px;
+    margin-top: 50px;
     letter-spacing: 0.4em;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -226,7 +226,7 @@ body {
     align-items: center;
     gap: 10px;
     color: #FFFFFF;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     letter-spacing: 0.2em;
     animation: bounce 2s ease-in-out infinite;
     cursor: pointer;
@@ -270,8 +270,10 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: rgba(219, 64, 134, 0.9);
-    backdrop-filter: blur(20px);
+    background: rgba(224, 102, 160, 0.95);
+    /* #E066A0 ちょっと明るく */
+    backdrop-filter: none;
+    /* blurなしでくっきり */
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -326,7 +328,7 @@ body {
    ======================================== */
 
 .stories-section {
-    padding: 100px 40px;
+    padding: 60px 40px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -335,8 +337,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 60px;
-    padding-bottom: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
     border-bottom: 1px solid rgba(255, 77, 141, 0.3);
 }
 
@@ -456,7 +458,7 @@ body {
    ======================================== */
 
 .about-section {
-    padding: 150px 40px;
+    padding: 60px 40px;
     text-align: center;
     position: relative;
 }
@@ -496,7 +498,7 @@ body {
 }
 
 .about-credit {
-    margin-top: 60px;
+    margin-top: 30px;
     font-family: var(--font-en);
     font-size: 0.9rem;
     font-weight: 700;
@@ -537,7 +539,7 @@ body {
    ======================================== */
 
 .footer {
-    padding: 60px 40px;
+    padding: 40px 40px;
     text-align: center;
     border-top: none;
     background: var(--pink-bg);
@@ -575,13 +577,13 @@ body {
    ======================================== */
 
 .chapter-hero {
-    min-height: 70vh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 160px 40px 80px;
+    padding: 160px 40px 40px;
     position: relative;
     background: var(--pink-bg);
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
@@ -593,17 +595,20 @@ body {
 
 .chapter-number {
     font-family: 'Times New Roman', serif;
-    font-size: 6rem;
+    font-size: 3rem;
     font-weight: 900;
     background: linear-gradient(180deg, var(--white) 50%, var(--pink-pale) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: var(--white);
+    /* フォールバック */
     line-height: 1;
     margin-bottom: 20px;
     position: relative;
     animation: fadeInUp 0.8s ease-out;
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+    z-index: 10;
 }
 
 .chapter-number::after {
@@ -618,10 +623,10 @@ body {
 .chapter-title {
     font-family: 'Times New Roman', serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.15em;
     margin-bottom: 20px;
-    color: #2D0A1A !important;
+    color: #3255b1;
     animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 
@@ -654,9 +659,6 @@ body {
     font-size: 1.3rem;
     color: var(--text-dark);
     font-weight: 500;
-    position: relative;
-    padding-left: 20px;
-    border-left: 3px solid var(--pink-main);
 }
 
 .novel-text .scene-break {
@@ -704,9 +706,40 @@ body {
    ======================================== */
 
 @media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 100px 20px 30px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .about-section {
+        padding: 30px 20px;
+    }
+
+    .about-credit {
+        margin-top: 20px;
+    }
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+    .hero-subtitle {
+        margin-top: 25px;
+        font-size: 0.9rem;
+        letter-spacing: 0.2em;
+    }
+
     .hero-title {
         /* 8文字のDRESSINGが1行に収まるよう調整 */
-        font-size: clamp(2.5rem, 11vw, 6rem);
+        font-size: clamp(2rem, 9vw, 5rem);
+    }
+
+    .stories-section {
+        padding: 40px 20px;
     }
 
     .nav {
@@ -717,14 +750,12 @@ body {
         display: none;
     }
 
-    .stories-section {
-        padding: 60px 20px;
-    }
-
     .section-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 10px;
+        gap: 5px;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
     }
 
     .story-card {
@@ -746,16 +777,17 @@ body {
     }
 
     .chapter-hero {
-        padding: 100px 20px 50px;
-        min-height: 50vh;
+        padding: 100px 20px 20px;
+        min-height: auto;
+        overflow: visible !important;
     }
 
     .chapter-number {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 
     .chapter-title {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     .novel-text {
@@ -1509,15 +1541,15 @@ main {
         border-radius: 16px;
     }
 
+    /* スマホでもPC版と同じサイズ（蓋だけ小さくなる問題を防ぐ） */
     .chapter-back {
-        font-size: 0.65rem;
-        padding: 10px 16px;
+        /* サイズはPC版を維持 */
     }
 
     .chapter-back::before {
-        width: 28px;
-        height: 28px;
-        font-size: 0.6rem;
+        /* PC版と同じ: 70px x 45px */
+        width: 70px;
+        height: 45px;
     }
 
     .chapter-nav {

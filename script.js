@@ -154,11 +154,11 @@ if (cursor) {
 /* スクロールインジケーター クリックでスクロール */
 function initScrollIndicator() {
     const scrollIndicator = document.querySelector('.scroll-indicator');
-    const storiesSection = document.querySelector('#stories');
+    const novelSection = document.querySelector('#novel');
 
-    if (!scrollIndicator || !storiesSection) return;
+    if (!scrollIndicator || !novelSection) return;
 
     scrollIndicator.addEventListener('click', () => {
-        storiesSection.scrollIntoView({ behavior: 'smooth' });
+        novelSection.scrollIntoView({ behavior: 'smooth' });
     });
 }

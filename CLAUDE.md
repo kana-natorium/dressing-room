@@ -19,6 +19,16 @@
 
 ## 作業ログ
 
+### 2026-01-21
+- ESCボタン（蓋パカーン）のスマホ表示修正（蓋だけ小さくなる問題→PC版と同じサイズに統一）
+- `.chapter-number`（NOVEL/NOTE）のサイズ調整
+  - PC: 6rem → 9rem に拡大
+  - スマホ: 非表示に変更（表示されない謎の問題のため）
+- Scrollの文字サイズ: 0.7rem → 0.8rem
+- headerの色変更: 小豆っぽい`#DB4086` → `#E066A0`（明るいピンク）
+- headerのbackdrop-filter blur削除（文字くっきり化）
+- heroタイトルのdrop-shadow削除（くっきり化）
+
 ### 2026-01-20
 - カードの番号（01, 02）を削除、gridレイアウト修正
 - ナビを「Stories/About」→「Novel/Note」に変更（全ページ）
