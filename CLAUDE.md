@@ -5,6 +5,29 @@
 - 作業は `claude/` プレフィックスのブランチで行う
 - 現在の作業ブランチ: `claude/natori-dressing-room-site-XT7YB`
 
+## Geminiへの注意事項（絶対に変えないで！）
+
+### 削除禁止
+- **ビネット効果** (`body::after`) - 四隅を暗くするエモい演出
+- **フィルムノイズ** (`body::before`) - ザラザラ感のSVGノイズ
+- **overscroll-behavior** - スクロールバウンス防止
+
+### 変更禁止の値
+- `--pink-bg: #f480a3` - 背景色
+- `.hero-content { margin-top: -100px }` - 位置調整済み
+- `.scroll-indicator { bottom: 80px }` - 位置調整済み
+- `.scroll-indicator::after { height: 30px; margin-top: 5px }` - 線の長さ調整済み
+
+### スマホ対応（壊さないで）
+- `.hero-subtitle` の `word-break: keep-all` - 「ト」だけはみ出し防止
+- `.game-status-bar { top: 60px }` - NOVELと被らない位置
+- `.chapter-title { font-size: 1.5rem; white-space: nowrap }` - 一行表示
+
+### フォント（変更禁止）
+- 英語: Times New Roman（PVの字幕フォントを分析して選定）
+- 英語ボールド: Syne
+- 日本語: Noto Serif JP
+
 ## プロジェクト概要
 - なとり「Dressing Room」をテーマにした小説サイト
 - HTML + CSS で構成
