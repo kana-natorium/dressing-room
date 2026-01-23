@@ -11,7 +11,6 @@
     --pink-hot: #FF1A6C;
     --pink-deep: #D40065;
     --pink-bg: #f480a3;
-    /* User specified exact color */
     --pink-pale: #FFE4EC;
     --pink-main: #FF4D8D;
     --pink-light: #FF94B8;
@@ -48,7 +47,13 @@
 
 html {
     scroll-behavior: smooth;
+    overscroll-behavior: none;
     -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+    overscroll-behavior-y: none;
 }
 
 body {
@@ -57,10 +62,42 @@ body {
     color: var(--text-main);
     overflow-x: hidden;
     cursor: default;
-    /* Dot pattern background */
+    /* Dot pattern background - adjusted for pink bg */
     background-image:
         radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
     background-size: 40px 40px;
+}
+
+/* ========================================
+   VIGNETTE & FILM NOISE EFFECTS
+   エモい空間演出
+   ======================================== */
+
+/* ビネット効果（四隅を暗く） */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(80, 10, 50, 0.15) 100%);
+    z-index: 9998;
+}
+
+/* フィルムノイズ（ザラザラ感）- 背景のみ、文字には適用しない */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    z-index: 1;
 }
 
 /* ========================================
@@ -159,6 +196,7 @@ body {
     text-align: center;
     z-index: 10;
     position: relative;
+    margin-top: -100px;
 }
 
 .hero-label {
@@ -167,7 +205,7 @@ body {
     font-size: 0.85rem;
     letter-spacing: 0.4em;
     color: var(--white);
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-transform: uppercase;
 }
@@ -206,10 +244,10 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     font-weight: 700;
     color: var(--text-main);
-    margin-top: 50px;
+    margin-top: 30px;
     letter-spacing: 0.4em;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
@@ -221,13 +259,13 @@ body {
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 80px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 3px;
     color: #FFFFFF;
     font-size: 0.8rem;
     letter-spacing: 0.2em;
@@ -245,9 +283,9 @@ body {
 .scroll-indicator::after {
     content: '';
     width: 1px;
-    height: 40px;
-    background: linear-gradient(to bottom, var(--pink-neon), #FFFFFF);
-    /* Red to White */
+    height: 30px;
+    background: linear-gradient(to bottom, var(--pink-main), var(--pink-pale));
+    margin-top: 5px;
 }
 
 @keyframes bounce {
@@ -633,7 +671,8 @@ body {
     font-weight: 700;
     letter-spacing: 0.15em;
     margin-bottom: 20px;
-    color: #3255b1;
+    color: #424aa4;
+    text-shadow: none;
     animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 
@@ -738,6 +777,8 @@ body {
         margin-top: 25px;
         font-size: 0.9rem;
         letter-spacing: 0.2em;
+        word-break: keep-all;
+        overflow-wrap: break-word;
     }
 
     .hero-title {
@@ -794,7 +835,8 @@ body {
     }
 
     .chapter-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
+        white-space: nowrap;
     }
 
     .novel-text {
@@ -1584,9 +1626,9 @@ main {
 
     /* Game Status Bar Mobile */
     .game-status-bar {
-        top: 80px;
-        right: 20px;
-        gap: 10px;
+        top: 60px;
+        right: 15px;
+        gap: 8px;
     }
 
     .status-item {
