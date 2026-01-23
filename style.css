@@ -10,7 +10,8 @@
     --pink-neon: #FF007A;
     --pink-hot: #FF1A6C;
     --pink-deep: #D40065;
-    --pink-bg: #fa7da4;
+    --pink-bg: #f480a3;
+    /* User specified exact color */
     --pink-pale: #FFE4EC;
     --pink-main: #FF4D8D;
     --pink-light: #FF94B8;
@@ -55,7 +56,7 @@ body {
     color: var(--text-main);
     overflow-x: hidden;
     cursor: default;
-    /* Dot pattern background - adjusted for pink bg */
+    /* Dot pattern background */
     background-image:
         radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
     background-size: 40px 40px;
@@ -231,6 +232,8 @@ body {
     animation: bounce 2s ease-in-out infinite;
     cursor: pointer;
     transition: opacity 0.3s ease;
+    z-index: 10000;
+    /* Ensure it's on top of vignette */
 }
 
 .scroll-indicator:hover {
@@ -241,7 +244,8 @@ body {
     content: '';
     width: 1px;
     height: 40px;
-    background: linear-gradient(to bottom, var(--pink-main), var(--pink-pale));
+    background: linear-gradient(to bottom, var(--pink-neon), #FFFFFF);
+    /* Red to White */
 }
 
 @keyframes bounce {
