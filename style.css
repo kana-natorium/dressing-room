@@ -48,6 +48,7 @@
 
 html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -68,6 +69,7 @@ body {
 
 .hero {
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -270,6 +272,7 @@ body {
     left: 0;
     width: 100%;
     padding: 25px 50px;
+    padding-top: calc(25px + env(safe-area-inset-top, 0px));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1618,5 +1621,23 @@ main {
     /* スマホではアイコンを減らす（偶数番目を非表示） */
     .decoration-layer .deco-sprite:nth-child(even) {
         display: none;
+    }
+}
+
+/* ========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   ======================================== */
+@media (hover: none) and (pointer: coarse) {
+
+    /* Disable cursor follower on touch devices */
+    .mouse-follower,
+    .cursor-glow {
+        display: none !important;
+    }
+
+    /* Disable hover animations on title */
+    .hero-title .char:hover {
+        transform: none !important;
+        filter: none !important;
     }
 }
