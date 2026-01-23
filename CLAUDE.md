@@ -19,6 +19,29 @@
 
 ## 作業ログ
 
+### 2026-01-23
+**やったこと**
+- デザインレビュー実施（frontend-designスキル使用）
+- Geminiによる破壊的変更を修正
+  - ビネット効果・フィルムノイズ復活
+  - 背景色を#f480a3に修正
+  - hero-subtitleにword-break: keep-all追加（「ト」だけはみ出し防止）
+  - game-status-barのスマホ位置調整（top: 60px）
+  - chapter-titleのスマホ表示調整（1.5rem + nowrap、PRODUCTION NOTE一行表示）
+- scroll-indicatorの調整
+  - 位置: bottom: 80px
+  - 線の長さ: 30px
+  - margin-top: 5px
+- hero-content全体を上に移動（margin-top: -100px）
+- hero-subtitleのfont-size: 1.0rem
+
+**制作体制メモ**
+- ベース構築: Claude Code
+- ブラッシュアップ: Gemini
+- フォント分析: GPT（PVの字幕フォント→Times New Roman）
+- 文章作成: GPT + Grok（歌詞分析・プロット）
+- ディレクション: 藻前（人間）
+
 ### 2026-01-22
 **やったこと**
 - SEO対策（全ページ）
