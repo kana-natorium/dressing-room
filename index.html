@@ -3,18 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DRESSING ROOM - Novel Collection</title>
     <meta name="description"
         content="なとりの歌詞を解釈し、フレーズをリファレンスにAIと共作した短編小説を掲載。『Dressing Room』の世界観に着想を得たページデザインで構成された創作サイト。">
-    <link rel="canonical" href="https://kana-natorium.github.io/dressing-room/index.html">
+    <link rel="canonical" href="https://kana-natorium.github.io/dressing-room/">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MR9M66JF6J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-MR9M66JF6J');
+    </script>
 
     <!-- OGP -->
     <meta property="og:title" content="DRESSING ROOM - Novel Collection">
     <meta property="og:description"
         content="なとりの歌詞を解釈し、フレーズをリファレンスにAIと共作した短編小説を掲載。『Dressing Room』の世界観に着想を得たページデザインで構成された創作サイト。">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kana-natorium.github.io/dressing-room/index.html">
+    <meta property="og:url" content="https://kana-natorium.github.io/dressing-room/">
     <meta property="og:site_name" content="DRESSING ROOM">
     <meta property="og:locale" content="ja_JP">
     <!-- OGP画像（作成したら追加）: <meta property="og:image" content="https://kana-natorium.github.io/dressing-room/ogp.png"> -->
@@ -68,11 +78,12 @@
 
         <div class="hero-content">
             <p class="hero-label">Novel Collection<br class="sp-only">inspired by Natori</p>
-            <h1 class="hero-title">DRESSING<br>ROOM</h1>
+            <h1 class="hero-title">DRESSING ROOM</h1>
             <p class="hero-subtitle">なとりの歌詞をリファレンスにした小説サイト<br>DRESSING ROOMの中に、物語がある。</p>
         </div>
 
         <div class="scroll-indicator">SCROLL</div>
+        <img src="assets/radio.png" class="hero-radio" alt="">
     </section>
 
     <!-- NOVEL Section -->
@@ -85,7 +96,7 @@
         </div>
 
         <div class="story-grid">
-            <a href="chapter1.html" class="story-card">
+            <a href="chapter1.html" class="story-card friday-night">
                 <div class="story-content">
                     <h3>フライデー・ナイト</h3>
                     <p>倦怠の日々から、週末の金曜夜に逃げ込む男の物語。</p>
@@ -93,6 +104,14 @@
                 <span class="story-tag">Short Story</span>
                 <span class="story-arrow">→</span>
             </a>
+            <a href="chapter2.html" class="story-card dressing-room">
+    <div class="story-content">
+        <h3>DRESSING ROOM</h3>
+        <p>ここに小説の説明文を入れてね。</p>
+    </div>
+    <span class="story-tag">Short Story</span>
+    <span class="story-arrow">→</span>
+</a>
         </div>
     </section>
 
@@ -106,7 +125,7 @@
         </div>
 
         <div class="story-grid">
-            <a href="note.html" class="story-card">
+            <a href="note.html" class="story-card note-card">
                 <div class="story-content">
                     <h3>PRODUCTION NOTE</h3>
                     <p>このサイトの制作背景と技術的な解説。AIとの共創プロセスについて。</p>
@@ -133,8 +152,10 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <img src="assets/radio.png" class="footer-radio" alt="">
         <a href="index.html" class="footer-logo">DRESSING ROOM</a>
         <p class="footer-text">Novel Collection 2026</p>
+        
     </footer>
 
     <script src="script.js"></script>
