@@ -18,6 +18,9 @@ function initParallax() {
 
     if (!heroContent) return;
 
+    // タッチデバイス（スマホ）ではパララックス無効 - iOS scroll/URL barとの競合防止
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
     let scrollY = 0;
     let mouseX = 0;
     let mouseY = 0;

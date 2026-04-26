@@ -10,7 +10,8 @@
     --pink-neon: #FF007A;
     --pink-hot: #FF1A6C;
     --pink-deep: #D40065;
-    --pink-bg: #f480a3;
+    --pink-bg: #E8DDD0;
+    /* --pink-bg: #f480a3; */
     --pink-pale: #FFE4EC;
     --pink-main: #FF4D8D;
     --pink-light: #FF94B8;
@@ -37,6 +38,8 @@
     --font-en: 'Times New Roman', 'EB Garamond', serif;
     --font-en-bold: 'Syne', sans-serif;
     --font-jp: 'Noto Serif JP', 'Noto Serif CJK JP', 'Source Han Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --nav-height: calc(92px + var(--safe-top));
 }
 
 * {
@@ -49,6 +52,7 @@ html {
     scroll-behavior: smooth;
     overscroll-behavior: none;
     -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--nav-height) + 16px);
 }
 
 html,
@@ -64,7 +68,8 @@ body {
     cursor: default;
     /* Dot pattern background - adjusted for pink bg */
     background-image:
-        radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+        /* radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);? */
+    radial-gradient(circle, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
@@ -113,6 +118,7 @@ body::before {
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding-top: var(--nav-height);
 }
 
 .hero::before {
@@ -129,13 +135,7 @@ body::before {
 
 /* Animated Background Lines */
 .bg-lines {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
+    display: none;
 }
 
 .bg-lines span {
@@ -196,7 +196,7 @@ body::before {
     text-align: center;
     z-index: 10;
     position: relative;
-    margin-top: -100px;
+    margin-top: 0;
 }
 
 .hero-label {
@@ -211,26 +211,23 @@ body::before {
 }
 
 .hero-title {
-    font-family: var(--font-en-bold);
-    /* Adjusted clamp for 15-inch PC to prevent overflow while staying huge */
-    font-size: clamp(3rem, 15vw, 10rem);
+    font-family: var(--font-en);
+    font-size: clamp(1rem, 8vw, 9rem);
     font-weight: 900;
     letter-spacing: -0.05em;
     line-height: 0.85;
+    white-space: nowrap;
     position: relative;
     text-transform: uppercase;
     text-align: center;
 }
 
 .hero-title .char {
-    background: linear-gradient(180deg, #FFFFFF 50%, #FFF0F5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: default;
-    /* filter削除でくっきり */
+  -webkit-text-fill-color: var(--pink-main);
+  color: var(--pink-main);
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
 }
 
 .hero-title .char:hover {
@@ -285,7 +282,7 @@ body::before {
     width: 1px;
     height: 30px;
     background: linear-gradient(to bottom, var(--pink-main), var(--pink-pale));
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
 @keyframes bounce {
@@ -310,7 +307,7 @@ body::before {
     left: 0;
     width: 100%;
     padding: 25px 50px;
-    padding-top: calc(25px + env(safe-area-inset-top, 0px));
+    padding-top: calc(25px + var(--safe-top));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -323,9 +320,9 @@ body::before {
 }
 
 .nav-logo {
-    font-family: var(--font-en-bold);
+    font-family: var(--font-en);
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.7rem;
     line-height: 0.9;
     color: var(--white);
     text-decoration: none;
@@ -343,7 +340,7 @@ body::before {
 .nav-links a {
     font-family: var(--font-en);
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     color: var(--white);
     text-decoration: none;
     letter-spacing: 0.2em;
@@ -376,6 +373,7 @@ body::before {
     padding: 60px 40px;
     max-width: 1400px;
     margin: 0 auto;
+    scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
 .section-header {
@@ -506,19 +504,11 @@ body::before {
     padding: 60px 40px;
     text-align: center;
     position: relative;
+    scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
 .about-section::before {
-    content: '"';
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--font-en);
-    font-size: 15rem;
-    color: var(--pink-main);
-    opacity: 0.05;
-    line-height: 1;
+    display: none;
 }
 
 .about-text {
@@ -590,11 +580,12 @@ body::before {
     background: var(--pink-bg);
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
     background-size: 40px 40px;
+    position: relative;
 }
 
 .footer-logo {
     display: inline-block;
-    font-family: var(--font-en-bold);
+    font-family: var(--font-en);
     font-size: 1.8rem;
     font-weight: 900;
     text-decoration: none;
@@ -747,14 +738,100 @@ body::before {
     font-weight: 500;
 }
 
+.hero-label,
+.hero-subtitle,
+.scroll-indicator,
+.footer-logo,
+.footer-text,
+.about-text,
+.about-credit {
+  color: var(--pink-main) !important;
+  text-shadow: none !important;
+}
+
+.section-title {
+  color: var(--pink-main) !important;
+}
+
+/* カード色の個別設定 */
+.story-card.friday-night {
+  background: #2133d1 !important;
+}
+
+.story-card.friday-night:hover {
+  background: #1828a0 !important;
+  border-color: rgba(255,255,255,0.3) !important;
+  box-shadow: 0 20px 50px rgba(24, 40, 160, 0.4) !important;
+}
+
+.story-card.friday-night .story-tag {
+  color: white !important;
+  border-color: rgba(255,255,255,0.5) !important;
+}
+
+.story-card.friday-night .story-content h3,
+.story-card.friday-night .story-content p {
+  color: white !important;
+}
+
+.story-card.friday-night:hover .story-content h3,
+.story-card.friday-night:hover .story-content p,
+.story-card.friday-night:hover .story-tag,
+.story-card.friday-night:hover .story-arrow {
+  color: white !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4) !important;
+}
+
+.story-card.dressing-room {
+  background: #E8609A !important;
+}
+
+.story-card.dressing-room .story-tag {
+  color: white !important;
+  border-color: rgba(255,255,255,0.5) !important;
+}
+
+.story-card.dressing-room:hover {
+  background: #D4457A !important;
+  box-shadow: 0 20px 50px rgba(212, 69, 122, 0.4) !important;
+}
+
+.story-card.dressing-room:hover .story-content h3,
+.story-card.dressing-room:hover .story-content p,
+.story-card.dressing-room:hover .story-tag,
+.story-card.dressing-room:hover .story-arrow {
+  color: white !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4) !important;
+}
+
+.story-card.note-card {
+  background: #e6e6e6 !important;
+}
+
+.story-card.note-card:hover {
+  background: #d4d4d4 !important;
+  box-shadow: 0 20px 50px rgba(200, 200, 200, 0.4) !important;
+}
+
+.story-card.note-card .story-content h3,
+.story-card.note-card .story-content p,
+.story-card.note-card .story-tag,
+.story-card.note-card .story-arrow {
+  color: #2a2535 !important;
+}
+
 /* ========================================
    RESPONSIVE
    ======================================== */
 
 @media (max-width: 768px) {
+    :root {
+        --nav-height: calc(62px + var(--safe-top));
+    }
+
     .hero {
         min-height: auto;
-        padding: 100px 20px 30px;
+        padding: calc(var(--nav-height) + 24px) 20px 30px;
     }
 
     .scroll-indicator {
@@ -782,8 +859,8 @@ body::before {
     }
 
     .hero-title {
-        /* 8文字のDRESSINGが1行に収まるよう調整 */
-        font-size: clamp(2rem, 9vw, 5rem);
+        font-size: clamp(1rem, 9vw, 5rem);
+        white-space: nowrap;
     }
 
     .stories-section {
@@ -792,6 +869,7 @@ body::before {
 
     .nav {
         padding: 15px 20px;
+        padding-top: calc(15px + var(--safe-top));
     }
 
     .nav-links {
@@ -825,7 +903,7 @@ body::before {
     }
 
     .chapter-hero {
-        padding: 100px 20px 20px;
+        padding: calc(var(--nav-height) + 20px) 20px 20px;
         min-height: auto;
         overflow: visible !important;
     }
@@ -894,8 +972,8 @@ body::before {
     background: radial-gradient(circle, rgba(255, 77, 141, 0.2) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
-    transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
+    z-index: 9999;
 }
 
 /* Selection */
@@ -1444,6 +1522,8 @@ main {
 .chapter-hero {
     position: relative;
     overflow: hidden;
+    padding-top: calc(var(--nav-height) + 40px);
+    scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
 
@@ -1561,6 +1641,27 @@ main {
         opacity: 1;
         transform: scale(1.3);
     }
+}
+
+/* ========================================
+   ラジオアイコン (背景装飾)
+   ======================================== */
+
+.hero-radio {
+  position: absolute;
+  bottom: -30px;
+  right: 60px;
+  width: 360px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.footer-radio {
+  position: absolute;
+  left: calc(50% - 200px);
+  width: 70px;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 /* ========================================
