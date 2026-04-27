@@ -18,6 +18,9 @@ function initParallax() {
 
     if (!heroContent) return;
 
+    // タッチデバイス（スマホ）ではパララックス無効 - iOS scroll/URL barとの競合防止
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
     let scrollY = 0;
     let mouseX = 0;
     let mouseY = 0;
@@ -159,6 +162,13 @@ function initScrollIndicator() {
     if (!scrollIndicator || !novelSection) return;
 
     scrollIndicator.addEventListener('click', () => {
-        novelSection.scrollIntoView({ behavior: 'smooth' });
+        const sectionHeader = novelSection.querySelector('.section-header');
+        const scrollTarget = sectionHeader || novelSection;
+        const targetTop = scrollTarget.getBoundingClientRect().top + window.pageYOffset - 80;
+
+        window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+        });
     });
 }
