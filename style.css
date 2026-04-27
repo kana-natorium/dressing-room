@@ -110,15 +110,15 @@ body::before {
    ======================================== */
 
 .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 88vh;
+    min-height: 88dvh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: var(--nav-height);
+    padding: calc(var(--nav-height) + clamp(56px, 10vh, 120px)) 40px 40px;
 }
 
 .hero::before {
@@ -255,14 +255,13 @@ body::before {
 
 /* Scroll Indicator */
 .scroll-indicator {
-    position: absolute;
-    bottom: 80px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3px;
+    width: max-content;
+    margin: 48px auto 0;
     color: #FFFFFF;
     font-size: 0.8rem;
     letter-spacing: 0.2em;
@@ -289,11 +288,11 @@ body::before {
 
     0%,
     100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform: translateX(-50%) translateY(10px);
+        transform: translateY(10px);
     }
 }
 
@@ -400,15 +399,16 @@ body::before {
 }
 
 .section-subtitle {
-    font-size: 0.8rem;
-    color: var(--text-medium);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
     letter-spacing: 0.2em;
 }
 
 /* Story Cards - Runway Style */
 .story-grid {
     display: grid;
-    gap: 30px;
+    gap: 42px;
 }
 
 .story-card {
@@ -838,8 +838,12 @@ body::before {
         display: none;
     }
 
+    .hero::before {
+        display: none;
+    }
+
     .about-section {
-        padding: 30px 20px;
+        padding: 30px 20px 14px;
     }
 
     .about-credit {
@@ -847,7 +851,7 @@ body::before {
     }
 
     .footer {
-        padding: 30px 20px;
+        padding: 12px 20px 30px;
     }
 
     .hero-subtitle {
@@ -882,6 +886,11 @@ body::before {
         gap: 5px;
         margin-bottom: 20px;
         padding-bottom: 10px;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        letter-spacing: 0.16em;
     }
 
     .story-card {
@@ -923,6 +932,15 @@ body::before {
 
     .novel-text p:first-child {
         font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hero {
+        justify-content: flex-start;
+        min-height: calc(88vh - var(--nav-height));
+        min-height: calc(88dvh - var(--nav-height));
+        padding: calc(var(--nav-height) + 72px) 24px 40px;
     }
 }
 
@@ -972,8 +990,9 @@ body::before {
     background: radial-gradient(circle, rgba(255, 77, 141, 0.2) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
+    transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
-    z-index: 9999;
+    z-index: 50;
 }
 
 /* Selection */
@@ -1070,11 +1089,11 @@ body::before {
 
     0%,
     100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(0);
     }
 
     50% {
-        transform: translateX(-50%) translateY(-15px);
+        transform: translateY(-15px);
     }
 }
 
@@ -1649,11 +1668,12 @@ main {
 
 .hero-radio {
   position: absolute;
-  bottom: -30px;
-  right: 60px;
-  width: 360px;
+  bottom: clamp(88px, 13vh, 150px);
+  right: clamp(20px, 5vw, 60px);
+  width: clamp(150px, 16vw, 260px);
   opacity: 0.6;
   pointer-events: none;
+  z-index: 2;
 }
 
 .footer-radio {
@@ -1662,6 +1682,20 @@ main {
   width: 70px;
   opacity: 0.5;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .hero-radio {
+    display: none !important;
+  }
+
+  .footer-radio {
+    position: static;
+    display: block;
+    width: 64px;
+    margin: -8px auto 16px;
+    opacity: 0.55;
+  }
 }
 
 /* ========================================
