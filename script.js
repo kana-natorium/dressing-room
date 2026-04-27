@@ -162,6 +162,13 @@ function initScrollIndicator() {
     if (!scrollIndicator || !novelSection) return;
 
     scrollIndicator.addEventListener('click', () => {
-        novelSection.scrollIntoView({ behavior: 'smooth' });
+        const sectionHeader = novelSection.querySelector('.section-header');
+        const scrollTarget = sectionHeader || novelSection;
+        const targetTop = scrollTarget.getBoundingClientRect().top + window.pageYOffset - 80;
+
+        window.scrollTo({
+            top: targetTop,
+            behavior: 'smooth'
+        });
     });
 }

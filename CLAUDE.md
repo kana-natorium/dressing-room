@@ -5,6 +5,15 @@
 - 作業は `claude/` プレフィックスのブランチで行う
 - 現在の作業ブランチ: `claude/natori-dressing-room-site-XT7YB`
 
+## Branch check rule
+- 作業開始前に必ず現在のbranchを確認する。
+- 作業branchが指定と違う場合は、作業を開始せずユーザーに確認する。
+- 「おかしい」と感じた場合も、そのまま作業を続行しない。
+- commit / push 前にも必ずbranch名を確認する。
+- codex-test はCodex確認用branchのため、Claudeは作業しない。
+- 違和感がある状態で作業を進めない。違和感が出た時点で停止して報告する。
+
+
 ## Geminiへの注意事項（絶対に変えないで！）
 
 ### 削除禁止
