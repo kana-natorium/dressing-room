@@ -891,6 +891,7 @@ body::before {
     .section-subtitle {
         font-size: 0.95rem;
         letter-spacing: 0.16em;
+        font-weight: 300;
     }
 
     .story-card {
@@ -1817,4 +1818,99 @@ main {
         transform: none !important;
         filter: none !important;
     }
+}
+/* ========================================
+   FRIDAY NIGHT PAGE OVERRIDES
+   ======================================== */
+
+/* 背景をアンバーに */
+.friday-night {
+  background-color: #efad58 !important;
+}
+
+.friday-night main,
+.friday-night .chapter-hero,
+.friday-night .chapter-nav,
+.friday-night .footer {
+  background-color: #efad58 !important;
+}
+
+/* chapter1のプログレスバー */
+.friday-night .reading-progress {
+  --pink-neon: #2037d2;
+  --neon-blue: #58a1f9;
+  --pink-hot: #FF1A6C;
+  box-shadow: none !important;
+}
+
+/* 右端のスクロールバーをブルーに */
+body.friday-night::-webkit-scrollbar-thumb {
+  background: #2133d1 !important;
+}
+
+body.friday-night::-webkit-scrollbar-thumb:hover {
+  background: #1828a0 !important;
+}
+
+/* アクセントバーをブルーに */
+.friday-night .accent-pink {
+  background: #2133d1 !important;
+}
+
+.friday-night .accent-box {
+  border-color: #2133d1 !important;
+  background: rgba(33, 51, 209, 0.1) !important;
+}
+
+/* NOVELの文字を濃いアンバーに */
+.friday-night .chapter-number {
+  color: #a3621e !important;
+  -webkit-text-fill-color: #a3621e !important;
+  background: none !important;
+  filter: none !important;
+}
+
+/* タイトルをブルーに */
+.friday-night .chapter-title {
+  color: #2133d1 !important;
+}
+
+/* シーンブレイクをブルーに */
+.friday-night .novel-text .scene-break {
+  color: #2133d1 !important;
+}
+
+.friday-night .novel-text .scene-break::before,
+.friday-night .novel-text .scene-break::after {
+  background: linear-gradient(90deg, transparent, rgba(33, 51, 209, 0.3)) !important;
+}
+
+/* 強調文字をブルーに */
+.friday-night .novel-text em {
+  color: #2133d1 !important;
+}
+
+/* ゲームステータスバーを非表示 */
+.friday-night .game-status-bar {
+  display: none !important;
+}
+
+/* アイコン装飾を非表示 */
+.friday-night .decoration-layer {
+  display: none !important;
+}
+
+/* chapter-metaをブルーに */
+.friday-night .chapter-meta {
+  color: #2133d1 !important;
+  border-color: #2133d1 !important;
+}
+
+.friday-night .chapter-meta::before,
+.friday-night .chapter-meta::after {
+  color: #2133d1 !important;
+}
+.friday-night .novel-wrapper {
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 15px 50px rgba(48, 29, 4, 0.3) !important;
 }
