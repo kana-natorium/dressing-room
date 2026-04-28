@@ -1890,13 +1890,30 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
   color: #2133d1 !important;
 }
 
-/* ゲームステータスバーを非表示 */
-.friday-night .game-status-bar {
-  display: none !important;
+.friday-night .status-item {
+  border-color: #2133d1 !important;
+  box-shadow: 0 3px 0 #2133d1, 0 4px 10px rgba(33, 51, 209, 0.2) !important;
 }
 
-/* アイコン装飾を非表示 */
-.friday-night .decoration-layer {
+.friday-night .status-item .icon.heart {
+  width: 20px !important;
+  height: 20px !important;
+  background: url('assets/heart-fn.svg') no-repeat center center !important;
+  background-size: contain !important;
+  font-size: 0 !important;
+}
+
+.friday-night .status-item .icon.star {
+  width: 20px !important;
+  height: 20px !important;
+  background: url('assets/star.svg') no-repeat center center !important;
+  background-size: contain !important;
+}
+
+/* アイコン装飾を非表示（friday-night専用モチーフを使うので元のは不要） */
+.friday-night .decoration-layer .deco-sprite.coin,
+.friday-night .decoration-layer .deco-sprite.heart,
+.friday-night .decoration-layer .deco-sprite.diamond {
   display: none !important;
 }
 
@@ -1913,4 +1930,49 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 .friday-night .novel-wrapper {
   background: rgba(255, 255, 255, 0.97) !important;
   box-shadow: 0 15px 50px rgba(48, 29, 4, 0.3) !important;
+}
+
+/* friday-night専用モチーフ */
+.deco-sprite.daice {
+  width: 36px !important;
+  height: 36px !important;
+  background: url('assets/daice.png') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+  image-rendering: pixelated;
+}
+
+.deco-sprite.heart-fn {
+  width: 32px !important;
+  height: 32px !important;
+  background: url('assets/heart-fn.svg') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+}
+
+.deco-sprite.star {
+  width: 32px !important;
+  height: 32px !important;
+  background: url('assets/star.svg') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+}
+
+/* ESCボタンをdarts_heartに差し替え */
+.friday-night .chapter-back::before,
+.friday-night .chapter-back::after {
+  display: none !important;
+}
+
+.friday-night .chapter-back .back-btn-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
 }
