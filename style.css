@@ -1733,7 +1733,7 @@ main {
     }
 
     .chapter-nav {
-        padding: 30px 20px;
+        padding: 80px 20px 30px;
         flex-direction: column;
     }
 
@@ -1867,6 +1867,18 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 /* タイトルをブルーに */
 .friday-night .chapter-title {
   color: #2133d1 !important;
+}
+
+/* chapter2-page: NOVELを#B03060に */
+.chapter2-page .chapter-number {
+  color: #e6148b !important;
+  -webkit-text-fill-color: #e6148b !important;
+  background: none !important;
+  filter: none !important;
+}
+
+.chapter2-page .chapter-title {
+  color: var(--pink-main) !important;
 }
 
 /* シーンブレイクをブルーに */
@@ -2084,9 +2096,9 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 /* 羽のハート — ▼を矢のshaft根元に密着させる（画面に対して45度左傾き） */
 .dart-flight {
   position: absolute;
-  left: 3px;
-  top: -20px;
-  width: 22px;
+  left: 1px;
+  top: -6px;
+  width: 16px;
   height: 20px;
   transform: rotate(-83deg);
 }
@@ -2136,8 +2148,10 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 
 .dart-heart-label {
   margin-top: 14px;
+  margin-left: 20px;
   font-size: 11px;
   letter-spacing: 0.15em;
   color: #8B6914;
   font-weight: 700;
 }
+
