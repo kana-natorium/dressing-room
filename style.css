@@ -913,7 +913,7 @@ body::before {
     }
 
     .chapter-hero {
-        padding: calc(var(--nav-height) + 20px) 20px 20px;
+        padding: calc(var(--nav-height) + 55px) 20px 20px;
         min-height: auto;
         overflow: visible !important;
     }
@@ -1542,7 +1542,6 @@ main {
 .chapter-hero {
     position: relative;
     overflow: hidden;
-    padding-top: calc(var(--nav-height) + 40px);
     scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
@@ -1599,8 +1598,8 @@ main {
 }
 
 .status-item .icon.coin {
-    width: 18px !important;
-    height: 24px !important;
+    width: 20px !important;
+    height: 20px !important;
     background: url('assets/coin.svg') no-repeat center center !important;
     background-size: contain !important;
     border: none !important;
@@ -1727,10 +1726,6 @@ main {
     }
 
     /* スマホでもPC版と同じサイズ（蓋だけ小さくなる問題を防ぐ） */
-    .chapter-back {
-        /* サイズはPC版を維持 */
-    }
-
     .chapter-back::before {
         /* PC版と同じ: 70px x 45px */
         width: 70px;
@@ -1762,7 +1757,7 @@ main {
 
     /* Game Status Bar Mobile */
     .game-status-bar {
-        top: 60px;
+        top: calc(var(--nav-height) + 5px);
         right: 15px;
         gap: 8px;
     }
@@ -1773,14 +1768,13 @@ main {
     }
 
     .status-item .icon.coin {
-        width: 14px !important;
-        height: 14px !important;
+        width: 20px !important;
+        height: 20px !important;
     }
 
     .status-item .icon.diamond {
-        border-left-width: 6px !important;
-        border-right-width: 6px !important;
-        border-bottom-width: 10px !important;
+        width: 20px !important;
+        height: 20px !important;
     }
 
     /* Chapter Title Effects Mobile */
@@ -1975,4 +1969,175 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
   height: auto;
   display: block;
   transition: transform 0.2s ease;
+}
+
+/* ========================================
+   DART HEART BUTTON (Friday Night) - CSS Art
+   ======================================== */
+.dart-heart-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dart-heart-btn:hover { transform: scale(1.08); }
+.dart-heart-btn:active { transform: scale(0.92); }
+
+.dart-heart-wrap {
+  position: relative;
+  width: 110px;
+  height: 100px;
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+.dart-heart {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+}
+
+.dart-heart::before,
+.dart-heart::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 78px;
+  border-radius: 50px 50px 0 0;
+}
+
+.dart-heart::before {
+  left: 40px;
+  top: -16px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  background: linear-gradient(160deg, #F898B8 0%, #E8609A 30%, #D85080 100%);
+}
+
+.dart-heart::after {
+  left: -8px;
+  top: -16px;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  background: linear-gradient(200deg, #F898B8 0%, #E8609A 30%, #D04878 100%);
+}
+
+.heart-shine {
+  position: absolute;
+  width: 16px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  top: -2px;
+  left: 8px;
+  transform: rotate(45deg);
+  z-index: 5;
+}
+
+.heart-shine-sm {
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  top: 12px;
+  left: 4px;
+  transform: rotate(45deg);
+  z-index: 5;
+}
+
+.dart-arrow {
+  position: absolute;
+  z-index: 10;
+  top: 5px;
+  left: -5px;
+  width: 85px;
+  height: 0;
+  transform: rotate(38deg);
+}
+
+.dart-shaft {
+  position: absolute;
+  top: -2px;
+  left: 12px;
+  width: 73px;
+  height: 4px;
+  background: linear-gradient(90deg, #4060e0, #2133d1, #1828a0);
+  border-radius: 2px;
+}
+
+.dart-tip {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid #1828a0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+/* 羽のハート — ▼を矢のshaft根元に密着させる（画面に対して45度左傾き） */
+.dart-flight {
+  position: absolute;
+  left: 3px;
+  top: -20px;
+  width: 22px;
+  height: 20px;
+  transform: rotate(-83deg);
+}
+
+.dart-flight::before,
+.dart-flight::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 18px;
+  border-radius: 12px 12px 0 0;
+}
+
+.dart-flight::before {
+  left: 11px;
+  top: -4px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  background: linear-gradient(160deg, #F898B8 0%, #E8609A 50%, #D85080 100%);
+}
+
+.dart-flight::after {
+  left: 0px;
+  top: -4px;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  background: linear-gradient(200deg, #F898B8 0%, #E8609A 50%, #D04878 100%);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  5% { transform: scale(1.1); }
+  10% { transform: scale(1); }
+  15% { transform: scale(1.06); }
+  20% { transform: scale(1); }
+}
+
+.dart-heart-btn:hover .dart-arrow {
+  animation: arrowShake 0.4s ease-in-out;
+}
+
+@keyframes arrowShake {
+  0%, 100% { transform: rotate(38deg); }
+  25% { transform: rotate(40deg) translate(2px, -1px); }
+  75% { transform: rotate(36deg) translate(-2px, 1px); }
+}
+
+.dart-heart-label {
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #8B6914;
+  font-weight: 700;
 }
