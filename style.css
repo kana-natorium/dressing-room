@@ -693,7 +693,7 @@ body::before {
 
 .novel-text p:first-child {
     text-indent: 0;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--text-dark);
     font-weight: 500;
 }
@@ -1818,15 +1818,15 @@ main {
    ======================================== */
 
 /* 背景をアンバーに */
-.friday-night {
-  background-color: #efad58 !important;
+ .friday-night {
+  background-color: #fdc781 !important;
 }
 
 .friday-night main,
 .friday-night .chapter-hero,
 .friday-night .chapter-nav,
 .friday-night .footer {
-  background-color: #efad58 !important;
+  background-color: #fdc781 !important;
 }
 
 /* chapter1のプログレスバー */
@@ -1858,8 +1858,8 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 
 /* NOVELの文字を濃いアンバーに */
 .friday-night .chapter-number {
-  color: #a3621e !important;
-  -webkit-text-fill-color: #a3621e !important;
+  color: #c65327 !important;
+  -webkit-text-fill-color: #c65327 !important;
   background: none !important;
   filter: none !important;
 }
@@ -1935,7 +1935,7 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 }
 .friday-night .novel-wrapper {
   background: rgba(255, 255, 255, 0.97) !important;
-  box-shadow: 0 15px 50px rgba(48, 29, 4, 0.3) !important;
+  box-shadow: 0 15px 50px #ac4924 !important;
 }
 
 /* friday-night専用モチーフ */
@@ -2153,5 +2153,47 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
   letter-spacing: 0.15em;
   color: #8B6914;
   font-weight: 700;
+}
+
+/* ========================================
+   NOTE PAGE (背景グレー化 #e6e6e8)
+   note.html専用 - 全背景を上書き
+   ※ main は .novel-wrapper の白背景を残すため除外
+   ======================================== */
+body.note-page,
+body.note-page .chapter-hero,
+body.note-page .footer {
+    background: #e6e6e8;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+body.note-page .novel-wrapper {
+    box-shadow: 0 15px 50px #b7b6b6;
+}
+
+/* 箱の中のピンクグラデーションを消す */
+body.note-page .novel-wrapper::before,
+body.chapter2-page .novel-wrapper::before {
+    background: none;
+}
+
+/* ========================================
+   CHAPTER2 PAGE (背景 #fcfcfe)
+   chapter2.html専用 - 全背景を上書き
+   ※ main は .novel-wrapper の白背景を残すため除外
+   ======================================== */
+body.chapter2-page,
+body.chapter2-page .chapter-hero,
+body.chapter2-page .chapter-nav,
+body.chapter2-page .footer {
+    background: #fcfcfe;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* ビネット効果をニュートラルに上書き（ピンク色味を消す） */
+body.chapter2-page::after {
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(40, 40, 40, 0.15) 100%);
 }
 
