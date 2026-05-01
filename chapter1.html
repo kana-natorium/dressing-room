@@ -34,7 +34,7 @@
     <meta name="twitter:description" content="倦怠の日々から、金曜の夜に逃避する男の物語。なとり「フライデー・ナイト」に着想を得た短編小説。">
     <!-- Twitter画像（作成したら追加）: <meta name="twitter:image" content="https://kana-natorium.github.io/dressing-room/ogp.png"> -->
 
-    <link rel="stylesheet" href="style.css?v=22">
+    <link rel="stylesheet" href="style.css?v=39">
 
     <!-- 構造化データ -->
     <script type="application/ld+json">
@@ -51,7 +51,7 @@
     </script>
 </head>
 
-<body>
+<body class="friday-night">
     <div class="reading-progress" id="progress"></div>
 
     <!-- Navigation -->
@@ -72,12 +72,12 @@
         <!-- Game Status Bar -->
         <div class="game-status-bar">
             <div class="status-item">
-                <span class="icon coin"></span>
-                <span>1,234</span>
+                <span class="icon heart"></span>
+                <span>3</span>
             </div>
             <div class="status-item">
-                <span class="icon diamond"></span>
-                <span>★</span>
+                <span class="icon star"></span>
+                <span>★ 520</span>
             </div>
         </div>
         <div class="chapter-number">NOVEL</div>
@@ -88,25 +88,33 @@
     <main class="novel-wrapper">
         <article class="novel-text">
             <p>
-                金曜の夜、湿った風がアスファルトの匂いを運ぶ。俺はネクタイをほどきながら部屋に戻り、シャツを脱ぐ。
+                金曜の夜。クローゼットの前で、俺はネクタイを外し、シャツを脱ぎ、週末の自分を選ぶ。
             </p>
             <p>
-                そのままシャワーも浴びずに、クローゼットを開ける。
+                麻のシャツ。軽くて、適度にカジュアルで、それらしい金曜の夜を演出してくれる。
             </p>
             <p>
-                週末用の服なんて、気取ってるだけだろ。そう思いながらも、麻のシャツのボタンをかける。窓の隙間から入り込んだ風が首元を撫でた。
+                袖を通して鏡を見る。少し整えて、悪くないと呟く。
             </p>
-
+             <p>これは金曜の夜の俺。
+            </p>
+            
             <p class="scene-break">／／／</p>
 
             <p>
-                渋谷の雑踏を抜け、8階のクラブにたどり着く。エレベーターが軋むような音を立て、ドアが開く。
+                渋谷の雑踏を抜けて、ビルのエレベーターに滑り込む。軋む音とともにドアが開けば、ビートが空気を震わせた。
             </p>
             <p>
-                低くうねるビートが胸を揺らし、紫と青のライトが跳ねる。フロアの熱気が肌にまとわりついた。
+
+                
             </p>
             <p>
-                俺はカウンターに腰かけ、ブランデーを頼む。指でグラスを転がしながら、フロアを見渡した。
+                紫と青のライトが跳ねるフロア。熱気が肌にまとわりつき、音が体を揺らす。
+            <p>
+                街の光がブランデーの琥珀色を撫でるように照らし、カウンターに腰かけ、ぼんやりと人混みを眺める。
+            </p>
+            <p>
+                何も考えずに視線を流していると、ワンピースの女と目が合う。
             </p>
             <p>
                 そのとき、視線がぶつかる。彼女も、ここにいた。
@@ -248,9 +256,19 @@
     </main>
 
     <nav class="chapter-nav">
-        <a href="index.html" class="chapter-back">
-            <span class="esc-glow">Esc</span>
-            <span class="warning-stripe"></span>
+        <a href="index.html" class="chapter-back dart-heart-btn" aria-label="トップへ戻る">
+            <div class="dart-heart-wrap">
+                <div class="dart-arrow">
+                    <div class="dart-flight"></div>
+                    <div class="dart-shaft"></div>
+                    <div class="dart-tip"></div>
+                </div>
+                <div class="dart-heart">
+                    <div class="heart-shine"></div>
+                    <div class="heart-shine-sm"></div>
+                </div>
+            </div>
+            <span class="dart-heart-label">← TOP</span>
         </a>
     </nav>
 
@@ -271,16 +289,16 @@
     </script>
     <!-- Decoration Layer -->
     <div class="decoration-layer">
-        <!-- 左側（余白を活かして控えめに） -->
-        <div class="deco-sprite heart" style="top: 35%; left: 4%;"></div>
-        <div class="deco-sprite coin" style="top: 50%; left: 3%;"></div>
-        <div class="deco-sprite diamond" style="top: 65%; left: 5%;"></div>
-        <div class="deco-sprite heart" style="top: 80%; left: 3%;"></div>
-        <!-- 右側（上部避ける、アクセント程度） -->
-        <div class="deco-sprite diamond" style="top: 30%; right: 4%;"></div>
-        <div class="deco-sprite heart" style="top: 45%; right: 3%;"></div>
-        <div class="deco-sprite coin" style="top: 60%; right: 5%;"></div>
-        <div class="deco-sprite diamond" style="top: 85%; right: 4%;"></div>
+        <!-- 1奇→表示, 2偶→スマホ非表示, 3奇→表示, 4偶→スマホ非表示 -->
+        <div class="deco-sprite heart-fn" style="top: 35%; left: 4%;"></div>
+        <div class="deco-sprite daice" style="top: 50%; left: 3%;"></div>
+        <div class="deco-sprite star" style="top: 65%; left: 5%;"></div>
+        <div class="deco-sprite daice" style="top: 80%; left: 3%;"></div>
+        <!-- 5奇→表示, 6偶→スマホ非表示, 7奇→表示, 8偶→スマホ非表示 -->
+        <div class="deco-sprite heart-fn" style="top: 30%; right: 4%;"></div>
+        <div class="deco-sprite star" style="top: 45%; right: 3%;"></div>
+        <div class="deco-sprite daice" style="top: 60%; right: 5%;"></div>
+        <div class="deco-sprite star" style="top: 85%; right: 4%;"></div>
     </div>
     <script src="script.js"></script>
 </body>

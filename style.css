@@ -693,7 +693,7 @@ body::before {
 
 .novel-text p:first-child {
     text-indent: 0;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--text-dark);
     font-weight: 500;
 }
@@ -891,6 +891,7 @@ body::before {
     .section-subtitle {
         font-size: 0.95rem;
         letter-spacing: 0.16em;
+        font-weight: 300;
     }
 
     .story-card {
@@ -912,7 +913,7 @@ body::before {
     }
 
     .chapter-hero {
-        padding: calc(var(--nav-height) + 20px) 20px 20px;
+        padding: calc(var(--nav-height) + 55px) 20px 20px;
         min-height: auto;
         overflow: visible !important;
     }
@@ -1541,7 +1542,6 @@ main {
 .chapter-hero {
     position: relative;
     overflow: hidden;
-    padding-top: calc(var(--nav-height) + 40px);
     scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
@@ -1598,8 +1598,8 @@ main {
 }
 
 .status-item .icon.coin {
-    width: 18px !important;
-    height: 24px !important;
+    width: 20px !important;
+    height: 20px !important;
     background: url('assets/coin.svg') no-repeat center center !important;
     background-size: contain !important;
     border: none !important;
@@ -1617,8 +1617,21 @@ main {
 }
 
 .status-item .icon.heart {
-    color: #FF6B9D;
-    font-size: 1.1rem;
+    width: 20px !important;
+    height: 20px !important;
+    background: url('assets/heart.svg') no-repeat center center !important;
+    background-size: contain !important;
+    border: none !important;
+    font-size: 0;
+}
+
+.status-item .icon.star {
+    width: 20px !important;
+    height: 20px !important;
+    background: url('assets/star.svg') no-repeat center center !important;
+    background-size: contain !important;
+    border: none !important;
+    font-size: 0;
 }
 
 /* Chapter Title Game Effect */
@@ -1685,18 +1698,16 @@ main {
 }
 
 @media (max-width: 768px) {
+  .hero-radio {
+    display: none !important;
+  }
+
   .footer-radio {
     position: static;
     display: block;
     width: 64px;
     margin: -8px auto 16px;
     opacity: 0.55;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-radio {
-    display: none !important;
   }
 }
 
@@ -1728,10 +1739,6 @@ main {
     }
 
     /* スマホでもPC版と同じサイズ（蓋だけ小さくなる問題を防ぐ） */
-    .chapter-back {
-        /* サイズはPC版を維持 */
-    }
-
     .chapter-back::before {
         /* PC版と同じ: 70px x 45px */
         width: 70px;
@@ -1739,7 +1746,7 @@ main {
     }
 
     .chapter-nav {
-        padding: 30px 20px;
+        padding: 80px 20px 30px;
         flex-direction: column;
     }
 
@@ -1763,7 +1770,7 @@ main {
 
     /* Game Status Bar Mobile */
     .game-status-bar {
-        top: 60px;
+        top: calc(var(--nav-height) + 5px);
         right: 15px;
         gap: 8px;
     }
@@ -1774,14 +1781,13 @@ main {
     }
 
     .status-item .icon.coin {
-        width: 14px !important;
-        height: 14px !important;
+        width: 20px !important;
+        height: 20px !important;
     }
 
     .status-item .icon.diamond {
-        border-left-width: 6px !important;
-        border-right-width: 6px !important;
-        border-bottom-width: 10px !important;
+        width: 20px !important;
+        height: 20px !important;
     }
 
     /* Chapter Title Effects Mobile */
@@ -1820,3 +1826,791 @@ main {
         filter: none !important;
     }
 }
+/* ========================================
+   FRIDAY NIGHT PAGE OVERRIDES
+   ======================================== */
+
+body.friday-night,
+.friday-night main,
+.friday-night .chapter-hero,
+.friday-night .chapter-nav,
+.friday-night .footer {
+  background-color: #fdc781 !important;
+}
+
+.friday-night .reading-progress {
+  --pink-neon: #2037d2;
+  --neon-blue: #58a1f9;
+  --pink-hot: #FF1A6C;
+  box-shadow: none !important;
+}
+
+body.friday-night::-webkit-scrollbar-thumb {
+  background: #2133d1 !important;
+}
+
+body.friday-night::-webkit-scrollbar-thumb:hover {
+  background: #1828a0 !important;
+}
+
+.friday-night .accent-pink {
+  background: #2133d1 !important;
+}
+
+.friday-night .accent-box {
+  border-color: #2133d1 !important;
+  background: rgba(33, 51, 209, 0.1) !important;
+}
+
+.friday-night .chapter-number {
+  color: #c65327 !important;
+  -webkit-text-fill-color: #c65327 !important;
+  background: none !important;
+  filter: none !important;
+}
+
+.friday-night .chapter-title,
+.friday-night .novel-text .scene-break,
+.friday-night .novel-text em {
+  color: #2133d1 !important;
+}
+
+.friday-night .novel-text .scene-break::before,
+.friday-night .novel-text .scene-break::after {
+  background: linear-gradient(90deg, transparent, rgba(33, 51, 209, 0.3)) !important;
+}
+
+.friday-night .status-item {
+  border-color: #2133d1 !important;
+  box-shadow: 0 3px 0 #2133d1, 0 4px 10px rgba(33, 51, 209, 0.2) !important;
+}
+
+.friday-night .status-item .icon.heart {
+  width: 20px !important;
+  height: 20px !important;
+  background: url('assets/heart-fn.svg') no-repeat center center !important;
+  background-size: contain !important;
+  font-size: 0 !important;
+}
+
+.friday-night .status-item .icon.star {
+  width: 20px !important;
+  height: 20px !important;
+  background: url('assets/star.svg') no-repeat center center !important;
+  background-size: contain !important;
+  font-size: 0 !important;
+}
+
+.friday-night .decoration-layer .deco-sprite.coin,
+.friday-night .decoration-layer .deco-sprite.heart,
+.friday-night .decoration-layer .deco-sprite.diamond {
+  display: none !important;
+}
+
+.friday-night .novel-wrapper {
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 15px 50px #ac4924 !important;
+}
+
+.friday-night .deco-sprite.dice,
+.friday-night .deco-sprite.daice {
+  width: 36px !important;
+  height: 36px !important;
+  background: url('assets/dice.png') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+  image-rendering: pixelated;
+}
+
+.friday-night .deco-sprite.heart-fn {
+  width: 32px !important;
+  height: 32px !important;
+  background: url('assets/heart-fn.svg') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+}
+
+.friday-night .deco-sprite.star {
+  width: 32px !important;
+  height: 32px !important;
+  background: url('assets/star.svg') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+}
+
+/* 背景をアンバーに */
+ .catherine {
+  background-color: #000000 !important;
+}
+
+.catherine main,
+.catherine .chapter-hero,
+.catherine .chapter-nav,
+.catherine .footer {
+  background-color: #000000 !important;
+}
+
+/* chapter1のプログレスバー */
+.catherine .reading-progress {
+  --pink-neon: #2037d2;
+  --neon-blue: #58a1f9;
+  --pink-hot: #FF1A6C;
+  box-shadow: none !important;
+}
+
+/* 右端のスクロールバーをブルーに */
+body.catherine::-webkit-scrollbar-thumb {
+  background: #2133d1 !important;
+}
+
+body.catherine::-webkit-scrollbar-thumb:hover {
+  background: #1828a0 !important;
+}
+
+/* アクセントバーをブルーに */
+.catherine .accent-pink {
+  background: #2133d1 !important;
+}
+
+.catherine .accent-box {
+  border-color: #2133d1 !important;
+  background: rgba(33, 51, 209, 0.1) !important;
+}
+
+/* NOVELの文字を濃いアンバーに */
+.catherine .chapter-number {
+  color: #acabab !important;
+  -webkit-text-fill-color: #acabab !important;
+  background: none !important;
+  filter: none !important;
+}
+
+/* タイトルをブルーに */
+.catherine .chapter-title {
+  color: #c8c8c8 !important;
+}
+
+/* chapter2-page: NOVELを#B03060に */
+.chapter2-page .chapter-number {
+  color: #e6148b !important;
+  -webkit-text-fill-color: #e6148b !important;
+  background: none !important;
+  filter: none !important;
+}
+
+.chapter2-page .chapter-title {
+  color: var(--pink-main) !important;
+}
+
+/* シーンブレイクをブルーに */
+.catherine .novel-text .scene-break {
+  color: #2133d1 !important;
+}
+
+.catherine .novel-text .scene-break::before,
+.catherine .novel-text .scene-break::after {
+  background: linear-gradient(90deg, transparent, rgba(33, 51, 209, 0.3)) !important;
+}
+
+/* 強調文字をブルーに */
+.catherine .novel-text em {
+  color: #2133d1 !important;
+}
+
+.catherine .status-item {
+  min-width: 112px;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 24px 8px 14px;
+  color: #ffffff !important;
+  background: #000000 !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 999px !important;
+  box-shadow: none !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.catherine .game-status-bar {
+  z-index: 150;
+}
+
+.catherine .status-item .catherine-heart {
+  width: 22px !important;
+  height: 20px !important;
+  background: #ffffff !important;
+  clip-path: polygon(
+    50% 88%,
+    17% 58%,
+    9% 42%,
+    9% 27%,
+    18% 15%,
+    33% 12%,
+    50% 25%,
+    67% 12%,
+    82% 15%,
+    91% 27%,
+    91% 42%,
+    83% 58%
+  );
+  position: relative;
+  transform: none;
+}
+
+.catherine .status-item .catherine-heart + span {
+  transform: translateX(2px);
+}
+
+.catherine .status-item .icon.heart {
+  width: 20px !important;
+  height: 20px !important;
+  background: url('assets/heart-fn.svg') no-repeat center center !important;
+  background-size: contain !important;
+  font-size: 0 !important;
+}
+
+.catherine .status-item .icon.star {
+  width: 20px !important;
+  height: 20px !important;
+  background: url('assets/star-catherine.svg') no-repeat center center !important;
+  background-size: contain !important;
+}
+
+/* アイコン装飾を非表示（friday-night専用モチーフを使うので元のは不要） */
+.catherine .decoration-layer .deco-sprite.coin,
+.catherine .decoration-layer .deco-sprite.heart,
+.catherine .decoration-layer .deco-sprite.diamond {
+  display: none !important;
+}
+
+.catherine .decoration-layer {
+  top: var(--nav-height);
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 260px), transparent calc(100% - 70px));
+  mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 260px), transparent calc(100% - 70px));
+}
+
+/* chapter-metaをブルーに */
+.catherine .chapter-meta {
+  color: #2133d1 !important;
+  border-color: #2133d1 !important;
+}
+
+.catherine .chapter-meta::before,
+.catherine .chapter-meta::after {
+  color: #2133d1 !important;
+}
+.catherine .novel-wrapper {
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 15px 50px #ac4924 !important;
+}
+
+/* friday-night専用モチーフ */
+.catherine .deco-sprite.dice {
+  width: 36px !important;
+  height: 36px !important;
+  background: url('assets/dice.png') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+  image-rendering: pixelated;
+}
+
+.catherine .deco-sprite.heart-fn {
+  width: 32px !important;
+  height: 32px !important;
+  background: url('assets/heart-fn.svg') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+}
+
+.catherine .deco-sprite.star {
+  top: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  background: url('assets/star-catherine.svg') no-repeat center center;
+  background-size: contain;
+  border: none !important;
+  box-shadow: none !important;
+  opacity: 0.85;
+  animation: catherineStarFlow 13s linear infinite;
+}
+
+/* ESCボタンをdarts_heartに差し替え */
+.friday-night .chapter-back::before,
+.friday-night .chapter-back::after {
+  display: none !important;
+}
+
+.friday-night .chapter-back .back-btn-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.catherine .deco-sprite.star:nth-child(1) {
+  animation-duration: 12s;
+  animation-delay: -1s;
+}
+
+.catherine .deco-sprite.star:nth-child(2) {
+  animation-duration: 16s;
+  animation-delay: -10s;
+}
+
+.catherine .deco-sprite.star:nth-child(3) {
+  animation-duration: 11s;
+  animation-delay: -5s;
+}
+
+.catherine .deco-sprite.star:nth-child(4) {
+  animation-duration: 18s;
+  animation-delay: -14s;
+}
+
+.catherine .deco-sprite.star:nth-child(5) {
+  animation-duration: 14s;
+  animation-delay: -8s;
+}
+
+.catherine .deco-sprite.star:nth-child(6) {
+  animation-duration: 19s;
+  animation-delay: -3s;
+}
+
+.catherine .deco-sprite.star:nth-child(7) {
+  animation-duration: 15s;
+  animation-delay: -12s;
+}
+
+.catherine .deco-sprite.star:nth-child(8) {
+  animation-duration: 10s;
+  animation-delay: -7s;
+}
+
+@keyframes catherineStarFlow {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10%,
+  68% {
+    opacity: 0.9;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(100vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.catherine .chapter-back {
+  color: #ffffff;
+  margin-bottom: 28px;
+}
+
+.catherine .chapter-back::before {
+  content: '';
+  display: none !important;
+}
+
+.catherine .chapter-back::after {
+  content: '';
+  display: none !important;
+}
+
+.catherine .skull-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.catherine .skull-btn:hover {
+  transform: scale(1.08);
+}
+
+.catherine .skull-btn:active {
+  transform: scale(0.92);
+}
+
+.catherine .skull-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.catherine .skull-head {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 72px;
+  height: 62px;
+  background: linear-gradient(170deg, #e8e4e0 0%, #d0ccc6 60%, #b8b4ae 100%);
+  border-radius: 42% 52% 38% 45% / 55% 50% 42% 48%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.catherine .skull-eye-left {
+  position: absolute;
+  top: 18px;
+  left: 12px;
+  width: 18px;
+  height: 20px;
+  background: #1a1a1a;
+  border-radius: 45% 50% 50% 42%;
+  transform: rotate(-5deg);
+  animation: catherineEyeGlow 3s ease-in-out infinite;
+}
+
+.catherine .skull-eye-right {
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  width: 16px;
+  height: 18px;
+  background: #1a1a1a;
+  border-radius: 50% 45% 42% 50%;
+  transform: rotate(5deg);
+  animation: catherineEyeGlow 3s ease-in-out infinite 0.5s;
+}
+
+.catherine .skull-eye-left::after,
+.catherine .skull-eye-right::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 5px;
+  height: 5px;
+  background: rgba(180, 190, 210, 0.5);
+  border-radius: 50%;
+  animation: catherineEyeFlicker 3s ease-in-out infinite;
+}
+
+.catherine .skull-eye-right::after {
+  top: 4px;
+  left: 4px;
+  width: 4px;
+  height: 4px;
+  animation-delay: 0.5s;
+}
+
+.catherine .skull-nose-left,
+.catherine .skull-nose-right {
+  position: absolute;
+  top: 40px;
+  width: 5px;
+  height: 5px;
+  background: #1a1a1a;
+  border-radius: 50%;
+}
+
+.catherine .skull-nose-left {
+  left: 29px;
+}
+
+.catherine .skull-nose-right {
+  left: 39px;
+}
+
+.catherine .skull-tooth-1,
+.catherine .skull-tooth-2,
+.catherine .skull-tooth-3 {
+  position: absolute;
+  background: linear-gradient(180deg, #d0ccc6 0%, #c0bbb4 100%);
+}
+
+.catherine .skull-tooth-1 {
+  bottom: 6px;
+  left: 22px;
+  width: 8px;
+  height: 14px;
+  border-radius: 2px 2px 4px 4px;
+}
+
+.catherine .skull-tooth-2 {
+  bottom: 4px;
+  left: 33px;
+  width: 7px;
+  height: 16px;
+  border-radius: 2px 2px 3px 3px;
+}
+
+.catherine .skull-tooth-3 {
+  bottom: 7px;
+  left: 43px;
+  width: 7px;
+  height: 12px;
+  border-radius: 2px 2px 4px 3px;
+}
+
+@keyframes catherineEyeGlow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 3px rgba(100, 200, 255, 0.15);
+  }
+  50% {
+    box-shadow: inset 0 0 8px rgba(100, 200, 255, 0.4), 0 0 4px rgba(100, 200, 255, 0.15);
+  }
+}
+
+@keyframes catherineEyeFlicker {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.catherine .skull-btn:hover .skull-eye-left,
+.catherine .skull-btn:hover .skull-eye-right {
+  box-shadow: inset 0 0 10px rgba(100, 200, 255, 0.7), 0 0 8px rgba(100, 200, 255, 0.3);
+}
+
+.catherine .skull-btn:hover .skull-eye-left::after,
+.catherine .skull-btn:hover .skull-eye-right::after {
+  opacity: 1;
+  background: rgba(200, 220, 255, 0.9);
+  width: 6px;
+  height: 6px;
+}
+
+.catherine .skull-label {
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #666;
+  font-weight: 700;
+}
+
+/* ========================================
+   DART HEART BUTTON (Friday Night) - CSS Art
+   ======================================== */
+.dart-heart-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.dart-heart-btn:hover { transform: scale(1.08); }
+.dart-heart-btn:active { transform: scale(0.92); }
+
+.dart-heart-wrap {
+  position: relative;
+  width: 110px;
+  height: 100px;
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+.dart-heart {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+}
+
+.dart-heart::before,
+.dart-heart::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 78px;
+  border-radius: 50px 50px 0 0;
+}
+
+.dart-heart::before {
+  left: 40px;
+  top: -16px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  background: linear-gradient(160deg, #F898B8 0%, #E8609A 30%, #D85080 100%);
+}
+
+.dart-heart::after {
+  left: -8px;
+  top: -16px;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  background: linear-gradient(200deg, #F898B8 0%, #E8609A 30%, #D04878 100%);
+}
+
+.heart-shine {
+  position: absolute;
+  width: 16px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  top: -2px;
+  left: 8px;
+  transform: rotate(45deg);
+  z-index: 5;
+}
+
+.heart-shine-sm {
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  top: 12px;
+  left: 4px;
+  transform: rotate(45deg);
+  z-index: 5;
+}
+
+.dart-arrow {
+  position: absolute;
+  z-index: 10;
+  top: 5px;
+  left: -5px;
+  width: 85px;
+  height: 0;
+  transform: rotate(38deg);
+}
+
+.dart-shaft {
+  position: absolute;
+  top: -2px;
+  left: 12px;
+  width: 73px;
+  height: 4px;
+  background: linear-gradient(90deg, #4060e0, #2133d1, #1828a0);
+  border-radius: 2px;
+}
+
+.dart-tip {
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  width: 0;
+  height: 0;
+  border-left: 14px solid #1828a0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+/* 羽のハート — ▼を矢のshaft根元に密着させる（画面に対して45度左傾き） */
+.dart-flight {
+  position: absolute;
+  left: 1px;
+  top: -6px;
+  width: 16px;
+  height: 20px;
+  transform: rotate(-83deg);
+}
+
+.dart-flight::before,
+.dart-flight::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 18px;
+  border-radius: 12px 12px 0 0;
+}
+
+.dart-flight::before {
+  left: 11px;
+  top: -4px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  background: linear-gradient(160deg, #F898B8 0%, #E8609A 50%, #D85080 100%);
+}
+
+.dart-flight::after {
+  left: 0px;
+  top: -4px;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+  background: linear-gradient(200deg, #F898B8 0%, #E8609A 50%, #D04878 100%);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  5% { transform: scale(1.1); }
+  10% { transform: scale(1); }
+  15% { transform: scale(1.06); }
+  20% { transform: scale(1); }
+}
+
+.dart-heart-btn:hover .dart-arrow {
+  animation: arrowShake 0.4s ease-in-out;
+}
+
+@keyframes arrowShake {
+  0%, 100% { transform: rotate(38deg); }
+  25% { transform: rotate(40deg) translate(2px, -1px); }
+  75% { transform: rotate(36deg) translate(-2px, 1px); }
+}
+
+.dart-heart-label {
+  margin-top: 14px;
+  margin-left: 20px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #8B6914;
+  font-weight: 700;
+}
+
+/* ========================================
+   NOTE PAGE (背景グレー化 #e6e6e8)
+   note.html専用 - 全背景を上書き
+   ※ main は .novel-wrapper の白背景を残すため除外
+   ======================================== */
+body.note-page,
+body.note-page .chapter-hero,
+body.note-page .footer {
+    background: #e6e6e8;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+body.note-page .novel-wrapper {
+    box-shadow: 0 15px 50px #b7b6b6;
+}
+
+/* 箱の中のピンクグラデーションを消す */
+body.note-page .novel-wrapper::before,
+body.chapter2-page .novel-wrapper::before {
+    background: none;
+}
+
+/* ========================================
+   CHAPTER2 PAGE (背景 #fcfcfe)
+   chapter2.html専用 - 全背景を上書き
+   ※ main は .novel-wrapper の白背景を残すため除外
+   ======================================== */
+body.chapter2-page,
+body.chapter2-page .chapter-hero,
+body.chapter2-page .chapter-nav,
+body.chapter2-page .footer {
+    background: #fcfcfe;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* ビネット効果をニュートラルに上書き（ピンク色味を消す） */
+body.chapter2-page::after {
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(40, 40, 40, 0.15) 100%);
+}
+
