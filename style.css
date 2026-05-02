@@ -1944,55 +1944,63 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
   opacity: 0.85;
 }
 
-/* 背景をアンバーに */
- .catherine {
+/* ========================================
+   CATHERINE PAGE OVERRIDES Codex作業
+   ======================================== */
+
+/* 背景を黒に */
+body.catherine {
   background-color: #000000 !important;
 }
 
-.catherine main,
-.catherine .chapter-hero,
-.catherine .chapter-nav,
-.catherine .footer {
+body.catherine main,
+body.catherine .chapter-hero,
+body.catherine .chapter-nav,
+body.catherine .footer {
   background-color: #000000 !important;
 }
 
-/* chapter1のプログレスバー */
-.catherine .reading-progress {
-  --pink-neon: #2037d2;
-  --neon-blue: #58a1f9;
-  --pink-hot: #FF1A6C;
+/* Catherineページのプログレスバー */
+body.catherine .reading-progress {
+  --catherine-progress-dark-gray: #595959;
+  --catherine-progress-light-gray: #B2B2B2;
+  --catherine-progress-pink: #FF1A6C;
+  background: linear-gradient(90deg,
+      var(--catherine-progress-dark-gray),
+      var(--catherine-progress-light-gray),
+      var(--catherine-progress-pink)) !important;
   box-shadow: none !important;
 }
 
-/* 右端のスクロールバーをブルーに */
+/* 右端のスクロールバーをグレーに */
 body.catherine::-webkit-scrollbar-thumb {
-  background: #2133d1 !important;
+  background: #727272 !important;
 }
 
 body.catherine::-webkit-scrollbar-thumb:hover {
-  background: #1828a0 !important;
+  background: #727272 !important;
 }
 
-/* アクセントバーをブルーに */
-.catherine .accent-pink {
+/* アクセントをブルーに */
+body.catherine .accent-pink {
   background: #2133d1 !important;
 }
 
-.catherine .accent-box {
+body.catherine .accent-box {
   border-color: #2133d1 !important;
   background: rgba(33, 51, 209, 0.1) !important;
 }
 
-/* NOVELの文字を濃いアンバーに */
-.catherine .chapter-number {
+/* NOVELの文字をグレーに */
+body.catherine .chapter-number {
   color: #acabab !important;
   -webkit-text-fill-color: #acabab !important;
   background: none !important;
   filter: none !important;
 }
 
-/* タイトルをブルーに */
-.catherine .chapter-title {
+/* Catherineタイトルをグレーに */
+body.catherine .chapter-title {
   color: #c8c8c8 !important;
 }
 
@@ -2009,39 +2017,40 @@ body.catherine::-webkit-scrollbar-thumb:hover {
 }
 
 /* シーンブレイクをブルーに */
-.catherine .novel-text .scene-break {
+body.catherine .novel-text .scene-break {
   color: #2133d1 !important;
 }
 
-.catherine .novel-text .scene-break::before,
-.catherine .novel-text .scene-break::after {
+body.catherine .novel-text .scene-break::before,
+body.catherine .novel-text .scene-break::after {
   background: linear-gradient(90deg, transparent, rgba(33, 51, 209, 0.3)) !important;
 }
 
 /* 強調文字をブルーに */
-.catherine .novel-text em {
+body.catherine .novel-text em {
   color: #2133d1 !important;
 }
 
-.catherine .status-item {
-  min-width: 112px;
+/* ステータスバーを黒背景・白枠に */
+body.catherine .status-item {
   justify-content: center;
   gap: 8px;
-  padding: 8px 24px 8px 14px;
+  padding: 8px 16px;
   color: #ffffff !important;
   background: #000000 !important;
   border: 2px solid #ffffff !important;
-  border-radius: 999px !important;
+  border-radius: 20px !important;
   box-shadow: none !important;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 700;
 }
 
-.catherine .game-status-bar {
-  z-index: 150;
+body.catherine .game-status-bar {
+  z-index: 90;
 }
 
-.catherine .status-item .catherine-heart {
+/* ステータスバーのハートをCSSで描画 */
+body.catherine .status-item .catherine-heart {
   width: 22px !important;
   height: 20px !important;
   background: #ffffff !important;
@@ -2063,11 +2072,11 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   transform: none;
 }
 
-.catherine .status-item .catherine-heart + span {
+body.catherine .status-item .catherine-heart + span {
   transform: translateX(2px);
 }
 
-.catherine .status-item .icon.heart {
+body.catherine .status-item .icon.heart {
   width: 20px !important;
   height: 20px !important;
   background: url('assets/heart-fn.svg') no-repeat center center !important;
@@ -2075,7 +2084,7 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   font-size: 0 !important;
 }
 
-.catherine .status-item .icon.star {
+body.catherine .status-item .icon.star {
   width: 20px !important;
   height: 20px !important;
   background: url('assets/star-catherine.svg') no-repeat center center !important;
@@ -2083,57 +2092,43 @@ body.catherine::-webkit-scrollbar-thumb:hover {
 }
 
 /* アイコン装飾を非表示（friday-night専用モチーフを使うので元のは不要） */
-.catherine .decoration-layer .deco-sprite.coin,
-.catherine .decoration-layer .deco-sprite.heart,
-.catherine .decoration-layer .deco-sprite.diamond {
+body.catherine .decoration-layer .deco-sprite.coin,
+body.catherine .decoration-layer .deco-sprite.heart,
+body.catherine .decoration-layer .deco-sprite.diamond {
   display: none !important;
 }
 
-.catherine .decoration-layer {
+body.catherine .decoration-layer {
   top: var(--nav-height);
   bottom: 0;
+  z-index: 40;
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 260px), transparent calc(100% - 70px));
   mask-image: linear-gradient(to bottom, #000 0%, #000 calc(100% - 260px), transparent calc(100% - 70px));
 }
 
 /* chapter-metaをブルーに */
-.catherine .chapter-meta {
+body.catherine .chapter-meta {
   color: #2133d1 !important;
   border-color: #2133d1 !important;
 }
 
-.catherine .chapter-meta::before,
-.catherine .chapter-meta::after {
+body.catherine .chapter-meta::before,
+body.catherine .chapter-meta::after {
   color: #2133d1 !important;
 }
-.catherine .novel-wrapper {
-  background: rgba(255, 255, 255, 0.97) !important;
-  box-shadow: 0 15px 50px #ac4924 !important;
+/* 本文カードを白背景に */
+body.catherine .novel-wrapper {
+  background: #E5E5E5 !important;
+  box-shadow: 0 15px 50px #8C8C8C !important;
 }
 
-/* friday-night専用モチーフ */
-.catherine .deco-sprite.dice {
-  width: 36px !important;
-  height: 36px !important;
-  background: url('assets/dice.png') no-repeat center center;
-  background-size: contain;
-  border: none !important;
-  box-shadow: none !important;
-  opacity: 0.85;
-  image-rendering: pixelated;
+/* 本文カード上部のピンクグラデーションを消す */
+body.catherine .novel-wrapper::before {
+  background: none !important;
 }
 
-.catherine .deco-sprite.heart-fn {
-  width: 32px !important;
-  height: 32px !important;
-  background: url('assets/heart-fn.svg') no-repeat center center;
-  background-size: contain;
-  border: none !important;
-  box-shadow: none !important;
-  opacity: 0.85;
-}
-
-.catherine .deco-sprite.star {
+/* Catherine専用の黄色い星 */
+body.catherine .deco-sprite.star {
   top: 0 !important;
   width: 32px !important;
   height: 32px !important;
@@ -2145,57 +2140,38 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   animation: catherineStarFlow 13s linear infinite;
 }
 
-/* ESCボタンをdarts_heartに差し替え */
-.friday-night .chapter-back::before,
-.friday-night .chapter-back::after {
-  display: none !important;
-}
+/* ========================================
+   CATHERINE STAR ANIMATION Codex作業
+   ======================================== */
 
-.friday-night .chapter-back .back-btn-img {
-  width: 100px;
-  height: auto;
-  display: block;
-  transition: transform 0.2s ease;
-}
-
-.catherine .deco-sprite.star:nth-child(1) {
+body.catherine .deco-sprite.star:nth-child(1) {
   animation-duration: 12s;
   animation-delay: -1s;
 }
 
-.catherine .deco-sprite.star:nth-child(2) {
+body.catherine .deco-sprite.star:nth-child(2) {
   animation-duration: 16s;
   animation-delay: -10s;
 }
 
-.catherine .deco-sprite.star:nth-child(3) {
+body.catherine .deco-sprite.star:nth-child(3) {
   animation-duration: 11s;
   animation-delay: -5s;
 }
 
-.catherine .deco-sprite.star:nth-child(4) {
+body.catherine .deco-sprite.star:nth-child(4) {
   animation-duration: 18s;
   animation-delay: -14s;
 }
 
-.catherine .deco-sprite.star:nth-child(5) {
+body.catherine .deco-sprite.star:nth-child(5) {
   animation-duration: 14s;
   animation-delay: -8s;
 }
 
-.catherine .deco-sprite.star:nth-child(6) {
+body.catherine .deco-sprite.star:nth-child(6) {
   animation-duration: 19s;
   animation-delay: -3s;
-}
-
-.catherine .deco-sprite.star:nth-child(7) {
-  animation-duration: 15s;
-  animation-delay: -12s;
-}
-
-.catherine .deco-sprite.star:nth-child(8) {
-  animation-duration: 10s;
-  animation-delay: -7s;
 }
 
 @keyframes catherineStarFlow {
@@ -2216,22 +2192,26 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.catherine .chapter-back {
+/* ========================================
+   CATHERINE SKULL TOP BUTTON Codex作業
+   ======================================== */
+
+body.catherine .chapter-back {
   color: #ffffff;
   margin-bottom: 28px;
 }
 
-.catherine .chapter-back::before {
+body.catherine .chapter-back::before {
   content: '';
   display: none !important;
 }
 
-.catherine .chapter-back::after {
+body.catherine .chapter-back::after {
   content: '';
   display: none !important;
 }
 
-.catherine .skull-btn {
+body.catherine .skull-btn {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -2240,21 +2220,21 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   transition: transform 0.2s ease;
 }
 
-.catherine .skull-btn:hover {
+body.catherine .skull-btn:hover {
   transform: scale(1.08);
 }
 
-.catherine .skull-btn:active {
+body.catherine .skull-btn:active {
   transform: scale(0.92);
 }
 
-.catherine .skull-wrap {
+body.catherine .skull-wrap {
   position: relative;
   width: 80px;
   height: 80px;
 }
 
-.catherine .skull-head {
+body.catherine .skull-head {
   position: absolute;
   top: 0;
   left: 2px;
@@ -2265,7 +2245,7 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
-.catherine .skull-eye-left {
+body.catherine .skull-eye-left {
   position: absolute;
   top: 18px;
   left: 12px;
@@ -2277,7 +2257,7 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   animation: catherineEyeGlow 3s ease-in-out infinite;
 }
 
-.catherine .skull-eye-right {
+body.catherine .skull-eye-right {
   position: absolute;
   top: 16px;
   right: 14px;
@@ -2289,8 +2269,8 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   animation: catherineEyeGlow 3s ease-in-out infinite 0.5s;
 }
 
-.catherine .skull-eye-left::after,
-.catherine .skull-eye-right::after {
+body.catherine .skull-eye-left::after,
+body.catherine .skull-eye-right::after {
   content: '';
   position: absolute;
   top: 5px;
@@ -2302,7 +2282,7 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   animation: catherineEyeFlicker 3s ease-in-out infinite;
 }
 
-.catherine .skull-eye-right::after {
+body.catherine .skull-eye-right::after {
   top: 4px;
   left: 4px;
   width: 4px;
@@ -2310,8 +2290,8 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   animation-delay: 0.5s;
 }
 
-.catherine .skull-nose-left,
-.catherine .skull-nose-right {
+body.catherine .skull-nose-left,
+body.catherine .skull-nose-right {
   position: absolute;
   top: 40px;
   width: 5px;
@@ -2320,22 +2300,22 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   border-radius: 50%;
 }
 
-.catherine .skull-nose-left {
+body.catherine .skull-nose-left {
   left: 29px;
 }
 
-.catherine .skull-nose-right {
+body.catherine .skull-nose-right {
   left: 39px;
 }
 
-.catherine .skull-tooth-1,
-.catherine .skull-tooth-2,
-.catherine .skull-tooth-3 {
+body.catherine .skull-tooth-1,
+body.catherine .skull-tooth-2,
+body.catherine .skull-tooth-3 {
   position: absolute;
   background: linear-gradient(180deg, #d0ccc6 0%, #c0bbb4 100%);
 }
 
-.catherine .skull-tooth-1 {
+body.catherine .skull-tooth-1 {
   bottom: 6px;
   left: 22px;
   width: 8px;
@@ -2343,7 +2323,7 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   border-radius: 2px 2px 4px 4px;
 }
 
-.catherine .skull-tooth-2 {
+body.catherine .skull-tooth-2 {
   bottom: 4px;
   left: 33px;
   width: 7px;
@@ -2351,7 +2331,7 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   border-radius: 2px 2px 3px 3px;
 }
 
-.catherine .skull-tooth-3 {
+body.catherine .skull-tooth-3 {
   bottom: 7px;
   left: 43px;
   width: 7px;
@@ -2379,25 +2359,45 @@ body.catherine::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.catherine .skull-btn:hover .skull-eye-left,
-.catherine .skull-btn:hover .skull-eye-right {
+body.catherine .skull-btn:hover .skull-eye-left,
+body.catherine .skull-btn:hover .skull-eye-right {
   box-shadow: inset 0 0 10px rgba(100, 200, 255, 0.7), 0 0 8px rgba(100, 200, 255, 0.3);
 }
 
-.catherine .skull-btn:hover .skull-eye-left::after,
-.catherine .skull-btn:hover .skull-eye-right::after {
+body.catherine .skull-btn:hover .skull-eye-left::after,
+body.catherine .skull-btn:hover .skull-eye-right::after {
   opacity: 1;
   background: rgba(200, 220, 255, 0.9);
   width: 6px;
   height: 6px;
 }
 
-.catherine .skull-label {
+body.catherine .skull-label {
   margin-top: 10px;
+  width: 80px;
+  text-align: center;
   font-size: 11px;
   letter-spacing: 0.15em;
   color: #666;
   font-weight: 700;
+  transform: translateX(-4px);
+}
+
+/* ========================================
+   FRIDAY NIGHT BACK BUTTON OVERRIDES
+   ======================================== */
+
+/* ESCボタンをdarts_heartに差し替え */
+.friday-night .chapter-back::before,
+.friday-night .chapter-back::after {
+  display: none !important;
+}
+
+.friday-night .chapter-back .back-btn-img {
+  width: 100px;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
 }
 
 /* ========================================
