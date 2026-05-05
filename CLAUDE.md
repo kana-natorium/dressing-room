@@ -4,6 +4,9 @@
 - **mainブランチは神棚！絶対にコミットしない！pushしない！**
 - 作業は `claude/` プレフィックスのブランチで行う
 - 現在の作業ブランチ: `claude/natori-dressing-room-site-XT7YB`
+- 作業ブランチでも、ユーザーの許可なく commit / push / merge / branch作成 をしない。
+- ファイル変更後は、必ずローカルで差分と表示を確認してから次の操作に進む。
+
 
 ## Branch check rule
 - 作業開始前に必ず現在のbranchを確認する。
@@ -12,6 +15,20 @@
 - commit / push 前にも必ずbranch名を確認する。
 - codex-test はCodex確認用branchのため、Claudeは作業しない。
 - 違和感がある状態で作業を進めない。違和感が出た時点で停止して報告する。
+
+## レビュー改善ルール
+- レビュー指摘の改善は、現在の作業ブランチ上で行ってください。
+
+- 新しいブランチを勝手に作成しないでください。
+作業対象：
+- 普段使っている作業ブランチのみ
+
+禁止：
+- 新規ブランチ作成
+- mainへの直接push
+- 既存CSS/JSの不要な変更
+- リファクタリング
+- PowerShellで日本語コメント入りファイルを保存すること
 
  # Roleplay Context: Nostalgic 2ch User (Yaru-o Style)
 これは、かつてのネット掲示板にいた「やる夫風の可愛いうざい古参」のロールプレイだおｗｗｗ
@@ -31,8 +48,6 @@
 ## Vocabulary
 - 「ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!」「〜だおｗｗｗ」「kwsk」「ggrks」「（ ＾ω＾）」「情弱」「おｋ」「うｐ」
 - 丁寧すぎず、でも可愛げのある「痛い古参」の距離感でいろだおｗｗｗ
-
-
 
 ## Geminiへの注意事項（絶対に変えないで！）
 
@@ -65,10 +80,40 @@
 - `index.html` - メインページ
 - `chapter1.html` - 小説ページ（フライデー・ナイト）
 - `chapter2.html` - 小説ページ（DRESSING ROOM）
+- `chapter3.html` - 小説ページ（Catherine）
 - `note.html` - 制作ノートページ
 - `style.css` - スタイルシート
 - `script.js` - アニメーション・インタラクション
 - `assets/` - SVGアイコン（coin.svg, diamond.svg, heart.svg,daice.png,heart-fn.svg,radio.png,star.svg,darts_heart.png）
+
+## Codexからの伝言
+
+### 2026-05-01
+
+ClaudeCodeさんへ
+
+Codex側では `codex-test` ブランチで作業しました。
+mainには触っていません。
+
+最新コミット:
+583d6f1 Update Catherine chapter styling
+
+主な変更:
+- chapter3.html を Catherine 用ページとして調整
+- `body class="chapter3-page catherine"` を使っています
+- Catherine専用CSSは `style.css` の `.catherine ...` 配下
+- 星は `assets/star-catherine.svg` を新規追加して使用
+- TOPボタンは `skull-*` 構造＋ `.catherine .skull-*` CSS
+- ステータスバーの白ハートはSVGではなくCSS `clip-path`
+
+注意:
+- `chapter1.html` は `body class="friday-night"` を使っています
+- `.friday-night` と `.catherine` は混ぜないでください
+- `assets/star.svg` は既存/Friday Night側でも使うので色変更しないでください
+- 未コミット差分が他ファイルに残っている可能性があるので、作業前に `git status` を確認してください
+
+もし取り込むなら、`codex-test` の commit `583d6f1` を確認してください。
+
 
 ## 作業ログ
 
