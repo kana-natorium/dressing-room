@@ -1245,12 +1245,16 @@ main {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 140px;
+    box-sizing: border-box;
     font-family: var(--font-en);
     font-size: 0;
     text-decoration: none;
     position: relative;
-    margin-bottom: 50px;
     transition: transform 0.2s ease;
+    margin-bottom: 0;
 }
 
 /* 蓋部分（薄いピンク） */
@@ -1359,7 +1363,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 80px 40px;
+    padding: 40px 40px;
     background: var(--pink-bg);
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
     background-size: 40px 40px;
@@ -1400,6 +1404,28 @@ main {
     box-shadow:
         0 0 0 var(--pink-main),
         0 2px 5px rgba(255, 77, 141, 0.1);
+}
+
+.chapter-nav {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.chapter-back .back-label {
+  position: absolute;
+  bottom: -27px;
+  left: 46%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--pink-main);
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  z-index: 2;
 }
 
 /* ========================================
@@ -2198,7 +2224,7 @@ body.catherine .deco-sprite.star:nth-child(6) {
 
 body.catherine .chapter-back {
   color: #ffffff;
-  margin-bottom: 28px;
+  margin-bottom: 0;
 }
 
 body.catherine .chapter-back::before {
@@ -2215,6 +2241,7 @@ body.catherine .skull-btn {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s ease;
@@ -2407,13 +2434,15 @@ body.catherine .skull-label {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.2s ease;
+  transform: translateY(16px);
 }
 
-.dart-heart-btn:hover { transform: scale(1.08); }
-.dart-heart-btn:active { transform: scale(0.92); }
+.dart-heart-btn:hover { transform: translateY(16px) scale(1.08); }
+.dart-heart-btn:active { transform: translateY(16px) scale(0.92); }
 
 .dart-heart-wrap {
   position: relative;
@@ -2564,7 +2593,7 @@ body.catherine .skull-label {
 }
 
 .dart-heart-label {
-  margin-top: 14px;
+  margin-top: -4px;
   margin-left: 20px;
   font-size: 11px;
   letter-spacing: 0.15em;
