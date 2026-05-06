@@ -667,18 +667,6 @@ body::before {
     animation: fadeInUp 0.8s ease-out 0.1s both;
 }
 
-.chapter-meta {
-    font-family: var(--font-en);
-    font-size: 0.8rem;
-    color: var(--pink-main);
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    padding: 8px 20px;
-    border: 1px solid var(--pink-main);
-    border-radius: 20px;
-    animation: fadeInUp 0.8s ease-out 0.2s both;
-}
-
 /* Novel Content */
 .novel-text {
     font-size: 1.1rem;
@@ -1120,77 +1108,6 @@ body::before {
 }
 
 /* ========================================
-   READER OVERLAY (読書モードの見た目)
-   ======================================== */
-.reader-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: var(--white);
-    z-index: 2000;
-    padding: 100px 40px;
-    overflow-y: auto;
-    display: none;
-    /* 初期状態は隠す */
-}
-
-.reader-close {
-    position: fixed;
-    top: 40px;
-    right: 40px;
-    font-family: var(--font-en);
-    font-size: 0.8rem;
-    color: var(--pink-hot);
-    cursor: pointer;
-    border: 1px solid var(--pink-hot);
-    padding: 10px 20px;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    z-index: 2001;
-    background: var(--white);
-}
-
-.reader-close:hover {
-    background: var(--pink-hot);
-    color: var(--white);
-}
-
-.reader-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* 読書モード内の個別要素調整（優先度を確保しつつ整理） */
-#reader-overlay .chapter-hero {
-    min-height: auto !important;
-    padding: 60px 0 40px !important;
-    background: transparent !important;
-    border-bottom: none;
-}
-
-#reader-overlay .chapter-hero::before,
-#reader-overlay .chapter-hero::after {
-    display: none !important;
-}
-
-#reader-overlay .chapter-number {
-    font-size: 4rem !important;
-    color: var(--pink-main) !important;
-    -webkit-text-stroke: 1px var(--pink-main) !important;
-    animation: none !important;
-    margin-bottom: 10px !important;
-}
-
-#reader-overlay .chapter-title {
-    font-size: clamp(2rem, 4vw, 3rem) !important;
-    margin-bottom: 20px !important;
-    color: var(--text-dark) !important;
-    animation: none !important;
-}
-
-/* ========================================
    CHAPTER PAGE ENHANCEMENTS
    スマホゲーム風 × DRESSING ROOM
    ======================================== */
@@ -1383,42 +1300,6 @@ main {
   letter-spacing: 0.15em;
   white-space: nowrap;
   z-index: 2;
-}
-
-.nav-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-en);
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--pink-deep);
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    padding: 15px 30px;
-    background: linear-gradient(145deg, var(--pink-pale), #FFD4E5);
-    border: 3px solid var(--pink-main);
-    border-radius: 50px;
-    position: relative;
-    box-shadow:
-        0 4px 0 var(--pink-main),
-        0 6px 15px rgba(255, 77, 141, 0.3);
-    transition: all 0.15s ease;
-}
-
-.nav-btn:hover {
-    transform: translateY(2px);
-    box-shadow:
-        0 2px 0 var(--pink-main),
-        0 4px 10px rgba(255, 77, 141, 0.2);
-    background: linear-gradient(145deg, #FFD4E5, var(--pink-pale));
-}
-
-.nav-btn:active {
-    transform: translateY(4px);
-    box-shadow:
-        0 0 0 var(--pink-main),
-        0 2px 5px rgba(255, 77, 141, 0.1);
 }
 
 /* ========================================
@@ -1660,40 +1541,6 @@ main {
 
 
 
-/* Progress indicator game style */
-.chapter-meta {
-    position: relative;
-    display: inline-block;
-}
-
-.chapter-meta::before {
-    content: '★';
-    margin-right: 8px;
-    color: var(--pink-main);
-    animation: starPulse 1.5s ease-in-out infinite;
-}
-
-.chapter-meta::after {
-    content: '★';
-    margin-left: 8px;
-    color: var(--pink-main);
-    animation: starPulse 1.5s ease-in-out infinite 0.75s;
-}
-
-@keyframes starPulse {
-
-    0%,
-    100% {
-        opacity: 0.5;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.3);
-    }
-}
-
 /* ========================================
    ラジオアイコン (背景装飾)
    ======================================== */
@@ -1769,17 +1616,6 @@ main {
         flex-direction: column;
     }
 
-    .nav-btn {
-        width: 100%;
-        justify-content: center;
-        padding: 12px 20px;
-        font-size: 0.75rem;
-    }
-
-    .game-item {
-        transform: scale(0.7);
-    }
-
     .chapter-hero::after {
         width: 30px;
         height: 30px;
@@ -1815,11 +1651,6 @@ main {
         height: 18px;
         top: -5px;
         right: -20px;
-    }
-
-    .chapter-meta::before,
-    .chapter-meta::after {
-        font-size: 0.8rem;
     }
 
     /* スマホではアイコンを減らす（偶数番目を非表示） */
@@ -1922,8 +1753,7 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 15px 50px #ac4924 !important;
 }
 
-.friday-night .deco-sprite.dice,
-.friday-night .deco-sprite.daice {
+.friday-night .deco-sprite.dice {
   width: 36px !important;
   height: 36px !important;
   background: url('assets/dice.png') no-repeat center center;
@@ -1966,13 +1796,6 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 .friday-night .chapter-back::before,
 .friday-night .chapter-back::after {
   display: none !important;
-}
-
-.friday-night .chapter-back .back-btn-img {
-  width: 100px;
-  height: auto;
-  display: block;
-  transition: transform 0.2s ease;
 }
 
 /* ========================================
@@ -2289,16 +2112,6 @@ body.catherine .status-item .icon.coin.catherine-heart::before {
   clip-path: path('M10 18s-1-.5-3.5-3S2 9.5 2 7.5C2 4.4 4.4 2 7.5 2c1.7 0 2.5 1 2.5 1s.8-1 2.5-1C15.6 2 18 4.4 18 7.5c0 2-1.5 4.5-4 7S11 18 10 18z');
 }
 
-
-body.catherine .chapter-meta {
-  color: #2133d1 !important;
-  border-color: #2133d1 !important;
-}
-
-body.catherine .chapter-meta::before,
-body.catherine .chapter-meta::after {
-  color: #2133d1 !important;
-}
 
 body.catherine .novel-wrapper {
   background: #E5E5E5 !important;
