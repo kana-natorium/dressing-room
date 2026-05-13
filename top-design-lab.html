@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DRESSING ROOM TOP Design Lab</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&display=swap');
+
+    :root {
+      --nav-bg: #FF2E8C;
+      --hero-bg: #FF4397;
+      --logo-color: #fff6fb;
+      --hero-text-color: #FFFFFF;
+      --scroll-top: #9f0f4e;
+      --scroll-mid: #f47eb1;
+      --scroll-bottom: #FFFFFF;
+      --nav-height: 92px;
+      --hero-top-gap: 7vh;
+      --label-gap: 50px;
+      --title-size: 9vw;
+      --subtitle-gap: 30px;
+      --scroll-gap: 48px;
+      --scroll-line: 175px;
+      --stories-bg: #d8518e;
+      --friday-card: #2133d1;
+      --dressing-card: #E8609A;
+      --catherine-card: #2e2e2e;
+      --note-card: #e6e6e6;
+      --footer-bg: #E8DDD0;
+      --section-title-color: #FF4D8D;
+      --section-subtitle-color: #000000;
+      --rabbit-width: 16vw;
+      --rabbit-right: 6vw;
+      --rabbit-bottom: 17vh;
+      --rabbit-rotate: 8deg;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--hero-text-color);
+      background: var(--stories-bg);
+      font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      height: var(--nav-height);
+      padding: 25px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--nav-bg);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .nav-logo,
+    .nav-links a {
+      color: var(--hero-text-color);
+      font-family: 'Times New Roman', serif;
+      font-weight: 800;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-logo {
+      font-size: 1.7rem;
+      line-height: 0.9;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 1.2rem;
+      letter-spacing: 0.2em;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: calc(var(--nav-height) + clamp(56px, 10vh, 120px)) 40px 40px;
+      background: var(--hero-bg);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      width: min(100%, 1600px);
+      margin-top: clamp(56px, var(--hero-top-gap), 96px);
+      text-align: center;
+    }
+
+    .hero-label {
+      margin: 0 0 var(--label-gap);
+      color: var(--hero-text-color);
+      font-family: 'Times New Roman', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin: 0;
+      color: var(--logo-color);
+      -webkit-text-fill-color: var(--logo-color);
+      font-family: 'Times New Roman', serif;
+      font-size: clamp(3.6rem, var(--title-size), 10rem);
+      font-weight: 900;
+      line-height: 0.85;
+      letter-spacing: -0.05em;
+      white-space: nowrap;
+      text-transform: uppercase;
+      text-shadow: 0 2px 0 rgba(232, 91, 160, 0.55);
+    }
+
+    .hero-subtitle {
+      margin: var(--subtitle-gap) 0 0;
+      color: var(--hero-text-color);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.65;
+      letter-spacing: 0.4em;
+    }
+
+    .scroll-indicator {
+      position: relative;
+      z-index: 12;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: max-content;
+      margin: var(--scroll-gap) auto 0;
+      color: var(--hero-text-color);
+      font-family: 'Times New Roman', serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+
+    .scroll-indicator::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: var(--scroll-line);
+      margin-top: 15px;
+      background: linear-gradient(to bottom, var(--scroll-top) 0%, var(--scroll-mid) 45%, #ffe1ef 68%, var(--scroll-bottom) 100%);
+    }
+
+    .hero-rabbit {
+      position: absolute;
+      right: clamp(36px, var(--rabbit-right), 120px);
+      bottom: clamp(132px, var(--rabbit-bottom), 245px);
+      z-index: 2;
+      width: clamp(150px, var(--rabbit-width), 260px);
+      aspect-ratio: 5 / 6;
+      opacity: 0.9;
+      rotate: var(--rabbit-rotate);
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.16));
+    }
+
+    .rabbit-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      animation: rabbitFloat 3.2s ease-in-out infinite;
+    }
+
+    .face-right {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 87%;
+      height: auto;
+    }
+
+    .left-ear {
+      position: absolute;
+      top: 28%;
+      left: 1%;
+      z-index: 3;
+      width: 36%;
+      height: auto;
+      transform-origin: 80% 95%;
+      animation: earPiko 2.5s ease-in-out infinite;
+    }
+
+    .stories-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      padding: 70px min(8vw, 140px);
+      color: #fff;
+      background: transparent;
+      scroll-margin-top: calc(var(--nav-height) + 16px);
+    }
+
+    .page-band {
+      background: var(--stories-bg);
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 77, 141, 0.3);
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--section-title-color);
+      font-family: 'Times New Roman', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+      margin: 0;
+      color: var(--section-subtitle-color);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+
+    .story-grid {
+      display: grid;
+      gap: 42px;
+    }
+
+    .story-card {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 40px;
+      min-height: 190px;
+      padding: 50px;
+      overflow: visible;
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      backdrop-filter: blur(16px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .story-card::after {
+      content: '';
+      position: absolute;
+      inset: 10px -10px -10px 10px;
+      z-index: -1;
+      pointer-events: none;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .story-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .story-card.friday-night {
+      background: var(--friday-card);
+    }
+
+    .story-card.dressing-room {
+      background: var(--dressing-card);
+    }
+
+    .story-card.catherine {
+      background: var(--catherine-card);
+    }
+
+    .story-card.note-card {
+      color: #2a2535;
+      background: var(--note-card);
+    }
+
+    .story-content h3 {
+      margin: 0 0 10px;
+      color: inherit;
+      font-family: 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .story-content p {
+      margin: 0;
+      color: inherit;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .story-tag {
+      color: inherit;
+      border: 1px solid currentColor;
+      padding: 8px 16px;
+      font-family: 'Times New Roman', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .story-arrow {
+      color: inherit;
+      font-size: 2rem;
+    }
+
+    .about-section {
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .about-text {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      line-height: 2;
+      font-weight: 700;
+    }
+
+    .about-credit {
+      margin-top: 30px;
+      color: #fff;
+      font-family: 'Times New Roman', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      position: relative;
+      padding: 40px;
+      text-align: center;
+      background: var(--footer-bg);
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .footer-logo {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #fff;
+      font-family: 'Times New Roman', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      text-decoration: none;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-text {
+      margin: 0;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+
+    .footer-radio {
+      position: absolute;
+      right: 48px;
+      bottom: 28px;
+      width: 88px;
+      opacity: 0.55;
+    }
+
+    .first-view-line {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      height: 2px;
+      pointer-events: none;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .control-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 100;
+      width: 360px;
+      overflow-y: auto;
+      padding: 18px;
+      color: #24111a;
+      background: #fff7fb;
+      border-left: 1px solid rgba(0, 0, 0, 0.12);
+      font-family: system-ui, sans-serif;
+      transition: transform 0.25s ease;
+    }
+
+    body.panel-collapsed .control-panel {
+      transform: translateX(calc(100% - 44px));
+    }
+
+    .panel-toggle {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      width: 100%;
+      min-height: 36px;
+      margin-bottom: 12px;
+      border: 1px solid #e14691;
+      color: #fff;
+      background: #e14691;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .control-panel h1 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .control-panel p {
+      margin: 0 0 14px;
+      color: #5f4550;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+
+    .control-group {
+      padding: 14px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .control-group h2 {
+      margin: 0 0 10px;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    label {
+      display: grid;
+      grid-template-columns: 112px 1fr 58px;
+      gap: 10px;
+      align-items: center;
+      margin: 8px 0;
+      font-size: 0.78rem;
+    }
+
+    input[type="color"] {
+      width: 100%;
+      height: 32px;
+      padding: 0;
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      background: transparent;
+    }
+
+    input[type="range"] {
+      width: 100%;
+    }
+
+    .value {
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .buttons button {
+      flex: 1;
+      min-height: 36px;
+      border: 1px solid #e14691;
+      color: #e14691;
+      background: transparent;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .buttons button:hover {
+      color: #fff;
+      background: #e14691;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      resize: vertical;
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      padding: 10px;
+      color: #24111a;
+      background: #fff;
+      font: 12px/1.5 Consolas, monospace;
+    }
+
+    .viewport-data {
+      position: fixed;
+      left: 16px;
+      bottom: 14px;
+      z-index: 60;
+      padding: 7px 10px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.35);
+      font: 12px/1.4 Consolas, monospace;
+      pointer-events: none;
+    }
+
+    @keyframes rabbitFloat {
+      0%,
+      100% {
+        translate: 0 0;
+      }
+
+      50% {
+        translate: 0 -10px;
+      }
+    }
+
+    @keyframes earPiko {
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      35% {
+        transform: rotate(-6deg);
+      }
+
+      65% {
+        transform: rotate(2deg);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .control-panel {
+        position: relative;
+        width: auto;
+      }
+
+      .story-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 32px;
+      }
+
+      .section-header {
+        display: block;
+      }
+
+      body.panel-collapsed .control-panel {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="nav">
+      <a class="nav-logo" href="#">DRESSING ROOM</a>
+      <ul class="nav-links">
+        <li><a href="#novel">NOVEL</a></li>
+        <li><a href="#note">NOTE</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-label">Novel Collection<br>inspired by Natori</p>
+        <h1 class="hero-title">DRESSING ROOM</h1>
+        <p class="hero-subtitle">&#12394;&#12392;&#12426;&#12398;&#27468;&#35422;&#12434;&#12522;&#12501;&#12449;&#12524;&#12531;&#12473;&#12395;&#12375;&#12383;&#23567;&#35500;&#12469;&#12452;&#12488;<br>DRESSING ROOM&#12398;&#20013;&#12395;&#12289;&#29289;&#35486;&#12364;&#12354;&#12427;&#12290;</p>
+        <div class="scroll-indicator">SCROLL</div>
+      </div>
+
+      <div class="hero-rabbit" aria-label="DRESSING ROOM rabbit">
+        <div class="rabbit-body">
+          <img class="left-ear" src="assets/left-ear.svg" alt="">
+          <img class="face-right" src="assets/face_right.svg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <div class="page-band">
+      <section class="stories-section" id="novel">
+        <div class="section-header">
+          <h2 class="section-title">NOVEL</h2>
+          <p class="section-subtitle">&#21454;&#37682;&#20316;&#21697;</p>
+        </div>
+
+        <div class="story-grid">
+          <a href="#" class="story-card friday-night">
+            <div class="story-content">
+              <h3>Friday Night</h3>
+              <p>&#20491;&#24615;&#12398;&#26085;&#12363;&#12425;&#12289;&#36913;&#26411;&#12398;&#37329;&#26332;&#22812;&#12395;&#36867;&#12370;&#36796;&#12416;&#30007;&#12398;&#29289;&#35486;&#12290;</p>
+            </div>
+            <span class="story-tag">Short Story</span>
+            <span class="story-arrow">-&gt;</span>
+          </a>
+
+          <a href="#" class="story-card dressing-room">
+            <div class="story-content">
+              <h3>DRESSING ROOM</h3>
+              <p>&#37857;&#12398;&#21069;&#12391;&#12289;&#24444;&#12399;&#20170;&#26085;&#12418;&#26381;&#12434;&#36984;&#12406;&#12405;&#12426;&#12434;&#12377;&#12427;&#12290;</p>
+            </div>
+            <span class="story-tag">Short Story</span>
+            <span class="story-arrow">-&gt;</span>
+          </a>
+
+          <a href="#" class="story-card catherine">
+            <div class="story-content">
+              <h3>Catherine</h3>
+              <p>&#21517;&#21069;&#12398;&#12394;&#12356;&#38306;&#20418;&#12392;&#12289;&#19977;&#26332;&#12398;&#22812;&#12398;&#20491;&#24615;&#12290;</p>
+            </div>
+            <span class="story-tag">Short Story</span>
+            <span class="story-arrow">-&gt;</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="stories-section" id="note">
+        <div class="section-header">
+          <h2 class="section-title">NOTE</h2>
+          <p class="section-subtitle">&#21046;&#20316;&#12494;&#12540;&#12488;</p>
+        </div>
+
+        <div class="story-grid">
+          <a href="#" class="story-card note-card">
+            <div class="story-content">
+              <h3>PRODUCTION NOTE</h3>
+              <p>&#12371;&#12398;&#12469;&#12452;&#12488;&#12398;&#21046;&#20316;&#32972;&#26223;&#12392;&#12289;AI&#12392;&#12398;&#20849;&#21109;&#12503;&#12525;&#12475;&#12473;&#12395;&#12388;&#12356;&#12390;&#12290;</p>
+            </div>
+            <span class="story-tag">Note</span>
+            <span class="story-arrow">-&gt;</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-text">
+          <p>&#12371;&#12398;&#12469;&#12452;&#12488;&#12399;&#12289;&#12394;&#12392;&#12426;&#12398;&#27005;&#26354;&#12300;DRESSING ROOM&#12301;&#12395;&#30528;&#24819;&#12434;&#24471;&#12383;&#19990;&#30028;&#35251;&#12434;&#12418;&#12392;&#12395;&#27083;&#25104;&#12373;&#12428;&#12390;&#12356;&#12414;&#12377;&#12290;</p>
+        </div>
+        <p class="about-credit">Inspired by Natori<br>DRESSING ROOM</p>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <img src="assets/radio.png" class="footer-radio" alt="">
+      <a href="#" class="footer-logo">DRESSING ROOM</a>
+      <p class="footer-text">Novel Collection 2026</p>
+    </footer>
+  </main>
+
+  <aside class="control-panel">
+    <button class="panel-toggle" type="button" id="panel-toggle">&#12497;&#12493;&#12523;&#12434;&#30067;&#12416;</button>
+    <h1>DRESSING ROOM TOP Design Lab</h1>
+    <p>&#26412;&#30058;&#12501;&#12449;&#12452;&#12523;&#12434;&#35302;&#12425;&#12378;&#12395;&#12289;&#33394;&#12539;&#20313;&#30333;&#12539;&#12358;&#12373;&#12366;&#12539;Scroll&#32218;&#12434;&#12502;&#12521;&#12454;&#12470;&#12391;&#35430;&#12377;&#23455;&#39443;&#23460;&#12384;&#12362;&#12290;&#20516;&#12434;&#21205;&#12363;&#12377;&#12392;&#19979;&#12398;CSS&#20505;&#35036;&#12418;&#22793;&#12431;&#12427;&#12362;&#12290;</p>
+
+    <div class="buttons">
+      <button type="button" data-preset="current">&#29694;&#22312;&#20516;</button>
+      <button type="button" data-preset="demo">&#28611;&#12356;&#12417;&#26696;</button>
+    </div>
+
+    <div class="control-group">
+      <h2>Color</h2>
+      <label>Header <input data-var="--nav-bg" type="color" value="#FF2E8C"><span class="value"></span></label>
+      <label>Hero <input data-var="--hero-bg" type="color" value="#FF4397"><span class="value"></span></label>
+      <label>Logo <input data-var="--logo-color" type="color" value="#fff6fb"><span class="value"></span></label>
+      <label>Text <input data-var="--hero-text-color" type="color" value="#FFFFFF"><span class="value"></span></label>
+      <label>Page <input data-var="--stories-bg" type="color" value="#d8518e"><span class="value"></span></label>
+      <label>Footer <input data-var="--footer-bg" type="color" value="#E8DDD0"><span class="value"></span></label>
+      <label>NOVEL/NOTE <input data-var="--section-title-color" type="color" value="#FF4D8D"><span class="value"></span></label>
+      <label>&#21454;&#37682;&#20316;&#21697; <input data-var="--section-subtitle-color" type="color" value="#000000"><span class="value"></span></label>
+    </div>
+
+    <div class="control-group">
+      <h2>Cards</h2>
+      <label>Friday <input data-var="--friday-card" type="color" value="#2133d1"><span class="value"></span></label>
+      <label>Dressing <input data-var="--dressing-card" type="color" value="#E8609A"><span class="value"></span></label>
+      <label>Catherine <input data-var="--catherine-card" type="color" value="#2e2e2e"><span class="value"></span></label>
+      <label>Note <input data-var="--note-card" type="color" value="#e6e6e6"><span class="value"></span></label>
+    </div>
+
+    <div class="control-group">
+      <h2>Layout</h2>
+      <label>Top gap <input data-var="--hero-top-gap" type="range" min="2" max="12" step="0.2" value="7" data-unit="vh"><span class="value"></span></label>
+      <label>Label gap <input data-var="--label-gap" type="range" min="10" max="90" step="1" value="50" data-unit="px"><span class="value"></span></label>
+      <label>Title size <input data-var="--title-size" type="range" min="5" max="11" step="0.1" value="9" data-unit="vw"><span class="value"></span></label>
+      <label>Subtitle gap <input data-var="--subtitle-gap" type="range" min="8" max="56" step="1" value="30" data-unit="px"><span class="value"></span></label>
+      <label>Scroll gap <input data-var="--scroll-gap" type="range" min="12" max="80" step="1" value="48" data-unit="px"><span class="value"></span></label>
+      <label>Line length <input data-var="--scroll-line" type="range" min="20" max="260" step="1" value="175" data-unit="px"><span class="value"></span></label>
+    </div>
+
+    <div class="control-group">
+      <h2>Scroll Gradient</h2>
+      <label>Top <input data-var="--scroll-top" type="color" value="#9f0f4e"><span class="value"></span></label>
+      <label>Middle <input data-var="--scroll-mid" type="color" value="#f47eb1"><span class="value"></span></label>
+      <label>Bottom <input data-var="--scroll-bottom" type="color" value="#FFFFFF"><span class="value"></span></label>
+    </div>
+
+    <div class="control-group">
+      <h2>Rabbit</h2>
+      <label>Size <input data-var="--rabbit-width" type="range" min="8" max="22" step="0.2" value="16" data-unit="vw"><span class="value"></span></label>
+      <label>Right <input data-var="--rabbit-right" type="range" min="2" max="14" step="0.2" value="6" data-unit="vw"><span class="value"></span></label>
+      <label>Bottom <input data-var="--rabbit-bottom" type="range" min="8" max="28" step="0.2" value="17" data-unit="vh"><span class="value"></span></label>
+      <label>Rotate <input data-var="--rabbit-rotate" type="range" min="-18" max="18" step="1" value="8" data-unit="deg"><span class="value"></span></label>
+    </div>
+
+    <div class="control-group">
+      <h2>CSS Candidate</h2>
+      <textarea id="css-output" readonly></textarea>
+    </div>
+  </aside>
+
+  <div class="first-view-line" aria-hidden="true"></div>
+  <div class="viewport-data" id="viewport-data"></div>
+
+  <script>
+    const root = document.documentElement;
+    const controls = Array.from(document.querySelectorAll('[data-var]'));
+    const output = document.getElementById('css-output');
+    const viewport = document.getElementById('viewport-data');
+    const panelToggle = document.getElementById('panel-toggle');
+
+    const presets = {
+      current: {
+        '--nav-bg': '#FF2E8C',
+        '--hero-bg': '#FF4397',
+        '--logo-color': '#fff6fb',
+        '--hero-text-color': '#FFFFFF',
+        '--scroll-top': '#9f0f4e',
+        '--scroll-mid': '#f47eb1',
+        '--scroll-bottom': '#FFFFFF',
+        '--stories-bg': '#d8518e',
+        '--friday-card': '#2133d1',
+        '--dressing-card': '#E8609A',
+        '--catherine-card': '#2e2e2e',
+        '--note-card': '#e6e6e6',
+        '--footer-bg': '#E8DDD0',
+        '--section-title-color': '#FF4D8D',
+        '--section-subtitle-color': '#000000',
+        '--hero-top-gap': '7',
+        '--label-gap': '50',
+        '--title-size': '9',
+        '--subtitle-gap': '30',
+        '--scroll-gap': '48',
+        '--scroll-line': '175',
+        '--rabbit-width': '16',
+        '--rabbit-right': '6',
+        '--rabbit-bottom': '17',
+        '--rabbit-rotate': '8'
+      },
+      demo: {
+        '--nav-bg': '#f72b86',
+        '--hero-bg': '#ff3d96',
+        '--logo-color': '#fff9fd',
+        '--hero-text-color': '#FFFFFF',
+        '--scroll-top': '#a80f52',
+        '--scroll-mid': '#ff86bb',
+        '--scroll-bottom': '#fff7fb',
+        '--stories-bg': '#cf4a86',
+        '--friday-card': '#2133d1',
+        '--dressing-card': '#d6588e',
+        '--catherine-card': '#212121',
+        '--note-card': '#dedede',
+        '--footer-bg': '#d8518e',
+        '--section-title-color': '#ff9bc9',
+        '--section-subtitle-color': '#180812',
+        '--hero-top-gap': '5.8',
+        '--label-gap': '44',
+        '--title-size': '9.4',
+        '--subtitle-gap': '28',
+        '--scroll-gap': '42',
+        '--scroll-line': '150',
+        '--rabbit-width': '15',
+        '--rabbit-right': '5.4',
+        '--rabbit-bottom': '16',
+        '--rabbit-rotate': '8'
+      }
+    };
+
+    function valueWithUnit(control) {
+      return control.type === 'range' ? `${control.value}${control.dataset.unit || 'px'}` : control.value;
+    }
+
+    function applyControl(control) {
+      root.style.setProperty(control.dataset.var, valueWithUnit(control));
+      control.closest('label').querySelector('.value').textContent = valueWithUnit(control);
+    }
+
+    function updateOutput() {
+      const get = name => getComputedStyle(root).getPropertyValue(name).trim();
+      output.value = `.nav {
+  background: ${get('--nav-bg')};
+}
+
+.hero {
+  background-color: ${get('--hero-bg')};
+}
+
+.page-band {
+  background: ${get('--stories-bg')};
+}
+
+.footer {
+  background-color: ${get('--footer-bg')};
+}
+
+.section-title {
+  color: ${get('--section-title-color')};
+}
+
+.section-subtitle {
+  color: ${get('--section-subtitle-color')};
+}
+
+.hero-content {
+  margin-top: clamp(56px, ${get('--hero-top-gap')}, 96px);
+}
+
+.hero-label {
+  margin-bottom: ${get('--label-gap')};
+  color: ${get('--hero-text-color')};
+}
+
+.hero-title .char,
+.hero-title {
+  -webkit-text-fill-color: ${get('--logo-color')};
+  color: ${get('--logo-color')};
+}
+
+.hero-subtitle,
+.hero .scroll-indicator {
+  color: ${get('--hero-text-color')};
+}
+
+.hero .scroll-indicator {
+  margin-top: ${get('--scroll-gap')};
+}
+
+.hero .scroll-indicator::after {
+  height: ${get('--scroll-line')};
+  background: linear-gradient(to bottom, ${get('--scroll-top')} 0%, ${get('--scroll-mid')} 45%, #ffe1ef 68%, ${get('--scroll-bottom')} 100%);
+}
+
+.hero-rabbit {
+  right: clamp(36px, ${get('--rabbit-right')}, 120px);
+  bottom: clamp(132px, ${get('--rabbit-bottom')}, 245px);
+  width: clamp(150px, ${get('--rabbit-width')}, 260px);
+  rotate: ${get('--rabbit-rotate')};
+}
+
+.story-card.friday-night {
+  background: ${get('--friday-card')};
+}
+
+.story-card.dressing-room {
+  background: ${get('--dressing-card')};
+}
+
+.story-card.catherine {
+  background: ${get('--catherine-card')};
+}
+
+.story-card.note-card {
+  background: ${get('--note-card')};
+}`;
+    }
+
+    function updateViewport() {
+      const hero = document.querySelector('.hero').getBoundingClientRect();
+      const scroll = document.querySelector('.scroll-indicator').getBoundingClientRect();
+      const rabbit = document.querySelector('.hero-rabbit').getBoundingClientRect();
+      viewport.textContent = `${window.innerWidth}x${window.innerHeight} | hero ${Math.round(hero.height)}px | scroll bottom ${Math.round(scroll.bottom)} | rabbit bottom ${Math.round(rabbit.bottom)}`;
+    }
+
+    function updateAll() {
+      controls.forEach(applyControl);
+      updateOutput();
+      updateViewport();
+    }
+
+    controls.forEach(control => {
+      control.addEventListener('input', () => {
+        applyControl(control);
+        updateOutput();
+        updateViewport();
+      });
+    });
+
+    document.querySelectorAll('[data-preset]').forEach(button => {
+      button.addEventListener('click', () => {
+        const preset = presets[button.dataset.preset];
+        controls.forEach(control => {
+          control.value = preset[control.dataset.var];
+        });
+        updateAll();
+      });
+    });
+
+    panelToggle.addEventListener('click', () => {
+      document.body.classList.toggle('panel-collapsed');
+      panelToggle.innerHTML = document.body.classList.contains('panel-collapsed') ? '&#38283;&#12367;' : '&#12497;&#12493;&#12523;&#12434;&#30067;&#12416;';
+      updateViewport();
+    });
+
+    window.addEventListener('resize', updateViewport);
+    updateAll();
+  </script>
+</body>
+</html>

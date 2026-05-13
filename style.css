@@ -111,7 +111,7 @@ body::before {
 
 .hero {
     min-height: 100vh;
-    min-height: min(100dvh, 910px);
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -119,7 +119,7 @@ body::before {
     position: relative;
     overflow: hidden;
     padding: calc(var(--nav-height) + clamp(56px, 10vh, 120px)) 40px 40px;
-    background-color: #E85BA0;
+    background-color: #FF4397;
 }
 
 .hero::before {
@@ -197,7 +197,7 @@ body::before {
     text-align: center;
     z-index: 10;
     position: relative;
-    margin-top: 0;
+    margin-top: clamp(56px, 7vh, 96px);
 }
 
 .hero-label {
@@ -213,7 +213,7 @@ body::before {
 
 .hero-title {
     font-family: var(--font-en);
-    font-size: clamp(1rem, 8vw, 9rem);
+    font-size: clamp(3.6rem, 9vw, 10rem);
     font-weight: 900;
     letter-spacing: -0.05em;
     line-height: 0.85;
@@ -314,8 +314,8 @@ body::before {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: rgba(245, 93, 167, 0.92);
-    /* #E066A0 ちょっと明るく */
+    background: #FF2E8C;
+    /* Demo header pink */
     backdrop-filter: none;
     /* blurなしでくっきり */
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -761,14 +761,27 @@ body::before {
 .hero .hero-subtitle span,
 .hero .scroll-indicator {
   color: var(--white) !important;
+  overflow: visible;
+  z-index: 12;
 }
 
 .hero .scroll-indicator::after {
+  display: block;
+  flex: 0 0 auto;
   width: 1px;
-  height: 200px;
+  height: 175px;
   margin-top: 15px;
-  background: linear-gradient(to bottom, #c91868 0%, #f47eb1 36%, #ffd7e9 58%, var(--white) 100%);
+  background: linear-gradient(to bottom, #9f0f4e 0%, #f47eb1 38%, #ffe1ef 64%, var(--white) 100%);
 }
+
+@media (min-width: 1440px) and (min-height: 1050px) {
+  .hero .scroll-indicator::after {
+    height: 205px;
+  }
+}
+
+
+
 
 .section-title {
   color: var(--pink-main) !important;
@@ -906,6 +919,10 @@ body::before {
     .hero {
         min-height: auto;
         padding: calc(var(--nav-height) + 24px) 20px 30px;
+    }
+
+    .hero-content {
+        margin-top: 0;
     }
 
     .scroll-indicator {
@@ -1644,17 +1661,118 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 
 /* ========================================
-   ラジオアイコン (背景装飾)
+   HERO RABBIT MOTIF
    ======================================== */
 
-.hero-radio {
+.hero-rabbit {
   position: absolute;
-  bottom: clamp(88px, 13vh, 150px);
-  right: clamp(20px, 5vw, 60px);
-  width: clamp(150px, 16vw, 260px);
-  opacity: 0.6;
-  pointer-events: none;
+  bottom: clamp(132px, 17vh, 220px);
+  right: clamp(36px, 6vw, 120px);
+  width: clamp(150px, 16vw, 250px);
+  aspect-ratio: 5 / 6;
+  opacity: 0.9;
+  pointer-events: auto;
   z-index: 2;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.16));
+  rotate: 8deg;
+  transition: filter 0.3s ease;
+}
+
+.rabbit-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rabbitFloat 3.2s ease-in-out infinite;
+}
+
+.hero-rabbit:hover .rabbit-body {
+  animation-duration: 2s;
+}
+
+.hero-rabbit:hover {
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.22));
+}
+
+.hero-rabbit:hover .face-right,
+.hero-rabbit:hover .left-ear {
+  scale: 1.05;
+}
+
+.face-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 87%;
+  height: auto;
+  z-index: 2;
+  transition: scale 0.3s ease;
+}
+
+.left-ear {
+  position: absolute;
+  top: 28%;
+  left: 1%;
+  width: 36%;
+  height: auto;
+  z-index: 3;
+  transform-origin: 80% 95%;
+  animation: earPiko 2.5s ease-in-out infinite;
+  transition: scale 0.3s ease;
+}
+
+.hero-rabbit:hover .left-ear {
+  animation: earPikoFast 0.6s ease-in-out infinite;
+}
+
+@media (min-width: 1440px) and (min-height: 1050px) {
+  .hero-rabbit {
+    bottom: clamp(165px, 18vh, 245px);
+  }
+}
+
+@keyframes rabbitFloat {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@keyframes earPiko {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  35% {
+    transform: rotate(-6deg);
+  }
+
+  65% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes earPikoFast {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-12deg);
+  }
+
+  50% {
+    transform: rotate(5deg);
+  }
+
+  75% {
+    transform: rotate(-8deg);
+  }
 }
 
 .footer-radio {
@@ -1666,7 +1784,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 }
 
 @media (max-width: 768px) {
-  .hero-radio {
+  .hero-rabbit {
     display: none !important;
   }
 
