@@ -753,6 +753,15 @@ body::before {
 .about-text,
 .about-text a,
 .about-credit {
+  color: var(--pink-main) !important;
+  text-shadow: none !important;
+}
+
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .footer-logo,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .footer-text,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .about-text,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .about-text a,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .about-credit {
   color: var(--white) !important;
   text-shadow: none !important;
 }
