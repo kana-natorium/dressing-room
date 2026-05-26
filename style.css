@@ -2218,11 +2218,42 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
    note.html専用 - 全背景を上書き
    ※ main は .novel-wrapper の白背景を残すため除外
    ======================================== */
-body.note-page,
+body.note-page {
+    background-color: #e6e6e8;
+    background-image:
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png');
+    background-size: 116px 78px, 92px 62px, 132px 88px, 104px 70px, 84px 56px, 124px 84px, 96px 64px, 110px 74px, 118px 80px, 98px 66px, 126px 84px, 90px 60px, 112px 75px, 86px 58px, 122px 82px, 94px 63px, 108px 72px, 88px 59px;
+    background-position: 7vw 118px, 78vw 72px, calc(50% - 560px) 42vh, calc(50% + 470px) 46vh, 86vw 68vh, 12vw 82vh, calc(50% - 520px) 62%, calc(50% + 510px) 68%, calc(50% - 430px) 78%, calc(50% + 420px) 84%, calc(50% - 610px) 60%, calc(50% + 595px) 58%, calc(50% - 570px) 72%, calc(50% + 555px) 74%, calc(50% - 650px) 88%, calc(50% + 615px) 90%, calc(50% - 500px) 94%, calc(50% + 475px) 96%;
+    background-repeat: no-repeat;
+}
+
 body.note-page .chapter-hero,
 body.note-page .footer {
-    background: #e6e6e8;
-    background-image: none;
+    background-color: #e6e6e8;
+    background-image:
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png');
+    background-size: 92px 62px, 108px 72px, 82px 55px;
+    background-position: 8vw 118px, 88vw 126px, 72vw 88%;
+    background-repeat: no-repeat;
 }
 
 body.note-page .novel-wrapper {
@@ -2619,4 +2650,152 @@ body.catherine .skull-label {
   color: #666;
   font-weight: 700;
   transform: translateX(-4px);
+}
+
+.note-top-nav {
+    min-height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 40px 56px;
+}
+
+.mirror-back {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.mirror-back svg {
+    width: 120px;
+    height: auto;
+}
+
+.mirror-back:hover {
+    transform: scale(1.03);
+}
+
+.mirror-shine {
+    transition: opacity 0.4s ease;
+}
+
+.mirror-glint,
+.mirror-sparkle,
+.mirror-ripples ellipse {
+    opacity: 0;
+}
+
+.mirror-back:hover .mirror-glint {
+    animation: mirrorGlint 0.6s ease-out forwards;
+}
+
+.mirror-back:hover .mirror-ripples ellipse:nth-child(1) {
+    animation: mirrorRipple 1.2s ease-out 0.1s forwards;
+}
+
+.mirror-back:hover .mirror-ripples ellipse:nth-child(2) {
+    animation: mirrorRipple 1.2s ease-out 0.3s forwards;
+}
+
+.mirror-back:hover .mirror-shine {
+    animation: mirrorShine 1.5s ease-in-out infinite;
+}
+
+.mirror-back:hover .sparkle-1 {
+    animation: mirrorSparklePop 0.3s ease-out 0.1s forwards, mirrorSparkleFloat 1.8s ease-in-out 0.4s infinite;
+}
+
+.mirror-back:hover .sparkle-2 {
+    animation: mirrorSparklePop 0.3s ease-out 0.2s forwards, mirrorSparkleFloat 1.8s ease-in-out 0.5s infinite;
+}
+
+.mirror-back:hover .sparkle-3 {
+    animation: mirrorSparklePop 0.3s ease-out 0.3s forwards, mirrorSparkleFloat 1.8s ease-in-out 0.6s infinite;
+}
+
+.mirror-back:hover .sparkle-4 {
+    animation: mirrorSparklePop 0.3s ease-out 0.4s forwards, mirrorSparkleFloat 1.8s ease-in-out 0.7s infinite;
+}
+
+.mirror-back:hover .sparkle-5 {
+    animation: mirrorSparklePop 0.3s ease-out 0.5s forwards, mirrorSparkleFloat 1.8s ease-in-out 0.8s infinite;
+}
+
+.mirror-back-label {
+    margin-top: 14px;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+@keyframes mirrorGlint {
+    0% {
+        opacity: 0;
+        transform: rotate(20deg) translateX(-40px);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(20deg) translateX(250px);
+    }
+}
+
+@keyframes mirrorRipple {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
+
+@keyframes mirrorShine {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes mirrorSparklePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes mirrorSparkleFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
 }
