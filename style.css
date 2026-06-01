@@ -87,7 +87,7 @@ body::after {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background: radial-gradient(ellipse at center, transparent 60%, rgba(80, 10, 50, 0.15) 100%);
+    background: none;
     z-index: 9998;
 }
 
@@ -652,7 +652,7 @@ body::before {
     font-family: 'Times New Roman', serif;
     font-size: 3rem;
     font-weight: 900;
-    background: linear-gradient(180deg, var(--white) 50%, var(--pink-pale) 100%);
+    background: #292824;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -665,7 +665,7 @@ body::before {
     filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
     z-index: 10;
 }
-
+/*
 .chapter-number::after {
     content: attr(data-num);
     position: absolute;
@@ -674,6 +674,9 @@ body::before {
     -webkit-text-stroke: 2px var(--pink-pale);
     z-index: -1;
 }
+/* 影のレイヤーを追加して立体感を出す */
+
+/* NOTE title */
 
 .chapter-title {
     font-family: 'Times New Roman', serif;
@@ -681,7 +684,7 @@ body::before {
     font-weight: 700;
     letter-spacing: 0.15em;
     margin-bottom: 20px;
-    color: #424aa4;
+    color: #2d2a30;
     text-shadow: none;
     animation: fadeInUp 0.8s ease-out 0.1s both;
 }
@@ -705,14 +708,16 @@ body::before {
     font-weight: 500;
 }
 
+
 .novel-text .scene-break {
     text-align: center;
     margin: 4em 0;
-    color: var(--pink-main);
+    color: #2d2a30;
     letter-spacing: 0.5em;
     font-size: 1rem;
     position: relative;
 }
+
 
 .novel-text .scene-break::before,
 .novel-text .scene-break::after {
@@ -721,17 +726,17 @@ body::before {
     top: 50%;
     width: 80px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--pink-pale));
+    background: linear-gradient(90deg, transparent, #33323a);
 }
 
 .novel-text .scene-break::before {
     right: calc(50% + 40px);
-    background: linear-gradient(90deg, transparent, var(--pink-pale));
+    background: linear-gradient(90deg, transparent, #33323a);
 }
 
 .novel-text .scene-break::after {
     left: calc(50% + 40px);
-    background: linear-gradient(90deg, var(--pink-pale), transparent);
+    background: linear-gradient(90deg, #33323a, transparent);
 }
 
 .novel-text .dialogue {
@@ -744,6 +749,7 @@ body::before {
     padding: 0 2px;
     font-weight: 500;
 }
+
 
 .hero-label,
 .hero-subtitle,
@@ -1826,11 +1832,11 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
     font-family: var(--font-en);
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--pink-hot);
+    color: #33323a;
     letter-spacing: 0.1em;
     margin: 3em 0 1em;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--pink-pale);
+    border-bottom: 1px solid #464349;
     position: relative;
 }
 
@@ -2257,7 +2263,7 @@ body.note-page .footer {
 }
 
 body.note-page .novel-wrapper {
-    box-shadow: 0 15px 50px #b7b6b6;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 /* 箱の中のピンクグラデーションを消す */
@@ -2288,6 +2294,9 @@ body.chapter2-page::after {
   color: var(--pink-main) !important;
 }
 
+
+
+
 /* ========================================
    CATHERINE PAGE OVERRIDES
    ======================================== */
@@ -2300,6 +2309,9 @@ body.catherine {
 body.catherine::before {
   display: none;
 }
+
+
+
 
 body.catherine main,
 body.catherine .chapter-hero,
