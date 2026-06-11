@@ -2350,7 +2350,7 @@ body.note-page .note-summary-list li::before {
     position: absolute;
     left: 0;
     top: 0.35em;
-    color: #E8389E; /* 鏡の枠のピンク */
+    color: #c05d7c; /* 鏡の枠のピンク */
     font-size: 0.7em;
 }
 
@@ -2358,7 +2358,7 @@ body.note-page .note-summary-tail {
     margin: 1.8em 0 0;
     font-size: 0.8rem;
     letter-spacing: 0.04em;
-    color: #656368;
+    color: #c05d7c;
 }
 
 /* 章見出し（h2） */
