@@ -91,6 +91,10 @@ body::after {
     z-index: 9998;
 }
 
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page)::after {
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(40, 40, 40, 0.15) 100%);
+}
+
 /* フィルムノイズ（ザラザラ感）- 背景のみ、文字には適用しない */
 body::before {
     content: '';
@@ -652,7 +656,7 @@ body::before {
     font-family: 'Times New Roman', serif;
     font-size: 3rem;
     font-weight: 900;
-    background: #292824;
+    background: #28272c;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -684,7 +688,7 @@ body::before {
     font-weight: 700;
     letter-spacing: 0.15em;
     margin-bottom: 20px;
-    color: #2d2a30;
+    color: #32343f;
     text-shadow: none;
     animation: fadeInUp 0.8s ease-out 0.1s both;
 }
@@ -2287,7 +2291,7 @@ body.chapter2-page .footer {
 
 /* ビネット効果をニュートラルに上書き（ピンク色味を消す） */
 body.chapter2-page::after {
-    background: radial-gradient(ellipse at center, transparent 60%, rgba(40, 40, 40, 0.15) 100%);
+    background: none;
 }
 
 .chapter2-page .chapter-title {
