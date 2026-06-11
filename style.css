@@ -2276,6 +2276,124 @@ body.chapter2-page .novel-wrapper::before {
     background: none;
 }
 
+/* note.html 本文・要約カード */
+body.note-page .note-main {
+    padding: 0 20px;
+    background-color: #e6e6e8;
+    background-image:
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png');
+    background-size: 116px 78px, 92px 62px, 104px 70px, 124px 84px, 88px 59px, 110px 74px, 96px 64px, 120px 80px, 84px 56px, 112px 75px, 100px 67px, 90px 60px, 118px 79px, 94px 63px, 106px 71px, 86px 58px, 122px 82px, 98px 66px, 108px 72px, 82px 55px, 102px 68px, 114px 76px, 90px 60px, 118px 79px, 96px 64px;
+    background-position: 4vw 6%, 92vw 9%, 6vw 15%, 90vw 19%, 3vw 25%, 93vw 30%, 7vw 35%, 89vw 40%, 5vw 46%, 91vw 51%, 4vw 57%, 92vw 62%, 6vw 68%, 88vw 73%, 3vw 79%, 93vw 84%, 7vw 90%, 90vw 94%, 10vw 43%, 86vw 56%, 88vw 25%, 12vw 62%, 91vw 67%, 9vw 33%, 87vw 88%;
+    background-repeat: no-repeat;
+}
+
+/* 要約カード（本文カードと同じ見た目。中身の見せ方で要約と分からせる） */
+body.note-page .note-summary {
+    max-width: 900px;
+    margin: 0 auto 36px;
+    padding: 40px 48px;
+    background: rgba(255, 255, 255, 0.97);
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+body.note-page .note-summary-lead {
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.9;
+    color: #28272c;
+    margin: 0 0 1.3em;
+}
+
+body.note-page .note-summary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.3em;
+}
+
+body.note-page .note-summary-list li {
+    list-style: none;
+    position: relative;
+    padding-left: 1.6em;
+    margin-bottom: 1.2em;
+    font-size: 0.92em;
+    line-height: 2.0;
+    color: var(--text-dark);
+}
+
+body.note-page .note-summary-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    color: #E8389E; /* 鏡の枠のピンク */
+    font-size: 0.7em;
+}
+
+body.note-page .note-summary-tail {
+    margin: 1.8em 0 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: #656368;
+}
+
+/* 章見出し（h2） */
+body.note-page .novel-text h2 {
+    font-family: var(--font-en);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #28272c;
+    letter-spacing: 0.06em;
+    margin: 0 0 1.2em;
+}
+
+body.note-page .novel-text h2 + h3 {
+    margin-top: 0.6em;
+}
+
+/* AI役割リスト */
+body.note-page .note-ai-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5em;
+}
+
+body.note-page .note-ai-list li {
+    margin-bottom: 0.9em;
+    line-height: 1.9;
+    text-indent: 0;
+    color: var(--text-dark);
+}
+
+body.note-page .note-ai-list strong {
+    color: #28272c;
+    font-weight: 700;
+}
+
 /* ========================================
    CHAPTER2 PAGE (背景 #fcfcfe)
    chapter2.html専用 - 全背景を上書き
