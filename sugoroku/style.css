@@ -1,0 +1,605 @@
+﻿:root {
+  --bg: #f8efe8;
+  --paper: rgba(255, 252, 247, 0.94);
+  --paper-solid: #fffaf4;
+  --ink: #5f5148;
+  --muted: #9a8679;
+  --line: rgba(151, 122, 103, 0.18);
+  --rose: #ef9aa7;
+  --rose-deep: #df7486;
+  --blue: #91c9dd;
+  --blue-deep: #5aa8c6;
+  --mint: #b9dfd0;
+  --cream: #fff4cf;
+  --accent: #f5bd67;
+  --shadow: 0 18px 42px rgba(126, 91, 68, 0.16);
+  --soft-shadow: 0 8px 22px rgba(126, 91, 68, 0.12);
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Serif CJK JP", "Noto Serif JP", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(239, 154, 167, 0.28), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(145, 201, 221, 0.34), transparent 34rem),
+    linear-gradient(135deg, #fff8ef 0%, var(--bg) 50%, #eef7f4 100%);
+}
+
+.game {
+  --cell-height: clamp(58px, calc((100vh - 318px) / 5), 86px);
+  width: min(1040px, calc(100% - 28px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: clamp(14px, 2.4vh, 24px) 0;
+}
+
+h1 {
+  width: fit-content;
+  margin: 0 auto 14px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 999px;
+  background: rgba(255, 250, 244, 0.78);
+  color: #6b5548;
+  font-size: clamp(22px, 3vw, 31px);
+  letter-spacing: 0;
+  box-shadow: var(--soft-shadow);
+}
+
+.status,
+.dice-area,
+.message,
+.board {
+  backdrop-filter: blur(10px);
+}
+
+.status {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 auto 12px;
+}
+
+.status > div {
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--soft-shadow);
+}
+
+.status strong {
+  color: #60473c;
+  font-size: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dice-area {
+  display: grid;
+  grid-template-columns: auto auto minmax(280px, 1fr);
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+#rollButton {
+  grid-column: 1;
+}
+
+.restart-button {
+  grid-column: 2;
+}
+
+.dice-track {
+  grid-column: 3;
+  position: relative;
+  width: 100%;
+  min-width: 280px;
+  height: 88px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f8fbff 0%, #edf7f7 100%);
+  border: 1px solid rgba(125, 158, 166, 0.18);
+}
+.dice-track::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 15px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(239, 154, 167, 0.42), rgba(145, 201, 221, 0.52));
+}
+
+#diceImage {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  z-index: 1;
+  display: block;
+  width: 78px;
+  height: 78px;
+  opacity: 1;
+  visibility: visible;
+  object-fit: contain;
+  background: transparent;
+  transform: translateY(0) rotate(0deg);
+  transform-origin: center center;
+  filter: drop-shadow(0 8px 10px rgba(95, 81, 72, 0.18));
+}
+
+#diceImage.dice-reset {
+  transition: none;
+  left: 0;
+  transform: translateY(0) rotate(0deg);
+}
+
+#diceImage.rolling {
+  animation: dice-roll-side 1.45s cubic-bezier(0.18, 0.72, 0.2, 1) forwards;
+}
+
+#diceImage.rolled {
+  left: calc(100% - 78px);
+  transform: translateY(0) rotate(2160deg);
+}
+
+@keyframes dice-roll-side {
+  0% { left: 0; transform: translateY(0) rotate(0deg); }
+  18% { left: calc((100% - 78px) * 0.2); transform: translateY(-9px) rotate(240deg); }
+  38% { left: calc((100% - 78px) * 0.46); transform: translateY(0) rotate(680deg); }
+  58% { left: calc((100% - 78px) * 0.66); transform: translateY(-6px) rotate(1120deg); }
+  78% { left: calc((100% - 78px) * 0.86); transform: translateY(0) rotate(1640deg); }
+  100% { left: calc(100% - 78px); transform: translateY(0) rotate(2160deg); }
+}
+
+button {
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f59faf 0%, var(--rose-deep) 100%);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 16px rgba(223, 116, 134, 0.28);
+  white-space: nowrap;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 22px rgba(223, 116, 134, 0.32);
+}
+
+button:disabled {
+  background: #c9bfb9;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.restart-button {
+  display: none;
+  background: linear-gradient(180deg, #91c9dd 0%, var(--blue-deep) 100%);
+  box-shadow: 0 8px 16px rgba(90, 168, 198, 0.24);
+}
+
+.restart-button.is-visible {
+  display: inline-block;
+}
+
+.message {
+  min-height: 60px;
+  margin: 0 auto 14px;
+  padding: 14px 18px;
+  border: 1px solid rgba(223, 116, 134, 0.2);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, #fffaf4 0%, #fff3f0 100%);
+  color: #6c554b;
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 800;
+  line-height: 1.55;
+  text-align: center;
+  box-shadow: var(--soft-shadow);
+}
+
+.message.clear {
+  border-color: rgba(90, 168, 198, 0.28);
+  background: linear-gradient(180deg, #f1fbff 0%, #e8f6f4 100%);
+  color: #4a7890;
+  font-size: clamp(18px, 2.4vw, 24px);
+}
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  padding: clamp(12px, 1.8vw, 18px);
+  border: 1px solid rgba(151, 122, 103, 0.16);
+  border-radius: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 244, 0.96), rgba(255, 246, 238, 0.96));
+  box-shadow: var(--shadow);
+  overflow: visible;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: var(--cell-height);
+  padding: 8px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #d9f0f5 0%, #a9d8e5 100%);
+  color: #5b6570;
+  font-size: clamp(10px, 1.15vw, 12px);
+  font-weight: 800;
+  line-height: 1.24;
+  text-align: center;
+  box-shadow: inset 0 -2px 0 rgba(92, 110, 116, 0.08), 0 5px 12px rgba(126, 91, 68, 0.08);
+  overflow: hidden;
+}
+
+.cell:nth-child(odd) {
+  background: linear-gradient(180deg, #ffe0e4 0%, #f5aeb9 100%);
+  color: #74515a;
+}
+
+.cell.start {
+  background: linear-gradient(180deg, #e3f5ee 0%, var(--mint) 100%);
+  color: #4f7469;
+}
+
+.cell.goal {
+  background: linear-gradient(180deg, #fff6d8 0%, #f7cb75 100%);
+  color: #7b5f32;
+}
+
+.cell.current {
+  z-index: 2;
+  outline: 3px solid #fff;
+  outline-offset: -5px;
+  box-shadow:
+    0 0 0 4px rgba(245, 189, 103, 0.78),
+    0 12px 24px rgba(126, 91, 68, 0.22);
+}
+
+.number {
+  display: inline-flex;
+  align-self: center;
+  justify-content: center;
+  min-width: 26px;
+  margin: 0 0 4px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.64);
+  color: rgba(95, 81, 72, 0.68);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+#chessPiece {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  width: 46px;
+  height: 72px;
+  object-fit: contain;
+  pointer-events: none;
+  transition: transform 0.48s ease-in-out;
+  filter: drop-shadow(0 9px 10px rgba(95, 81, 72, 0.22));
+  will-change: transform;
+}
+
+#chessPiece.no-transition {
+  transition: none;
+}
+
+.goal-effect {
+  position: fixed;
+  left: 50%;
+  top: 46%;
+  z-index: 20;
+  padding: 10px 22px;
+  border: 4px solid #fff;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fff5ca 0%, #f6b86b 100%);
+  color: #7b5734;
+  font-size: clamp(34px, 6vw, 52px);
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.55);
+  box-shadow: 0 18px 44px rgba(126, 91, 68, 0.24);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 28px) scale(0.78) rotate(-3deg);
+}
+
+.goal-effect.show {
+  animation: goal-pop 2.4s ease-out forwards;
+}
+
+.goal-effect.show::before,
+.goal-effect.show::after {
+  content: "★ ★ ★";
+  position: absolute;
+  left: 50%;
+  width: 220px;
+  color: #f0a855;
+  font-size: 20px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.goal-effect.show::before { top: -32px; }
+.goal-effect.show::after { bottom: -32px; }
+
+.game-back-nav {
+  width: min(1040px, calc(100% - 28px));
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.exit-door-btn {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.exit-door-scene {
+  position: relative;
+  width: 170px;
+  height: 200px;
+  perspective: 500px;
+}
+
+.exit-door-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.exit-door-panel {
+  position: absolute;
+  top: 18px;
+  left: 44px;
+  transform: rotateY(0deg);
+  transform-origin: right center;
+  transition: transform 0.55s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.exit-door-btn:hover .exit-door-panel,
+.exit-door-btn:focus-visible .exit-door-panel {
+  transform: rotateY(55deg);
+}
+
+.exit-door-label {
+  margin-top: 6px;
+  color: #7a5a25;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  transition: color 0.3s ease;
+}
+
+.exit-door-btn:hover .exit-door-label,
+.exit-door-btn:focus-visible .exit-door-label {
+  color: #2133D1;
+}
+
+@keyframes goal-pop {
+  0% { opacity: 0; transform: translate(-50%, 36px) scale(0.66) rotate(-8deg); }
+  18% { opacity: 1; transform: translate(-50%, -18px) scale(1.16) rotate(3deg); }
+  34% { transform: translate(-50%, 0) scale(1) rotate(-2deg); }
+  78% { opacity: 1; transform: translate(-50%, -26px) scale(1.04) rotate(2deg); }
+  100% { opacity: 0; transform: translate(-50%, -78px) scale(0.92) rotate(0deg); }
+}
+
+@media (max-height: 700px) and (min-width: 760px) {
+  .game {
+    --cell-height: clamp(48px, calc((100vh - 284px) / 5), 68px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+
+  .dice-track {
+    height: 88px;
+  }
+
+  .message {
+    min-height: 52px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .game {
+    --cell-height: 70px;
+    width: min(100% - 18px, 520px);
+    padding: 12px 0 18px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .status {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .status > div {
+    padding: 10px;
+  }
+
+  .dice-area {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+  }
+
+  #rollButton {
+    grid-column: 1;
+  }
+
+  .restart-button {
+    grid-column: 2;
+  }
+
+  .dice-track {
+    grid-column: 1 / -1;
+    min-width: 0;
+    height: 84px;
+  }
+
+
+
+  .board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    border-radius: 22px;
+  }
+
+  .cell {
+    font-size: 11px;
+    border-radius: 14px;
+  }
+
+  #chessPiece {
+    width: 40px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 420px) {
+  .game {
+    --cell-height: 64px;
+  }
+
+  .status strong {
+    font-size: 17px;
+  }
+
+  button {
+    width: 100%;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .dice-area {
+    grid-template-columns: 1fr;
+  }
+
+  .restart-button {
+    grid-column: auto;
+  }
+
+
+}
+
+/* ========================================
+   FRIDAY NIGHT ALIGNMENT OVERRIDE v2
+   ベース色：MVの双六シーンからスポイトした #b5731f
+   style.css の一番下に貼る。消せば元に戻る。
+   ======================================== */
+
+/* 背景：MVの卓上のオレンジブラウンの世界
+   #b5731f をそのまま全面に敷くと文字が読みにくいので、
+   明るくした近縁色でグラデを組み、四隅に原色を滲ませる */
+body {
+  background:
+    radial-gradient(circle at top left, rgba(181, 115, 31, 0.35), transparent 32rem),
+    radial-gradient(circle at bottom right, rgba(181, 115, 31, 0.28), transparent 34rem),
+    linear-gradient(135deg, #e8c894 0%, #ddb476 50%, #d2a35c 100%);
+}
+
+/* サイコロを振るボタン：ソファの青(#2133D1) */
+button {
+  background: linear-gradient(180deg, #3a4be0 0%, #2133D1 100%);
+  box-shadow: 0 8px 16px rgba(33, 51, 209, 0.28);
+}
+
+button:hover:not(:disabled) {
+  box-shadow: 0 12px 22px rgba(33, 51, 209, 0.34);
+}
+
+/* もう一度ボタン：背景のオレンジ #b5731f の深い版で区別 */
+.restart-button {
+  background: linear-gradient(180deg, #b5731f 0%, #935c16 100%);
+  box-shadow: 0 8px 16px rgba(147, 92, 22, 0.32);
+}
+
+/* サイコロのトラックも卓上の色味に寄せる */
+.dice-track {
+  background: linear-gradient(180deg, #f9efdd 0%, #f1e2c5 100%);
+  border-color: rgba(181, 115, 31, 0.22);
+}
+
+.dice-track::after {
+  background: linear-gradient(90deg, rgba(33, 51, 209, 0.35), rgba(181, 115, 31, 0.55));
+}
+
+/* ========================================
+   マスの色：MVの双六の赤(#bd3d4a)と青(#3b7bc5)
+   原色だと文字が沈むので、明度を上げた淡い版でグラデを組み、
+   文字色は各原色を暗くした近縁色に
+   ======================================== */
+
+/* 青マス（偶数）：#3b7bc5 の淡い版 */
+.cell {
+  background: linear-gradient(180deg, #ddeaf7 0%, #a8c8e8 100%);
+  color: #2d5a8e;
+}
+
+/* 赤マス（奇数）：#bd3d4a の淡い版 */
+.cell:nth-child(odd) {
+  background: linear-gradient(180deg, #f9e0e3 0%, #e8a3ab 100%);
+  color: #8e3640;
+}
+
+/* スタート：MVのクイーンの背景のティール(#329a9b)。淡い版で視認性を確保 */
+.cell.start,
+.cell.start:nth-child(odd) {
+  background: linear-gradient(180deg, #d4eeee 0%, #84c6c7 100%);
+  color: #1f6263;
+}
+
+/* ゴール：MVのコイン・ミラーボールの金色。「上がり」の華やかさ */
+.cell.goal,
+.cell.goal:nth-child(odd) {
+  background: linear-gradient(180deg, #ffefc2 0%, #f0c25e 100%);
+  color: #7b5a1e;
+}

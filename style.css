@@ -285,10 +285,11 @@ body::before {
 
 .scroll-indicator::after {
     content: '';
-    width: 1px;
+    width: 2px;
     height: 30px;
     background: linear-gradient(to bottom, var(--pink-main), var(--pink-pale));
     margin-top: 15px;
+    clip-path: polygon(25% 0, 75% 0, 55% 100%, 45% 100%);
 }
 
 @keyframes bounce {
@@ -789,7 +790,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .abo
   display: block;
   flex: 0 0 auto;
   width: 1px;
-  height: 175px;
+  height: 210px;
   margin-top: 15px;
   background: linear-gradient(to bottom, #9f0f4e 0%, #f47eb1 38%, #ffe1ef 64%, var(--white) 100%);
 }
@@ -2392,6 +2393,35 @@ body.note-page .note-ai-list li {
 body.note-page .note-ai-list strong {
     color: #28272c;
     font-weight: 700;
+}
+
+body.note-page .secret-game-link {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(192, 93, 124, 0.32);
+}
+
+body.note-page .secret-game-link:hover,
+body.note-page .secret-game-link:focus-visible {
+    color: #c05d7c;
+    border-bottom-color: #c05d7c;
+}
+
+body.note-page .note-game-link-row {
+    margin: 2.4em 0 0;
+    font-size: 0.7em;
+    text-align: right;
+}
+
+body.note-page .note-game-link-row a {
+    color: #c05d7c;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(192, 93, 124, 0.35);
+}
+
+body.note-page .note-game-link-row a:hover,
+body.note-page .note-game-link-row a:focus-visible {
+    border-bottom-color: #c05d7c;
 }
 
 /* ========================================
