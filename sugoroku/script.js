@@ -33,6 +33,14 @@ const restText = document.getElementById("restText");
 const message = document.getElementById("message");
 const goalEffect = document.getElementById("goalEffect");
 
+// 出目画像を事前読み込み（出目確定時の表示遅延を防ぐ）
+const diceImagePreloads = [];
+for (let i = 1; i <= 6; i += 1) {
+  const preload = new Image();
+  preload.src = `assets/dice${i}.png?v=7`;
+  diceImagePreloads.push(preload);
+}
+
 function sleep(ms) {
   return new Promise((resolve) => window.setTimeout(resolve, ms));
 }

@@ -603,3 +603,17 @@ button:hover:not(:disabled) {
   background: linear-gradient(180deg, #ffefc2 0%, #f0c25e 100%);
   color: #7b5a1e;
 }
+
+/* ========================================
+   REDUCED MOTION（動きを減らすユーザー設定に対応）
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
