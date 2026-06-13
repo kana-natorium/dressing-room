@@ -37,7 +37,7 @@ const goalEffect = document.getElementById("goalEffect");
 const diceImagePreloads = [];
 for (let i = 1; i <= 6; i += 1) {
   const preload = new Image();
-  preload.src = `assets/dice${i}.png?v=7`;
+  preload.src = `assets/dice${i}.png?v=8`;
   diceImagePreloads.push(preload);
 }
 
@@ -222,7 +222,7 @@ async function rollDiceAnimation(finalDice) {
 
   await sleep(1450);
 
-  diceImage.src = `assets/dice${finalDice}.png?v=7`;
+  diceImage.src = `assets/dice${finalDice}.png?v=8`;
   diceImage.alt = `サイコロの出目 ${finalDice}`;
   diceImage.classList.remove("rolling");
   diceImage.classList.add("rolled");
@@ -267,7 +267,7 @@ function resetGame() {
   isAnimating = false;
 
   diceImage.classList.remove("rolling", "rolled", "dice-reset");
-  diceImage.src = "assets/dice1.png?v=7";
+  diceImage.src = "assets/dice1.png?v=8";
   diceImage.alt = "サイコロの出目 1";
 
   if (goalEffect) {

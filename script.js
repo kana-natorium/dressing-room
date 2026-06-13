@@ -2,6 +2,9 @@
    DRESSING ROOM - PV Style Animations
    ======================================== */
 
+// 動きを減らすユーザー設定。JSが直接動かす演出はこのフラグで停止する
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initTextSplit();
@@ -17,6 +20,9 @@ function initParallax() {
     const bgLines = document.querySelector('.bg-lines');
 
     if (!heroContent) return;
+
+    // 動きを減らす設定ではパララックスを無効化
+    if (prefersReducedMotion) return;
 
     // タッチデバイス（スマホ）ではパララックス無効 - iOS scroll/URL barとの競合防止
     if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
@@ -82,6 +88,9 @@ function initTextSplit() {
 
 /* 3Dカードチルト */
 function initCardTilt() {
+    // 動きを減らす設定では3Dカードチルトを無効化
+    if (prefersReducedMotion) return;
+
     const cards = document.querySelectorAll('.story-card');
 
     cards.forEach(card => {
@@ -136,7 +145,7 @@ function initReadingProgress() {
 
 /* カーソルグロー */
 const cursor = document.getElementById('cursor');
-if (cursor) {
+if (cursor && !prefersReducedMotion) {
     let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 
     document.addEventListener('mousemove', (e) => {
@@ -168,7 +177,7 @@ function initScrollIndicator() {
 
         window.scrollTo({
             top: targetTop,
-            behavior: 'smooth'
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
         });
     });
 }
