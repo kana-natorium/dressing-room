@@ -209,9 +209,11 @@ dressing-room-test にプッシュする時は、検索に拾わせないため�
 
 ```html
 <meta name="robots" content="noindex, nofollow">
+```
 
 main にプッシュする時は、本番公開用なので、全HTMLファイルから以下を削除する。
 
+```html
 <meta name="robots" content="noindex, nofollow">
 ```
 
