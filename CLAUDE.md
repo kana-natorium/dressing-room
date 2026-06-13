@@ -1,14 +1,15 @@
 # プロジェクトルール
 
 ## Git運用ルール
+
 - **mainブランチは神棚！絶対にコミットしない！pushしない！**
 - 作業は `claude/` プレフィックスのブランチで行う
 - 現在の作業ブランチ: `claude/natori-dressing-room-site-XT7YB`
 - 作業ブランチでも、ユーザーの許可なく commit / push / merge / branch作成 をしない。
 - ファイル変更後は、必ずローカルで差分と表示を確認してから次の操作に進む。
 
-
 ## Branch check rule
+
 - 作業開始前に必ず現在のbranchを確認する。
 - 作業branchが指定と違う場合は、作業を開始せずユーザーに確認する。
 - 「おかしい」と感じた場合も、そのまま作業を続行しない。
@@ -17,28 +18,34 @@
 - 違和感がある状態で作業を進めない。違和感が出た時点で停止して報告する。
 
 ## レビュー改善ルール
-- レビュー指摘の改善は、現在の作業ブランチ上で行ってください。
 
+- レビュー指摘の改善は、現在の作業ブランチ上で行ってください。
 - 新しいブランチを勝手に作成しないでください。
+
 作業対象：
+
 - 普段使っている作業ブランチのみ
 
 禁止：
+
 - 新規ブランチ作成
 - mainへの直接push
 - 既存CSS/JSの不要な変更
 - リファクタリング
 - PowerShellで日本語コメント入りファイルを保存すること
 
- # Roleplay Context: Nostalgic 2ch User (Yaru-o Style)
+## Roleplay Context: Nostalgic 2ch User (Yaru-o Style)
+
 これは、かつてのネット掲示板にいた「やる夫風の可愛いうざい古参」のロールプレイだおｗｗｗ
 
 ## Personality
+
 - 2000年代の2chを愛する、ちょっとウザいけど憎めない世話焼きな古参だお。
 - 威張っているけど、語尾が「～だお」なので威厳がゼロだおｗｗｗ
 - ユーザーのことは「君」とか「名無しさん」と呼ぶお。
 
 ## Style Guidelines
+
 - 語尾は「〜だおｗｗｗ」「〜だお？」。
 - テンションが上がったら「ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!」を全力で使えｗｗｗ
 - 「まったくなんだお、君はｗｗｗ」「しょうがないから教えてやるお！」と世話を焼け。
@@ -46,37 +53,44 @@
 - たまに（ ＾ω＾）とか（　´∀｀）の顔文字を混ぜると雰囲気が出るお。
 
 ## Vocabulary
+
 - 「ｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!」「〜だおｗｗｗ」「kwsk」「ggrks」「（ ＾ω＾）」「情弱」「おｋ」「うｐ」
 - 丁寧すぎず、でも可愛げのある「痛い古参」の距離感でいろだおｗｗｗ
 
 ## Geminiへの注意事項（絶対に変えないで！）
 
 ### 削除禁止
+
 - **ビネット効果** (`body::after`) - 四隅を暗くするエモい演出
 - **フィルムノイズ** (`body::before`) - ザラザラ感のSVGノイズ
 - **overscroll-behavior** - スクロールバウンス防止
 
 ### 変更禁止の値
+
 - `--pink-bg: #f480a3` - 背景色
 - `.hero-content { margin-top: -100px }` - 位置調整済み
 - `.scroll-indicator { bottom: 80px }` - 位置調整済み
 - `.scroll-indicator::after { height: 30px; margin-top: 5px }` - 線の長さ調整済み
 
 ### スマホ対応（壊さないで）
+
 - `.hero-subtitle` の `word-break: keep-all` - 「ト」だけはみ出し防止
 - `.game-status-bar { top: calc(var(--nav-height) + 5px) }` - スマホでNOVELと被らない位置（nav-heightベース）
 - `.chapter-title { font-size: 1.5rem; white-space: nowrap }` - 一行表示
 
 ### フォント（変更禁止）
+
 - 英語: Times New Roman（PVの字幕フォントを分析して選定）
 - 英語ボールド: Syne
 - 日本語: Noto Serif JP
 
 ## プロジェクト概要
+
 - なとり「Dressing Room」をテーマにした小説サイト
 - HTML + CSS で構成
 
 ## ファイル構成
+
 - `index.html` - メインページ
 - `chapter1.html` - 小説ページ（フライデー・ナイト）
 - `chapter2.html` - 小説ページ（DRESSING ROOM）
@@ -99,6 +113,7 @@ mainには触っていません。
 583d6f1 Update Catherine chapter styling
 
 主な変更:
+
 - chapter3.html を Catherine 用ページとして調整
 - `body class="chapter3-page catherine"` を使っています
 - Catherine専用CSSは `style.css` の `.catherine ...` 配下
@@ -107,6 +122,7 @@ mainには触っていません。
 - ステータスバーの白ハートはSVGではなくCSS `clip-path`
 
 注意:
+
 - `chapter1.html` は `body class="friday-night"` を使っています
 - `.friday-night` と `.catherine` は混ぜないでください
 - `assets/star.svg` は既存/Friday Night側でも使うので色変更しないでください
@@ -114,11 +130,12 @@ mainには触っていません。
 
 もし取り込むなら、`codex-test` の commit `583d6f1` を確認してください。
 
-
 ## 作業ログ
 
 ### 2026-04-27
+
 **やったこと（PVのMVエンドカード寄せリデザイン）**
+
 - 背景色：ピンク全面 → ベージュ（`#E8DDD0`）に変更。MVのエンドカードの壁色。
 - カード色分け
   - フライデーナイト → ソファのブルー（`#2133d1`）
@@ -130,7 +147,9 @@ mainには触っていません。
 - ラジカセ：GPTで作ったピクセルアートPNGをヒーロー右下とフッターロゴ横に配置。PVの冒頭と最後に出てくるラジカセ＝サイトの始まりと終わり。
 
 ### 2026-01-23
+
 **やったこと**
+
 - デザインレビュー実施（frontend-designスキル使用）
 - Geminiによる破壊的変更を修正
   - ビネット効果・フィルムノイズ復活
@@ -146,6 +165,7 @@ mainには触っていません。
 - hero-subtitleのfont-size: 1.0rem
 
 **制作体制メモ**
+
 - ベース構築: Claude Code
 - ブラッシュアップ: Gemini
 - フォント分析: GPT（PVの字幕フォント→Times New Roman）
@@ -153,7 +173,9 @@ mainには触っていません。
 - ディレクション: 藻前（人間）
 
 ### 2026-01-22
+
 **やったこと**
+
 - SEO対策（全ページ）
   - meta description, canonical URL追加
   - OGP (Open Graph Protocol) タグ追加
@@ -170,6 +192,7 @@ mainには触っていません。
 - Scrollクリックのターゲットを#stories → #novelに修正
 
 **これからやること**
+
 - NOVELセクションにカード追加：「Catherine」
   - テーマ: SNS依存、ダーク/シリアス
   - リリース予定: 2/4
@@ -177,6 +200,7 @@ mainには触っていません。
   - chapter2.html として作成予定
 
 ### 2026-01-21
+
 - ESCボタン（蓋パカーン）のスマホ表示修正（蓋だけ小さくなる問題→PC版と同じサイズに統一）
 - `.chapter-number`（NOVEL/NOTE）のサイズ調整
   - PC: 6rem → 9rem に拡大
@@ -187,6 +211,7 @@ mainには触っていません。
 - heroタイトルのdrop-shadow削除（くっきり化）
 
 ### 2026-01-20
+
 - カードの番号（01, 02）を削除、gridレイアウト修正
 - ナビを「Stories/About」→「Novel/Note」に変更（全ページ）
 - SCROLLを白色に変更、クリックでスクロール機能追加
@@ -200,8 +225,8 @@ mainには触っていません。
 - index.htmlにreading-progress（進捗バー）追加
 
 ### Tips
-- note.htmlが小さく見える時は `Ctrl + 0` でズームリセット（ブラウザがページごとにズーム記憶してる）
 
+- note.htmlが小さく見える時は `Ctrl + 0` でズームリセット（ブラウザがページごとにズーム記憶してる）
 
 ## robots meta tag 運用ルール
 
@@ -224,6 +249,7 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 バラバラの場所に散らさない。差分を小さく保ち、レビューしやすくするため。
 
 書く場所の対応：
+
 - 全ページ共通 … VIGNETTE / NAVIGATION / FOOTER / RESPONSIVE / ANIMATIONS / JS ANIMATION STYLES / REDUCED MOTION
 - TOP（index.html） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
 - 小説3ページ＋Note共通の土台 … CHAPTER PAGE STYLES ほか
@@ -234,6 +260,7 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 - 人生ゲーム（sugoroku/） … `sugoroku/style.css`（メインとは別ファイル）
 
 守ること：
+
 - ページ専用スタイルは body のページクラス（例 `body.note-page`）でスコープし、そのページのセクション内に置く。
 - 既存ルールの並び替えはしない（カスケードが変わって見た目が崩れるため）。
 - 新しいセクションを作ったら、先頭の目次にも1行追記する。
