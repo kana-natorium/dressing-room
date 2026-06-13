@@ -8,44 +8,46 @@
    ----------------------------------------
    ※ ルールの並び順は変えていません。各セクション見出しに
    　「どのページ用か」を【】で書いています。grep/検索の目印にどうぞ。
+   ※ 各項目の (Lxxx) は、その見出しブロックが始まる行番号の目安です。
+   　（編集で前後すると少しズレるので、ピッタリ合わない時は見出し名で検索してお）
 
    〔全ページ共通〕
-     - VIGNETTE & FILM NOISE EFFECTS … ビネット＋フィルムノイズ（エモ演出）
-     - NAVIGATION … 上部ナビ
-     - FOOTER … フッター（ラジカセ）
-     - RESPONSIVE / RESPONSIVE ENHANCEMENTS … レスポンシブ
-     - TOUCH DEVICE OPTIMIZATIONS … タッチ端末
-     - ANIMATIONS … @keyframes 定義
-     - JS ANIMATION STYLES … JS連動アニメ用クラス
-     - REDUCED MOTION … 動きを減らす設定への対応(a11y)
+     - (L125)  VIGNETTE & FILM NOISE EFFECTS … ビネット＋フィルムノイズ（エモ演出）
+     - (L358)  NAVIGATION … 上部ナビ
+     - (L650)  FOOTER … フッター（ラジカセ）
+     - (L998)  RESPONSIVE / (L1913) RESPONSIVE ENHANCEMENTS … レスポンシブ
+     - (L1980) TOUCH DEVICE OPTIMIZATIONS … タッチ端末
+     - (L1132) ANIMATIONS … @keyframes 定義
+     - (L1208) JS ANIMATION STYLES … JS連動アニメ用クラス
+     - (L3043) REDUCED MOTION … 動きを減らす設定への対応(a11y)
 
    〔TOP（index.html）〕
-     - HERO SECTION … ファーストビュー
-     - STORIES SECTION … NOVELカード一覧（作品ごとの色違いもここ）
-     - ABOUT SECTION
-     - HERO RABBIT MOTIF … うさぎ（MV由来／左耳ぴこぴこ）
+     - (L162)  HERO SECTION … ファーストビュー
+     - (L427)  STORIES SECTION … NOVELカード一覧（作品ごとの色違いもここ）
+     - (L576)  ABOUT SECTION
+     - (L1758) HERO RABBIT MOTIF … うさぎ（MV由来／左耳ぴこぴこ）
 
    〔小説3ページ＋Note 共通の土台〕
-     - CHAPTER PAGE STYLES … 本文・hero・戻るボタン等
-     - CHAPTER PAGE ENHANCEMENTS / BACKGROUND ENHANCEMENT
-     - GAME ITEM DECORATIONS … 浮遊する装飾スプライト（MV由来）
-     - GAME UI STATUS BAR … 上部ステータスバー（MVのスマホゲーム画面由来）
+     - (L690)  CHAPTER PAGE STYLES … 本文・hero・戻るボタン等
+     - (L1308) CHAPTER PAGE ENHANCEMENTS / (L1650) BACKGROUND ENHANCEMENT
+     - (L1516) GAME ITEM DECORATIONS … 浮遊する装飾スプライト（MV由来）
+     - (L1675) GAME UI STATUS BAR … 上部ステータスバー（MVのスマホゲーム画面由来）
 
    〔フライデー・ナイト（chapter1.html / body.friday-night）〕
-     - FRIDAY NIGHT PAGE OVERRIDES … MVのソファの青／ブランデーの色
-     - DART HEART BUTTON … 矢の刺さったハートの戻るボタン（MV由来）
+     - (L1998) FRIDAY NIGHT PAGE OVERRIDES … MVのソファの青／ブランデーの色
+     - (L2122) DART HEART BUTTON … 矢の刺さったハートの戻るボタン（MV由来）
 
    〔Production Note（note.html / body.note-page）〕
-     - h3 STYLING FOR NOTE PAGE
-     - NOTE PAGE … 背景=MVのクローゼットの壁のグレー #e6e6e8
+     - (L1896) h3 STYLING FOR NOTE PAGE
+     - (L2297) NOTE PAGE … 背景=MVのクローゼットの壁のグレー #e6e6e8
 
    〔DRESSING ROOM（chapter2.html / body.chapter2-page）〕
-     - CHAPTER2 PAGE … 背景ピンク #fce2f1
+     - (L2499) CHAPTER2 PAGE … 背景ピンク #fce2f1
 
    〔Catherine（chapter3.html / body.catherine）〕
-     - CATHERINE PAGE OVERRIDES … ほぼモノクロの暗い世界
-     - CATHERINE STAR ANIMATION … 流れて消える星（歌詞の視覚化）
-     - CATHERINE SKULL TOP BUTTON … ドクロの戻るボタン（歌詞由来）
+     - (L2525) CATHERINE PAGE OVERRIDES … ほぼモノクロの暗い世界
+     - (L2649) CATHERINE STAR ANIMATION … 流れて消える星（歌詞の視覚化）
+     - (L2702) CATHERINE SKULL TOP BUTTON … ドクロの戻るボタン（歌詞由来）
 
    ※ 人生ゲームページ(sugoroku/)は専用の sugoroku/style.css にあります。
    ======================================== */
