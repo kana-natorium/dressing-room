@@ -58,6 +58,7 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 バラバラの場所に散らさない。差分を小さく保ち、レビューしやすくするため。
 
 書く場所の対応：
+
 - 全ページ共通 … VIGNETTE / NAVIGATION / FOOTER / RESPONSIVE / ANIMATIONS / JS ANIMATION STYLES / REDUCED MOTION
 - TOP（index.html） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
 - 小説3ページ＋Note共通の土台 … CHAPTER PAGE STYLES ほか
@@ -68,6 +69,7 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 - 人生ゲーム（sugoroku/） … `sugoroku/style.css`（メインとは別ファイル）
 
 守ること：
+
 - ページ専用スタイルは body のページクラス（例 `body.note-page`）でスコープし、そのページのセクション内に置く。
 - 既存ルールの並び替えはしない（カスケードが変わって見た目が崩れるため）。
 - 新しいセクションを作ったら、先頭の目次にも1行追記する。
