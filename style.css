@@ -3,6 +3,55 @@
    PV Style: Pink, Fashionable, Runway
    ======================================== */
 
+/* ========================================
+   ■ 目次（どのページ用のCSSか）
+   ----------------------------------------
+   ※ ルールの並び順は変えていません。各セクション見出しに
+   　「どのページ用か」を【】で書いています。grep/検索の目印にどうぞ。
+   ※ 各項目の (Lxxx) は、その見出しブロックが始まる行番号の目安です。
+   　（編集で前後すると少しズレるので、ピッタリ合わない時は見出し名で検索してお）
+
+   〔全ページ共通〕
+     - (L125)  VIGNETTE & FILM NOISE EFFECTS … ビネット＋フィルムノイズ（エモ演出）
+     - (L358)  NAVIGATION … 上部ナビ
+     - (L650)  FOOTER … フッター（ラジカセ）
+     - (L998)  RESPONSIVE / (L1913) RESPONSIVE ENHANCEMENTS … レスポンシブ
+     - (L1980) TOUCH DEVICE OPTIMIZATIONS … タッチ端末
+     - (L1132) ANIMATIONS … @keyframes 定義
+     - (L1208) JS ANIMATION STYLES … JS連動アニメ用クラス
+     - (L3043) REDUCED MOTION … 動きを減らす設定への対応(a11y)
+
+   〔TOP（index.html）〕
+     - (L162)  HERO SECTION … ファーストビュー
+     - (L427)  STORIES SECTION … NOVELカード一覧（作品ごとの色違いもここ）
+     - (L576)  ABOUT SECTION
+     - (L1758) HERO RABBIT MOTIF … うさぎ（MV由来／左耳ぴこぴこ）
+
+   〔小説3ページ＋Note 共通の土台〕
+     - (L690)  CHAPTER PAGE STYLES … 本文・hero・戻るボタン等
+     - (L1308) CHAPTER PAGE ENHANCEMENTS / (L1650) BACKGROUND ENHANCEMENT
+     - (L1516) GAME ITEM DECORATIONS … 浮遊する装飾スプライト（MV由来）
+     - (L1675) GAME UI STATUS BAR … 上部ステータスバー（MVのスマホゲーム画面由来）
+
+   〔フライデー・ナイト（chapter1.html / body.friday-night）〕
+     - (L1998) FRIDAY NIGHT PAGE OVERRIDES … MVのソファの青／ブランデーの色
+     - (L2122) DART HEART BUTTON … 矢の刺さったハートの戻るボタン（MV由来）
+
+   〔Production Note（note.html / body.note-page）〕
+     - (L1896) h3 STYLING FOR NOTE PAGE
+     - (L2297) NOTE PAGE … 背景=MVのクローゼットの壁のグレー #e6e6e8
+
+   〔DRESSING ROOM（chapter2.html / body.chapter2-page）〕
+     - (L2499) CHAPTER2 PAGE … 背景ピンク #fce2f1
+
+   〔Catherine（chapter3.html / body.catherine）〕
+     - (L2525) CATHERINE PAGE OVERRIDES … ほぼモノクロの暗い世界
+     - (L2649) CATHERINE STAR ANIMATION … 流れて消える星（歌詞の視覚化）
+     - (L2702) CATHERINE SKULL TOP BUTTON … ドクロの戻るボタン（歌詞由来）
+
+   ※ 人生ゲームページ(sugoroku/)は専用の sugoroku/style.css にあります。
+   ======================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Syne:wght@700;800&family=Noto+Serif+JP:wght@400;500;700&display=swap');
 
 :root {
@@ -75,6 +124,7 @@ body {
 
 /* ========================================
    VIGNETTE & FILM NOISE EFFECTS
+   ★【全ページ共通】四隅を暗くするビネット＋ザラつきフィルムノイズ（エモ演出）
    エモい空間演出
    ======================================== */
 
@@ -111,6 +161,7 @@ body::before {
 
 /* ========================================
    HERO SECTION - Runway Style
+   ★【TOP（index.html）専用】ファーストビュー
    ======================================== */
 
 .hero {
@@ -306,6 +357,7 @@ body::before {
 
 /* ========================================
    NAVIGATION
+   ★【全ページ共通】上部ナビゲーション
    ======================================== */
 
 .nav {
@@ -374,6 +426,7 @@ body::before {
 
 /* ========================================
    STORIES SECTION
+   ★【TOP（index.html）専用】NOVELカード一覧（各作品カードの色違いもここ）
    ======================================== */
 
 .stories-section {
@@ -522,6 +575,7 @@ body::before {
 
 /* ========================================
    ABOUT SECTION
+   ★【TOP（index.html）専用】Aboutセクション
    ======================================== */
 
 .about-section {
@@ -595,6 +649,7 @@ body::before {
 
 /* ========================================
    FOOTER
+   ★【全ページ共通】フッター（ラジカセ＝フライデー/DRESSING ROOMを繋ぐMV由来アイテム）
    ======================================== */
 
 .footer {
@@ -634,6 +689,7 @@ body::before {
 
 /* ========================================
    CHAPTER PAGE STYLES
+   ★【サブページ共通】小説3ページ＋Noteの土台（本文・hero・戻るボタン等）
    ======================================== */
 
 .chapter-hero {
@@ -941,6 +997,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .abo
 
 /* ========================================
    RESPONSIVE
+   ★【全ページ共通】レスポンシブ（スマホ・タブレット）
    ======================================== */
 
 @media (max-width: 768px) {
@@ -1074,6 +1131,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .abo
 
 /* ========================================
    ANIMATIONS
+   ★【全ページ共通】@keyframes アニメーション定義
    ======================================== */
 
 @keyframes fadeInUp {
@@ -1149,6 +1207,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .abo
 
 /* ========================================
    JS ANIMATION STYLES
+   ★【全ページ共通】JS連動アニメ用クラス（script.jsから付与）
    ======================================== */
 
 /* Text Split Animation */
@@ -1248,6 +1307,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .abo
 
 /* ========================================
    CHAPTER PAGE ENHANCEMENTS
+   ★【サブページ共通】小説/Noteページの追加調整
    スマホゲーム風 × DRESSING ROOM
    ======================================== */
 
@@ -1455,6 +1515,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 /* ========================================
    GAME ITEM DECORATIONS
+   ★【サブページ共通】浮遊する装飾スプライト（coin/heart/diamond等、MV由来）
    ピクセルアート風装飾
    ======================================== */
 
@@ -1588,6 +1649,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 /* ========================================
    CHAPTER PAGE BACKGROUND ENHANCEMENT
+   ★【サブページ共通】背景の追加演出
    ======================================== */
 
 .chapter-hero {
@@ -1612,6 +1674,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 /* ========================================
    GAME UI STATUS BAR
+   ★【サブページ共通】上部ステータスバー（MVのスマホゲーム画面が由来）
    ======================================== */
 
 .game-status-bar {
@@ -1694,6 +1757,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 /* ========================================
    HERO RABBIT MOTIF
+   ★【TOP（index.html）専用】うさぎモチーフ（MV由来／左耳がぴこぴこ動く）
    ======================================== */
 
 .hero-rabbit {
@@ -1831,6 +1895,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 /* ========================================
    h3 STYLING FOR NOTE PAGE
+   ★【Production Note（note.html）専用】h3小見出し
    ======================================== */
 
 .novel-text h3 {
@@ -1847,6 +1912,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 /* ========================================
    RESPONSIVE ENHANCEMENTS
+   ★【全ページ共通】レスポンシブの追加調整
    ======================================== */
 
 @media (max-width: 768px) {
@@ -1913,6 +1979,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 
 /* ========================================
    TOUCH DEVICE OPTIMIZATIONS
+   ★【全ページ共通】タッチデバイス最適化
    ======================================== */
 @media (hover: none) and (pointer: coarse) {
 
@@ -1930,6 +1997,8 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 }
 /* ========================================
    FRIDAY NIGHT PAGE OVERRIDES
+   ★【フライデー・ナイト（chapter1.html / body.friday-night）専用】
+   　色はMVのソファの青／ブランデーの色が由来
    ======================================== */
 
 body.friday-night,
@@ -2052,6 +2121,7 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 
 /* ========================================
    DART HEART BUTTON (Friday Night) - CSS Art
+   ★【フライデー・ナイト専用】矢の刺さったハートの戻るボタン（MV由来・CSS製）
    ======================================== */
 .dart-heart-btn {
   display: inline-flex;
@@ -2226,6 +2296,8 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
 
 /* ========================================
    NOTE PAGE (背景グレー化 #e6e6e8)
+   ★【Production Note（note.html / body.note-page）専用】
+   　#e6e6e8＝MVのクローゼットの壁のグレー（＝楽屋＝舞台裏の色）
    note.html専用 - 全背景を上書き
    ※ main は .novel-wrapper の白背景を残すため除外
    ======================================== */
@@ -2426,6 +2498,7 @@ body.note-page .note-game-link-row a:focus-visible {
 
 /* ========================================
    CHAPTER2 PAGE (背景 #fcfcfe)
+   ★【DRESSING ROOM（chapter2.html / body.chapter2-page）専用】背景ピンク #fce2f1
    chapter2.html専用 - 全背景を上書き
    ※ main は .novel-wrapper の白背景を残すため除外
    ======================================== */
@@ -2451,6 +2524,7 @@ body.chapter2-page::after {
 
 /* ========================================
    CATHERINE PAGE OVERRIDES
+   ★【Catherine（chapter3.html / body.catherine）専用】ほぼモノクロの暗い世界
    ======================================== */
 
 body.catherine {
@@ -2574,6 +2648,7 @@ body.catherine .deco-sprite.star {
 
 /* ========================================
    CATHERINE STAR ANIMATION
+   ★【Catherine専用】流れて消える星（歌詞「バズって消費される」の視覚化）
    ======================================== */
 
 body.catherine .deco-sprite.star:nth-child(1) {
@@ -2626,6 +2701,7 @@ body.catherine .deco-sprite.star:nth-child(6) {
 
 /* ========================================
    CATHERINE SKULL TOP BUTTON
+   ★【Catherine専用】ドクロの戻るボタン（歌詞「最後に残るのは骨だけ」が由来）
    ======================================== */
 
 body.catherine .chapter-back {
@@ -2966,6 +3042,7 @@ body.catherine .skull-label {
 
 /* ========================================
    REDUCED MOTION（動きを減らすユーザー設定に対応）
+   ★【全ページ共通】a11y：動きを減らす設定の人向けにアニメを止める
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
     *,
