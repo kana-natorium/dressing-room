@@ -201,3 +201,38 @@ mainには触っていません。
 
 ### Tips
 - note.htmlが小さく見える時は `Ctrl + 0` でズームリセット（ブラウザがページごとにズーム記憶してる）
+
+
+## robots meta tag 運用ルール
+
+dressing-room-test にプッシュする時は、検索に拾わせないため、全HTMLファイルの `<head>` 内に以下を入れる。
+
+```html
+<meta name="robots" content="noindex, nofollow">
+
+main にプッシュする時は、本番公開用なので、全HTMLファイルから以下を削除する。
+
+<meta name="robots" content="noindex, nofollow">
+```
+
+## CSS記述ルール（ページ別ブロックに書く）
+
+`style.css` はページ別のセクションに分かれている（ファイル先頭の「目次」を参照）。
+CSSを追加・修正するときは、対象ページのセクション内に書くこと。新規ルールを
+バラバラの場所に散らさない。差分を小さく保ち、レビューしやすくするため。
+
+書く場所の対応：
+- 全ページ共通 … VIGNETTE / NAVIGATION / FOOTER / RESPONSIVE / ANIMATIONS / JS ANIMATION STYLES / REDUCED MOTION
+- TOP（index.html） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
+- 小説3ページ＋Note共通の土台 … CHAPTER PAGE STYLES ほか
+- フライデー・ナイト（chapter1.html / `body.friday-night`） … FRIDAY NIGHT PAGE OVERRIDES
+- Production Note（note.html / `body.note-page`） … NOTE PAGE
+- DRESSING ROOM（chapter2.html / `body.chapter2-page`） … CHAPTER2 PAGE
+- Catherine（chapter3.html / `body.catherine`） … CATHERINE PAGE OVERRIDES
+- 人生ゲーム（sugoroku/） … `sugoroku/style.css`（メインとは別ファイル）
+
+守ること：
+- ページ専用スタイルは body のページクラス（例 `body.note-page`）でスコープし、そのページのセクション内に置く。
+- 既存ルールの並び替えはしない（カスケードが変わって見た目が崩れるため）。
+- 新しいセクションを作ったら、先頭の目次にも1行追記する。
+- 色や装飾は、由来（MV・歌詞のどこから来たか）を分かる範囲でコメントする。
