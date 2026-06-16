@@ -92,9 +92,9 @@
 ## ファイル構成
 
 - `index.html` - メインページ
-- `friday-night.html` - 小説ページ（フライデー・ナイト）
-- `dressing-room.html` - 小説ページ（DRESSING ROOM）
-- `catherine.html` - 小説ページ（Catherine）
+- `chapter1.html` - 小説ページ（フライデー・ナイト）
+- `chapter2.html` - 小説ページ（DRESSING ROOM）
+- `chapter3.html` - 小説ページ（Catherine）
 - `note.html` - 制作ノートページ
 - `style.css` - スタイルシート
 - `script.js` - アニメーション・インタラクション
@@ -253,10 +253,10 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 - 全ページ共通 … VIGNETTE / NAVIGATION / FOOTER / RESPONSIVE / ANIMATIONS / JS ANIMATION STYLES / REDUCED MOTION
 - TOP（index.html） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
 - 小説3ページ＋Note共通の土台 … CHAPTER PAGE STYLES ほか
-- フライデー・ナイト（friday-night.html / `body.friday-night`） … FRIDAY NIGHT PAGE OVERRIDES
+- フライデー・ナイト（chapter1.html / `body.friday-night`） … FRIDAY NIGHT PAGE OVERRIDES
 - Production Note（note.html / `body.note-page`） … NOTE PAGE
-- DRESSING ROOM（dressing-room.html / `body.chapter2-page`） … CHAPTER2 PAGE
-- Catherine（catherine.html / `body.catherine`） … CATHERINE PAGE OVERRIDES
+- DRESSING ROOM（chapter2.html / `body.chapter2-page`） … CHAPTER2 PAGE
+- Catherine（chapter3.html / `body.catherine`） … CATHERINE PAGE OVERRIDES
 - 人生ゲーム（sugoroku/） … `sugoroku/style.css`（メインとは別ファイル）
 
 守ること：

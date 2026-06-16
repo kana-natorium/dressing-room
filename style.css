@@ -33,7 +33,7 @@
      - (L1516) GAME ITEM DECORATIONS … 浮遊する装飾スプライト（MV由来）
      - (L1675) GAME UI STATUS BAR … 上部ステータスバー（MVのスマホゲーム画面由来）
 
-   〔フライデー・ナイト（friday-night.html / body.friday-night）〕
+   〔フライデー・ナイト（chapter1.html / body.friday-night）〕
      - (L1998) FRIDAY NIGHT PAGE OVERRIDES … MVのソファの青／ブランデーの色
      - (L2122) DART HEART BUTTON … 矢の刺さったハートの戻るボタン（MV由来）
 
@@ -41,10 +41,10 @@
      - (L1896) h3 STYLING FOR NOTE PAGE
      - (L2297) NOTE PAGE … 背景=MVのクローゼットの壁のグレー #e6e6e8
 
-   〔DRESSING ROOM（dressing-room.html / body.chapter2-page）〕
+   〔DRESSING ROOM（chapter2.html / body.chapter2-page）〕
      - (L2499) CHAPTER2 PAGE … 背景ピンク #fce2f1
 
-   〔Catherine（catherine.html / body.catherine）〕
+   〔Catherine（chapter3.html / body.catherine）〕
      - (L2525) CATHERINE PAGE OVERRIDES … ほぼモノクロの暗い世界
      - (L2649) CATHERINE STAR ANIMATION … 流れて消える星（歌詞の視覚化）
      - (L2702) CATHERINE SKULL TOP BUTTON … ドクロの戻るボタン（歌詞由来）
@@ -571,21 +571,6 @@ body::before {
 .story-card:hover .story-arrow {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* 考察ページへのテキストリンク（カードの下に控えめに添える） */
-.card-analysis-link {
-    justify-self: start;
-    margin-top: -12px;
-    color: var(--pink-main);
-    font-size: 0.95rem;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    transition: opacity 0.2s ease;
-}
-
-.card-analysis-link:hover {
-    opacity: 0.6;
 }
 
 /* ========================================
@@ -2012,7 +1997,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .foo
 }
 /* ========================================
    FRIDAY NIGHT PAGE OVERRIDES
-   ★【フライデー・ナイト（friday-night.html / body.friday-night）専用】
+   ★【フライデー・ナイト（chapter1.html / body.friday-night）専用】
    　色はMVのソファの青／ブランデーの色が由来
    ======================================== */
 
@@ -2513,8 +2498,8 @@ body.note-page .note-game-link-row a:focus-visible {
 
 /* ========================================
    CHAPTER2 PAGE (背景 #fcfcfe)
-   ★【DRESSING ROOM（dressing-room.html / body.chapter2-page）専用】背景ピンク #fce2f1
-   dressing-room.html専用 - 全背景を上書き
+   ★【DRESSING ROOM（chapter2.html / body.chapter2-page）専用】背景ピンク #fce2f1
+   chapter2.html専用 - 全背景を上書き
    ※ main は .novel-wrapper の白背景を残すため除外
    ======================================== */
 body.chapter2-page,
@@ -2539,7 +2524,7 @@ body.chapter2-page::after {
 
 /* ========================================
    CATHERINE PAGE OVERRIDES
-   ★【Catherine（catherine.html / body.catherine）専用】ほぼモノクロの暗い世界
+   ★【Catherine（chapter3.html / body.catherine）専用】ほぼモノクロの暗い世界
    ======================================== */
 
 body.catherine {
