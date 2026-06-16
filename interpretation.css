@@ -1,0 +1,87 @@
+/* ========================================
+   INTERPRETATION (歌詞考察ページ) 専用スタイル
+   interpretation/ 配下の *-analysis.html で読み込む。
+   共通土台は style.css、考察特有の装飾だけここに置く。
+   body.analysis-page でスコープし、小説ページには影響させない。
+   ======================================== */
+
+/* アクセント色 ── ページのテーマごとに上書きできるよう変数化。
+   既定はフライデー・ナイトのソファのブルー（MV由来 #2133d1）。 */
+.analysis-page {
+    --analysis-accent: #2133d1;
+    /* 罫線用の淡色。color-mixを避け、旧ブラウザでも確実に出すよう固定rgbaで持つ */
+    --analysis-line: rgba(33, 51, 209, 0.4);
+    --analysis-line-dim: rgba(33, 51, 209, 0.2);
+}
+
+/* 考察タイトル(h1)は文が長くなるので折り返しを許可。
+   小説ページ用のスマホ nowrap（style.css）をこのページだけ上書きする。 */
+.analysis-page .chapter-title {
+    white-space: normal;
+}
+
+/* リード文 ── 記事冒頭の導入。やや大きめ＆余白広め */
+.analysis-page .analysis-lead {
+    font-size: 1.1rem;
+    line-height: 2.1;
+    margin-bottom: 3rem;
+    opacity: 0.95;
+}
+
+/* サブタイトル（h2）── 記事全体の副題 */
+.analysis-page .novel-text h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 2.5rem;
+    text-align: center;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+}
+
+/* セクション見出し（h3）── 各章の小見出し。ブルーの縦ラインで章を区切る */
+.analysis-page .novel-text h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 3.5rem 0 1.5rem;
+    padding-left: 0.85rem;
+    border-left: 4px solid var(--analysis-accent);
+    line-height: 1.5;
+}
+
+/* 歌詞引用 ── blockquote。淡いブルーの左ラインで本文と区別 */
+.analysis-page .novel-text blockquote {
+    margin: 2rem 0;
+    padding: 0.2rem 0 0.2rem 1.4rem;
+    border-left: 3px solid var(--analysis-line);
+    font-style: italic;
+    line-height: 1.95;
+    opacity: 0.85;
+}
+
+/* 締めの一文 ── 小説への誘導文 */
+.analysis-page .analysis-closing {
+    margin-top: 3.5rem;
+    line-height: 2.1;
+    opacity: 0.9;
+}
+
+/* 関連リンク ── 小説・他考察への導線 */
+.analysis-page .analysis-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--analysis-line-dim);
+}
+
+.analysis-page .analysis-links a {
+    color: var(--analysis-accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: opacity 0.2s ease;
+}
+
+.analysis-page .analysis-links a:hover {
+    opacity: 0.6;
+}

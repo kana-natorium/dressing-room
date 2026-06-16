@@ -70,10 +70,10 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 - 全ページ共通 … VIGNETTE / NAVIGATION / FOOTER / RESPONSIVE / ANIMATIONS / JS ANIMATION STYLES / REDUCED MOTION
 - TOP（index.html） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
 - 小説3ページ＋Note共通の土台 … CHAPTER PAGE STYLES ほか
-- フライデー・ナイト（chapter1.html / `body.friday-night`） … FRIDAY NIGHT PAGE OVERRIDES
+- フライデー・ナイト（friday-night.html / `body.friday-night`） … FRIDAY NIGHT PAGE OVERRIDES
 - Production Note（note.html / `body.note-page`） … NOTE PAGE
-- DRESSING ROOM（chapter2.html / `body.chapter2-page`） … CHAPTER2 PAGE
-- Catherine（chapter3.html / `body.catherine`） … CATHERINE PAGE OVERRIDES
+- DRESSING ROOM（dressing-room.html / `body.chapter2-page`） … CHAPTER2 PAGE
+- Catherine（catherine.html / `body.catherine`） … CATHERINE PAGE OVERRIDES
 - 人生ゲーム（sugoroku/） … `sugoroku/style.css`（メインとは別ファイル）
 
 守ること：
