@@ -577,7 +577,7 @@ body::before {
 .card-analysis-link {
     justify-self: start;
     margin-top: -12px;
-    color: var(--pink-main);
+    color: var(--white);
     font-size: 0.95rem;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -2057,6 +2057,28 @@ body.friday-night::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(90deg, transparent, rgba(33, 51, 209, 0.3)) !important;
 }
 
+body.friday-night .story-analysis-link-row {
+  margin: 8em 0 0;
+  text-align: right;
+  text-indent: 0;
+}
+
+body.friday-night .story-analysis-link-row a {
+  color: #2133d1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(33, 51, 209, 0.35);
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+body.friday-night .story-analysis-link-row a:hover,
+body.friday-night .story-analysis-link-row a:focus-visible {
+  opacity: 0.65;
+  border-bottom-color: #2133d1;
+}
+
 .friday-night .status-item {
   border-color: #2133d1 !important;
   box-shadow: 0 3px 0 #2133d1, 0 4px 10px rgba(33, 51, 209, 0.2) !important;
@@ -2602,7 +2624,8 @@ body.catherine .novel-text .scene-break::after {
 }
 
 body.catherine .novel-text em {
-  color: #2133d1 !important;
+  /* 青(#2133d1)をやめ、本文と同じ色に揃える（親の<p>から継承） */
+  color: inherit !important;
 }
 
 body.catherine .status-item {
