@@ -14,6 +14,14 @@
     --analysis-line-dim: rgba(33, 51, 209, 0.2);
 }
 
+/* Catherineは暗背景(#2e2e2e)テーマのため、既定の青では沈んで読めない。
+   アクセントをタイトルと同じライトグレー(#e6e6e6)へ上書きして可読性を確保する。 */
+.analysis-page.catherine {
+    --analysis-accent: #e6e6e6;
+    --analysis-line: rgba(230, 230, 230, 0.4);
+    --analysis-line-dim: rgba(230, 230, 230, 0.2);
+}
+
 /* 考察タイトル(h1)は文が長くなるので折り返しを許可。
    小説ページ用のスマホ nowrap（style.css）をこのページだけ上書きする。 */
 .analysis-page .chapter-title {
