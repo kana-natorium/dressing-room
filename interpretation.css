@@ -60,10 +60,10 @@
 .analysis-page .novel-text blockquote {
     margin: 2rem 0;
     padding: 0.2rem 0 0.2rem 1.4rem;
-    border-left: 3px solid var(--analysis-line);
+    border-left: 1.5px solid var(--analysis-line);
     font-style: italic;
     line-height: 1.95;
-    opacity: 0.85;
+    opacity: 0.95;
 }
 
 /* 締めの一文 ── 小説への誘導文 */
