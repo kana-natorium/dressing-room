@@ -64,6 +64,9 @@
       .tuner-panel button { font-size:12px; padding:4px 12px; background:#2e2620; color:#d9d0c4; border:1px solid #4a4038; cursor:pointer; }
       .tuner-panel .tuner-label { font-size:11px; color:#d9b96a; font-weight:bold; margin-right:8px; }
       .tuner-panel .color-preview { width:22px; height:22px; background:#1c1414; border:1px solid #6a6058; display:inline-block; }
+      .tuner-panel input[type=color] { width:32px; height:24px; padding:0; border:1px solid #4a4038; background:#2e2620; cursor:pointer; }
+      .tuner-panel .hex-input { width:84px; padding:4px 6px; color:#d9d0c4; background:#1a1715; border:1px solid #4a4038; font-family:monospace; }
+      .tuner-panel .hex-input[aria-invalid=true] { border-color:#d85f5f; }
       #css-out { font-size:11px; color:#8a8480; width:100%; font-family:monospace; }
 
       .framed {
@@ -96,11 +99,10 @@
         <label>明るさ <input type="range" id="br" min="60" max="180" value="100"><span class="val" id="br-v">1.00</span></label>
         <label>鮮やかさ <input type="range" id="sa" min="30" max="150" value="100"><span class="val" id="sa-v">1.00</span></label>
         <label>コントラスト <input type="range" id="co" min="60" max="160" value="100"><span class="val" id="co-v">1.00</span></label>
-        <span class="tuner-label">背景 CMYK</span>
-        <label>C <input type="range" id="cyan" min="0" max="100" value="0"><span class="val" id="cyan-v">0%</span></label>
-        <label>M <input type="range" id="magenta" min="0" max="100" value="29"><span class="val" id="magenta-v">29%</span></label>
-        <label>Y <input type="range" id="yellow" min="0" max="100" value="29"><span class="val" id="yellow-v">29%</span></label>
-        <label>K <input type="range" id="black" min="0" max="100" value="89"><span class="val" id="black-v">89%</span></label>
+        <span class="tuner-label">背景色</span>
+        <input type="color" id="bg-picker" value="#1c1414" aria-label="背景色を選択">
+        <label>HEX <input type="text" class="hex-input" id="bg-hex" value="#1c1414" maxlength="7" spellcheck="false" aria-label="HEXカラーコード"></label>
+        <button type="button" id="eyedropper">スポイト</button>
         <span class="color-preview" id="bg-preview" aria-label="背景色プレビュー"></span>
         <span class="val" id="bg-v">#1c1414</span>
         <button id="reset">リセット</button>
@@ -219,19 +221,21 @@
     (function() {
         var t = document.getElementById('target');
         if (!t) return;
-        var els = { bw:document.getElementById('bw'), br:document.getElementById('br'), sa:document.getElementById('sa'), co:document.getElementById('co'), cyan:document.getElementById('cyan'), magenta:document.getElementById('magenta'), yellow:document.getElementById('yellow'), black:document.getElementById('black') };
-        var vals = { bw:document.getElementById('bw-v'), br:document.getElementById('br-v'), sa:document.getElementById('sa-v'), co:document.getElementById('co-v'), cyan:document.getElementById('cyan-v'), magenta:document.getElementById('magenta-v'), yellow:document.getElementById('yellow-v'), black:document.getElementById('black-v'), bg:document.getElementById('bg-v') };
+        var els = { bw:document.getElementById('bw'), br:document.getElementById('br'), sa:document.getElementById('sa'), co:document.getElementById('co') };
+        var vals = { bw:document.getElementById('bw-v'), br:document.getElementById('br-v'), sa:document.getElementById('sa-v'), co:document.getElementById('co-v'), bg:document.getElementById('bg-v') };
+        var bgPicker = document.getElementById('bg-picker');
+        var bgHex = document.getElementById('bg-hex');
+        var eyedropperButton = document.getElementById('eyedropper');
         var preview = document.getElementById('bg-preview');
         var out = document.getElementById('css-out');
-        function toHex(value) {
-            return Math.round(value).toString(16).padStart(2, '0');
+        function normalizeHex(value) {
+            var hex = value.trim();
+            return /^#[0-9a-fA-F]{6}$/.test(hex) ? hex.toLowerCase() : null;
         }
         function apply() {
             var bw = els.bw.value;
             var br = (els.br.value/100).toFixed(2), sa = (els.sa.value/100).toFixed(2), co = (els.co.value/100).toFixed(2);
-            var cyan = els.cyan.value/100, magenta = els.magenta.value/100, yellow = els.yellow.value/100, black = els.black.value/100;
-            var red = 255*(1-cyan)*(1-black), green = 255*(1-magenta)*(1-black), blue = 255*(1-yellow)*(1-black);
-            var bgc = '#'+toHex(red)+toHex(green)+toHex(blue);
+            var bgc = normalizeHex(bgHex.value) || bgPicker.value;
             t.style.borderWidth = bw + 'px';
             t.style.borderImageWidth = bw + 'px';
             t.style.filter = 'brightness('+br+') saturate('+sa+') contrast('+co+')';
@@ -240,16 +244,42 @@
             });
             vals.bw.textContent = bw + 'px';
             vals.br.textContent = br; vals.sa.textContent = sa; vals.co.textContent = co;
-            vals.cyan.textContent = els.cyan.value + '%'; vals.magenta.textContent = els.magenta.value + '%';
-            vals.yellow.textContent = els.yellow.value + '%'; vals.black.textContent = els.black.value + '%';
             vals.bg.textContent = bgc;
             preview.style.background = bgc;
-            out.textContent = 'border-width: '+bw+'px; filter: brightness('+br+') saturate('+sa+') contrast('+co+'); /* CMYK '+els.cyan.value+' '+els.magenta.value+' '+els.yellow.value+' '+els.black.value+' / background '+bgc+' */';
+            out.textContent = 'border-width: '+bw+'px; filter: brightness('+br+') saturate('+sa+') contrast('+co+'); /* background '+bgc+' */';
         }
         Object.values(els).forEach(function(e) { e.addEventListener('input', apply); });
+        bgPicker.addEventListener('input', function() {
+            bgHex.value = bgPicker.value;
+            bgHex.setAttribute('aria-invalid', 'false');
+            apply();
+        });
+        bgHex.addEventListener('input', function() {
+            var value = normalizeHex(bgHex.value);
+            bgHex.setAttribute('aria-invalid', value ? 'false' : 'true');
+            if (value) {
+                bgPicker.value = value;
+                apply();
+            }
+        });
+        if ('EyeDropper' in window) {
+            eyedropperButton.addEventListener('click', function() {
+                new window.EyeDropper().open().then(function(result) {
+                    var value = normalizeHex(result.sRGBHex);
+                    if (!value) return;
+                    bgPicker.value = value;
+                    bgHex.value = value;
+                    bgHex.setAttribute('aria-invalid', 'false');
+                    apply();
+                }).catch(function() {});
+            });
+        } else {
+            eyedropperButton.disabled = true;
+            eyedropperButton.title = 'このブラウザはスポイト機能に対応していません';
+        }
         document.getElementById('reset').addEventListener('click', function() {
             els.bw.value=48; els.br.value=100; els.sa.value=100; els.co.value=100;
-            els.cyan.value=0; els.magenta.value=29; els.yellow.value=29; els.black.value=89; apply();
+            bgPicker.value='#1c1414'; bgHex.value='#1c1414'; bgHex.setAttribute('aria-invalid', 'false'); apply();
         });
         apply();
     })();
