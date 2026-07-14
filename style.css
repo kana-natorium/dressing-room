@@ -577,7 +577,7 @@ body::before {
 .card-analysis-link {
     justify-self: start;
     margin-top: -12px;
-    color: var(--pink-main);
+    color: var(--white);
     font-size: 0.95rem;
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -2624,7 +2624,8 @@ body.catherine .novel-text .scene-break::after {
 }
 
 body.catherine .novel-text em {
-  color: #2133d1 !important;
+  /* 青(#2133d1)をやめ、本文と同じ色に揃える（親の<p>から継承） */
+  color: inherit !important;
 }
 
 body.catherine .status-item {
