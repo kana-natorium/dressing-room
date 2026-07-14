@@ -2629,14 +2629,9 @@ body.catherine .novel-text em {
 }
 
 body.catherine .status-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
   color: #ffffff !important;
   background: #2e2e2e !important;
-  border: 2px solid #ffffff !important;
-  border-radius: 20px !important;
+  border-color: #ffffff !important;
   box-shadow: none !important;
 }
 
@@ -2670,6 +2665,10 @@ body.catherine .novel-wrapper {
 
 body.catherine .novel-wrapper::before {
   background: none !important;
+}
+
+body.catherine .decoration-layer {
+  top: var(--nav-height);
 }
 
 body.catherine .deco-sprite.star {
