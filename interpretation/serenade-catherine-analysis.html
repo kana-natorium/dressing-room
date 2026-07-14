@@ -222,7 +222,9 @@
             t.style.borderWidth = bw + 'px';
             t.style.borderImageWidth = bw + 'px';
             t.style.filter = 'brightness('+br+') saturate('+sa+') contrast('+co+')';
-            document.body.style.setProperty('background', bgc, 'important');
+            document.querySelectorAll('body, .chapter-hero, .chapter-nav, .footer').forEach(function(el) {
+                el.style.setProperty('background', bgc, 'important');
+            });
             vals.bw.textContent = bw + 'px';
             vals.br.textContent = br; vals.sa.textContent = sa; vals.co.textContent = co;
             vals.bg.textContent = bgc;
