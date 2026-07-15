@@ -2628,11 +2628,26 @@ body.catherine .novel-text em {
   color: inherit !important;
 }
 
+body.catherine .game-status-bar {
+  /* 流れる星はステータス表示の完全な背面を通す */
+  z-index: 101;
+}
+
 body.catherine .status-item {
+  /* 他ページの「★ 520」ステータス一個ぶんと幅を揃える */
+  box-sizing: border-box;
+  min-width: 104px;
+  justify-content: center;
   color: #ffffff !important;
   background: #2e2e2e !important;
   border-color: #ffffff !important;
-  box-shadow: none !important;
+  box-shadow: 0 3px 0 #ffffff, 0 4px 10px rgba(255, 255, 255, 0.2) !important;
+}
+
+@media (max-width: 768px) {
+  body.catherine .status-item {
+    min-width: 88px;
+  }
 }
 
 body.catherine .status-item .icon.coin.catherine-heart {
