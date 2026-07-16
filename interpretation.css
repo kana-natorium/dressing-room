@@ -66,6 +66,16 @@
     opacity: 0.95;
 }
 
+/* Catherine考察 ── 暗いページ背景と同じ黒で、見出しと歌詞の罫線を引く。 */
+.analysis-page.catherine .novel-text h3 {
+    border-left-color: #2e2e2e;
+    border-bottom-color: #2e2e2e;
+}
+
+.analysis-page.catherine .novel-text blockquote {
+    border-left: 1px solid #2e2e2e;
+}
+
 /* 締めの一文 ── 小説への誘導文 */
 .analysis-page .analysis-closing {
     margin-top: 3.5rem;
