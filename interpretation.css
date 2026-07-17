@@ -77,6 +77,23 @@
     border-left: 1px solid #2e2e2e;
 }
 
+/* DRESSING ROOM考察 ── アクセントをカードのピンク(#e6148b)へ上書き。
+   h3の縦線・関連リンク・TOPへ戻るまで、ページ内の導線色をこれで統一する。 */
+.analysis-page.chapter2-page {
+    --analysis-accent: #e6148b;
+    --analysis-line: rgba(230, 20, 139, 0.4);
+    --analysis-line-dim: rgba(230, 20, 139, 0.2);
+}
+
+/* 歌詞引用の縦線は淡色にせず、ピンクをそのまま出す。 */
+.analysis-page.chapter2-page .novel-text blockquote {
+    border-left-color: #e6148b;
+}
+
+.analysis-page.chapter2-page .analysis-closing {
+    color: #e6148b;
+}
+
 /* セレナーデ考察 ── スクロール進捗バー。共通の往復アニメーションを保ち、指定された赤系3色で読了位置を示す。 */
 body.analysis-page.serenade-analysis .reading-progress {
     background-image: linear-gradient(90deg, #cd211d, #ca401d, #ff704d) !important;
@@ -87,6 +104,22 @@ body.analysis-page.serenade-analysis .reading-progress {
     margin-top: 3.5rem;
     line-height: 2.1;
     opacity: 0.9;
+}
+
+/* 締めの一文の直下に置く小説への導線。斜体の本文から独立させ、
+   analysis-linksのリンクと同じ太字・アクセント色で見せる。 */
+.analysis-page .analysis-closing-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    color: var(--analysis-accent);
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.analysis-page .analysis-closing-link:hover {
+    opacity: 0.6;
 }
 
 /* 関連リンク ── 小説・他考察への導線 */
