@@ -2584,11 +2584,12 @@ body.catherine .footer {
   background-image: none !important;
 }
 
+/* スクロール進捗バー ── 共通の往復アニメーションを保ち、Catherine用のグレー〜ピンクへ差し替える */
 body.catherine .reading-progress {
   --catherine-progress-dark-gray: #595959;
   --catherine-progress-light-gray: #B2B2B2;
   --catherine-progress-pink: #FF1A6C;
-  background: linear-gradient(90deg,
+  background-image: linear-gradient(90deg,
       var(--catherine-progress-dark-gray),
       var(--catherine-progress-light-gray),
       var(--catherine-progress-pink)) !important;

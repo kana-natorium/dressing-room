@@ -34,7 +34,7 @@
     <meta name="twitter:description" content="なとり「セレナーデ」MVの考察。あの絵には、名前がある。">
 
     <link rel="stylesheet" href="../style.css?v=60">
-    <link rel="stylesheet" href="../interpretation.css?v=3">
+    <link rel="stylesheet" href="../interpretation.css?v=5">
 
     <!-- 構造化データ -->
     <script type="application/ld+json">
@@ -69,13 +69,14 @@
       #css-out { font-size:11px; color:#8a8480; width:100%; font-family:monospace; }
 
       .framed {
-        --frame-width:48px;
-        --frame-filter:brightness(1) saturate(1) contrast(1);
-        max-width:900px; margin:0 auto 56px;
+        --frame-width:90px;
+        --frame-filter:brightness(1.05) saturate(0.50) contrast(1.60);
+        max-width:900px; margin:0 auto;
         position:relative;
         border:var(--frame-width) solid transparent;
       }
       #target {
+        padding:0;
         background-color:#ffffff !important;
         background-image:none !important;
         background-clip:padding-box;
@@ -93,11 +94,20 @@
         border-width:var(--frame-width);
         border-image-width:var(--frame-width);
         filter:var(--frame-filter);
+        z-index:0;
+      }
+      .framed::after {
+        content:'';
+        position:absolute;
+        inset:-18px;
+        z-index:1;
+        background:#ffffff;
+        pointer-events:none;
       }
       .framed .in {
         position:relative;
-        z-index:1;
-        padding:36px 34px 40px;
+        z-index:2;
+        padding:40px;
         background:#ffffff;
       }
       .framed h2 { text-align:center; font-size:17px; letter-spacing:0.1em; color:#2a2a2a; margin-bottom:24px; }
@@ -106,23 +116,23 @@
     </style>
 </head>
 
-<body class="chapter3-page catherine analysis-page">
+<body class="chapter3-page catherine analysis-page serenade-analysis">
     <div class="reading-progress" id="progress"></div>
 
     <!-- DEV: 額縁チューナーパネル（開発完了後に削除） -->
     <div class="tuner-panel">
         <span class="tuner-label">DEV</span>
-        <label>額の太さ <input type="range" id="bw" min="16" max="90" value="48"><span class="val" id="bw-v">48px</span></label>
-        <label>明るさ <input type="range" id="br" min="60" max="180" value="100"><span class="val" id="br-v">1.00</span></label>
-        <label>鮮やかさ <input type="range" id="sa" min="30" max="150" value="100"><span class="val" id="sa-v">1.00</span></label>
-        <label>コントラスト <input type="range" id="co" min="60" max="160" value="100"><span class="val" id="co-v">1.00</span></label>
+        <label>額の太さ <input type="range" id="bw" min="16" max="90" value="90"><span class="val" id="bw-v">90px</span></label>
+        <label>明るさ <input type="range" id="br" min="60" max="180" value="105"><span class="val" id="br-v">1.05</span></label>
+        <label>鮮やかさ <input type="range" id="sa" min="30" max="150" value="50"><span class="val" id="sa-v">0.50</span></label>
+        <label>コントラスト <input type="range" id="co" min="60" max="160" value="160"><span class="val" id="co-v">1.60</span></label>
         <span class="tuner-label">背景色</span>
-        <input type="color" id="bg-picker" value="#1c1414" aria-label="背景色を選択">
-        <label>HEX <input type="text" class="hex-input" id="bg-hex" value="#1c1414" maxlength="7" spellcheck="false" aria-label="HEXカラーコード"></label>
-        <label>タイトル色 <input type="color" id="ct-color" value="#e6e6e6" aria-label="タイトル（h1）の文字色"><input type="text" class="hex-input" id="ct-hex" value="#e6e6e6" maxlength="7" spellcheck="false" aria-label="タイトル色HEX"><span class="val" id="ct-v">#e6e6e6</span></label>
-        <label>ラベル色 <input type="color" id="cn-color" value="#f2f2f2" aria-label="ラベル（NOVEL）の文字色"><input type="text" class="hex-input" id="cn-hex" value="#f2f2f2" maxlength="7" spellcheck="false" aria-label="ラベル色HEX"><span class="val" id="cn-v">#f2f2f2</span></label>
+        <input type="color" id="bg-picker" value="#862829" aria-label="背景色を選択">
+        <label>HEX <input type="text" class="hex-input" id="bg-hex" value="#862829" maxlength="7" spellcheck="false" aria-label="HEXカラーコード"></label>
+        <label>タイトル色 <input type="color" id="ct-color" value="#170909" aria-label="タイトル（h1）の文字色"><input type="text" class="hex-input" id="ct-hex" value="#170909" maxlength="7" spellcheck="false" aria-label="タイトル色HEX"><span class="val" id="ct-v">#170909</span></label>
+        <label>ラベル色 <input type="color" id="cn-color" value="#f4cd57" aria-label="ラベル（NOVEL）の文字色"><input type="text" class="hex-input" id="cn-hex" value="#f4cd57" maxlength="7" spellcheck="false" aria-label="ラベル色HEX"><span class="val" id="cn-v">#f4cd57</span></label>
         <button id="reset">リセット</button>
-        <div id="css-out">border-width: 48px; filter: none;</div>
+        <div id="css-out">border-width: 90px; filter: brightness(1.05) saturate(0.50) contrast(1.60); /* background #862829; label #f4cd57; title #170909 */</div>
     </div>
 
     <!-- Navigation -->
@@ -419,10 +429,10 @@
             }
         });
         document.getElementById('reset').addEventListener('click', function() {
-            els.bw.value=48; els.br.value=100; els.sa.value=100; els.co.value=100;
-            bgPicker.value='#1c1414'; bgHex.value='#1c1414'; bgHex.setAttribute('aria-invalid', 'false');
-            cnColor.value='#f2f2f2'; cnHex.value='#f2f2f2'; cnHex.setAttribute('aria-invalid', 'false');
-            ctColor.value='#e6e6e6'; ctHex.value='#e6e6e6'; ctHex.setAttribute('aria-invalid', 'false'); apply();
+            els.bw.value=90; els.br.value=105; els.sa.value=50; els.co.value=160;
+            bgPicker.value='#862829'; bgHex.value='#862829'; bgHex.setAttribute('aria-invalid', 'false');
+            cnColor.value='#f4cd57'; cnHex.value='#f4cd57'; cnHex.setAttribute('aria-invalid', 'false');
+            ctColor.value='#170909'; ctHex.value='#170909'; ctHex.setAttribute('aria-invalid', 'false'); apply();
         });
         apply();
     })();

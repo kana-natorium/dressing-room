@@ -66,14 +66,20 @@
     opacity: 0.95;
 }
 
-/* Catherine考察 ── 暗いページ背景と同じ黒で、見出しと歌詞の罫線を引く。 */
+/* Catherine考察 ── 見出しの罫線を、暗いページ背景と同じ黒で引く。 */
 .analysis-page.catherine .novel-text h3 {
     border-left-color: #2e2e2e;
     border-bottom-color: #2e2e2e;
 }
 
+/* Catherine考察 ── 歌詞引用の左線を、暗いページ背景と同じ黒の1pxで引く。 */
 .analysis-page.catherine .novel-text blockquote {
     border-left: 1px solid #2e2e2e;
+}
+
+/* セレナーデ考察 ── スクロール進捗バー。共通の往復アニメーションを保ち、指定された赤系3色で読了位置を示す。 */
+body.analysis-page.serenade-analysis .reading-progress {
+    background-image: linear-gradient(90deg, #cd211d, #ca401d, #ff704d) !important;
 }
 
 /* 締めの一文 ── 小説への誘導文 */
