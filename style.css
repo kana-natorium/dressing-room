@@ -589,6 +589,11 @@ body::before {
     opacity: 0.6;
 }
 
+.card-analysis-row {
+    display: flex;
+    gap: 1.5em;
+}
+
 /* ========================================
    ABOUT SECTION
    ★【TOP（index.html）専用】Aboutセクション
