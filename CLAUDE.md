@@ -5,6 +5,7 @@
 - **mainブランチは神棚！絶対にコミットしない！pushしない！**
 - 作業は `claude/` プレフィックスのブランチで行う
 - 現在の作業ブランチ: `claude/natori-dressing-room-site-XT7YB`
+- PRは `codex-test` ブランチに向けて出す（Codexがレビューするため）
 - 作業ブランチでも、ユーザーの許可なく commit / push / merge / branch作成 をしない。
 - ファイル変更後は、必ずローカルで差分と表示を確認してから次の操作に進む。
 

@@ -355,6 +355,7 @@ body::before {
     }
 }
 
+
 /* ========================================
    NAVIGATION
    ★【全ページ共通】上部ナビゲーション
@@ -2556,7 +2557,36 @@ body.chapter2-page::after {
   color: var(--pink-main) !important;
 }
 
+.chapter2-page .novel-text .scene-break {
+  color: #e6148b !important;
+}
 
+.chapter2-page .novel-text .scene-break::before,
+.chapter2-page .novel-text .scene-break::after {
+  background: linear-gradient(90deg, transparent, rgba(230, 20, 139, 0.3)) !important;
+}
+
+body.chapter2-page .story-analysis-link-row {
+  margin: 8em 0 0;
+  text-align: right;
+  text-indent: 0;
+}
+
+body.chapter2-page .story-analysis-link-row a {
+  color: #e6148b;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(230, 20, 139, 0.35);
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+body.chapter2-page .story-analysis-link-row a:hover,
+body.chapter2-page .story-analysis-link-row a:focus-visible {
+  opacity: 0.65;
+  border-bottom-color: #e6148b;
+}
 
 
 /* ========================================
