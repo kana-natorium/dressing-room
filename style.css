@@ -2767,6 +2767,28 @@ body.catherine .status-item .icon.coin.catherine-heart::before {
 }
 
 
+body.catherine .story-analysis-link-row {
+  margin: 8em 0 0;
+  text-align: right;
+  text-indent: 0;
+}
+
+body.catherine .story-analysis-link-row a {
+  color: #2e2e2e;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46, 46, 46, 0.35);
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+body.catherine .story-analysis-link-row a:hover,
+body.catherine .story-analysis-link-row a:focus-visible {
+  opacity: 0.65;
+  border-bottom-color: #2e2e2e;
+}
+
 body.catherine .novel-wrapper {
   background: #E5E5E5 !important;
   box-shadow: 0 15px 50px #0a0a0a !important;
