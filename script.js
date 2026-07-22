@@ -8,6 +8,7 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initTextSplit();
+    initBrandLogos();
     initCardTilt();
     initScrollAnimations();
     initReadingProgress();
@@ -74,6 +75,8 @@ function initTextSplit() {
             const delay = (lineIndex * 10 + charIndex) * 0.15;
             if (char === ' ') {
                 html += ' ';
+            } else if (char === 'I') {
+                html += `<span class="char hero-logo-i" style="animation-delay: ${delay}s" aria-hidden="true"><span class="hero-logo-i-stem">&#305;</span></span>`;
             } else {
                 html += `<span class="char" style="animation-delay: ${delay}s">${char}</span>`;
             }
@@ -84,6 +87,21 @@ function initTextSplit() {
 
     heroTitle.innerHTML = html;
     heroTitle.classList.add('split-animated');
+}
+
+/* Header/footer logo decoration */
+function initBrandLogos() {
+    const logos = document.querySelectorAll('.nav-logo, .footer-logo');
+
+    logos.forEach((logo) => {
+        const text = logo.textContent.trim();
+        const iIndex = text.indexOf('I');
+
+        if (iIndex === -1) return;
+
+        logo.setAttribute('aria-label', text);
+        logo.innerHTML = `${text.slice(0, iIndex)}<span class="brand-logo-i" aria-hidden="true"><span class="brand-logo-i-stem">&#305;</span></span>${text.slice(iIndex + 1)}`;
+    });
 }
 
 /* 3Dカードチルト */

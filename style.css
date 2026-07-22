@@ -274,7 +274,7 @@ body::before {
     line-height: 0.85;
     white-space: nowrap;
     position: relative;
-    text-transform: uppercase;
+    text-transform: none;
     text-align: center;
 }
 
@@ -286,6 +286,34 @@ body::before {
   display: inline-block;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: default;
+}
+
+/* MV logo motif: replace the lowercase i dot with a star inside the original title height. */
+.hero-title .hero-logo-i {
+    position: relative;
+    margin-right: 0.06em;
+    text-align: center;
+}
+
+.hero-title .hero-logo-i::after {
+    content: '\2726';
+    position: absolute;
+    top: 0.02em;
+    left: 50%;
+    font-size: 0.25em;
+    line-height: 1;
+    transform: translateX(-50%);
+    -webkit-text-fill-color: #FFF6FB;
+    color: #FFF6FB;
+    text-shadow: 0 2px 0 rgba(232, 91, 160, 0.55);
+    pointer-events: none;
+}
+
+.hero-title .hero-logo-i-stem {
+    display: inline-block;
+    text-transform: lowercase;
+    transform: translateY(1px) scaleY(1.12);
+    transform-origin: center bottom;
 }
 
 .hero-title .char:hover {
@@ -389,6 +417,36 @@ body::before {
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Header/footer logo: keep the official name in HTML and decorate only the visual I. */
+.brand-logo-i {
+    display: inline-block;
+    position: relative;
+    margin-right: 0.06em;
+    line-height: 0.9;
+    text-align: center;
+    text-transform: none;
+}
+
+.brand-logo-i::after {
+    content: '\2726';
+    position: absolute;
+    top: 0.02em;
+    left: 50%;
+    font-size: 0.25em;
+    line-height: 1;
+    transform: translateX(-50%);
+    -webkit-text-fill-color: currentColor;
+    color: currentColor;
+    pointer-events: none;
+}
+
+.brand-logo-i-stem {
+    display: inline-block;
+    text-transform: lowercase;
+    transform: translateY(0.01em) scaleY(1.12);
+    transform-origin: center bottom;
 }
 
 .nav-links {
