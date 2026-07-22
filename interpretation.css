@@ -77,22 +77,6 @@
     border-left: 1px solid #2e2e2e;
 }
 
-.analysis-page.catherine .analysis-closing {
-    color: #2e2e2e;
-}
-
-.analysis-page.catherine .analysis-closing-link {
-    color: #2e2e2e;
-}
-
-.analysis-page.catherine .analysis-links {
-    border-top-color: rgba(46, 46, 46, 0.2);
-}
-
-.analysis-page.catherine .analysis-links a {
-    color: #2e2e2e;
-}
-
 /* DRESSING ROOM考察 ── アクセントをカードのピンク(#e6148b)へ上書き。
    h3の縦線・関連リンク・TOPへ戻るまで、ページ内の導線色をこれで統一する。 */
 .analysis-page.chapter2-page {
