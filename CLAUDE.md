@@ -133,6 +133,40 @@ mainには触っていません。
 
 ## 作業ログ
 
+### 2026-08-10
+
+**やったこと（VercelでBasic認証をかけた確認環境の構築）**
+
+- Codexが作った4ファイル（`middleware.js` / `package.json` / `package-lock.json` / `.gitignore`）を確認
+- `package.json` にコンフリクトマーカー（`<<<<<<< ours` が三重）が残っていたので修正
+  - Vercel用（`dressing-room`）とExpo用（`oshi-mood-room`）の中身が合体していた
+  - `package-lock.json` 側が正しかったので、そちらに合わせて `@vercel/functions` のみに整理
+  - Expo用の記述は `package.expo.json.bak` に退避（未追跡のままコミットしていない）
+- 上記4ファイルをコミットしてpush（`8126786`）
+  - 他の未追跡ファイル（小説の下書きtxt、`skills/`、Expo残骸など）は含めていない
+- robots meta tagは全11ファイルに既に入っていたため変更なし
+- Vercelと連携し、環境変数 `BASIC_AUTH_USER` / `BASIC_AUTH_PASSWORD` を設定
+- 確認用URL: <https://dressing-room-ten.vercel.app/>
+  - トップ・CSS・JS・サブディレクトリ・アセットまで全パスが401を返すことを確認
+  - `WWW-Authenticate: Basic realm="DRESSING ROOM"` が返る
+
+**middleware.jsの仕様メモ**
+
+- matcherは `/(.*)` で全パス対象
+- 環境変数が未設定だと全ページ401（安全側に倒してある）
+- 環境変数を追加・変更したらRedeployしないと反映されない
+
+**デプロイ体制**
+
+- Vercel … 確認用。Production Branchは `claude/natori-dressing-room-site-XT7YB`（GitHubのデフォルトブランチもこれ）
+- `main` … 本番公開用でGitHub PagesのURLを使う。現在は `d1fbd13 reset main branch to empty state` で空
+
+**これからやること**
+
+- Vercelで表示を確認 → 問題なければ `main` にマージ
+- マージ前に全HTMLから `<meta name="robots" content="noindex, nofollow">` を削除する
+- `main` は履歴がリセットされているので、マージ時にコンフリクトする可能性あり
+
 ### 2026-04-27
 
 **やったこと（PVのMVエンドカード寄せリデザイン）**
