@@ -5,6 +5,11 @@ export const config = {
 };
 
 export default function middleware(request) {
+  // 認証を一時的に外したい時は Vercel の環境変数に BASIC_AUTH_DISABLED=1 を設定する
+  if (process.env.BASIC_AUTH_DISABLED === "1") {
+    return next();
+  }
+
   const user = process.env.BASIC_AUTH_USER;
   const password = process.env.BASIC_AUTH_PASSWORD;
   const authorization = request.headers.get("authorization");
