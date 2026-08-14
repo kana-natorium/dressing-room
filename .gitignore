@@ -1,3 +1,6 @@
 # IDE / エディタ個人設定（CodeGPT.apiKey等の個人環境設定を含むため）
 .vscode/
 *.code-workspace
+
+# Vercel Routing Middleware dependencies
+node_modules/
