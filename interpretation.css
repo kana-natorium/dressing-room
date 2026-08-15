@@ -23,9 +23,21 @@
 }
 
 /* 考察タイトル(h1)は文が長くなるので折り返しを許可。
-   小説ページ用のスマホ nowrap（style.css）をこのページだけ上書きする。 */
+   小説ページ用のスマホ nowrap（style.css）をこのページだけ上書きする。
+   サイズも小説ページ（clamp(2rem,5vw,3.5rem)）より一段小さくする。曲名＋「MV考察」
+   のように文が長いため、大きいままだと何行にも折れて見出しが重くなるため。
+   小説ページ側の値には触らないので、CLAUDE.mdの禁止値はそのまま生きている。 */
 .analysis-page .chapter-title {
     white-space: normal;
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+
+/* スマホ。上のclampは下限1.7remなので、放っておくと小説ページのスマホ値(1.5rem)より
+   大きくなってしまう。考察ページ用に明示的に下げる。 */
+@media (max-width: 768px) {
+    .analysis-page .chapter-title {
+        font-size: 1.3rem;
+    }
 }
 
 /* リード文 ── 記事冒頭の導入。やや大きめ＆余白広め */
@@ -36,9 +48,10 @@
     opacity: 0.95;
 }
 
-/* サブタイトル（h2）── 記事全体の副題 */
+/* サブタイトル（h2）── 記事全体の副題。
+   ここはPC向けの値。スマホ用の値は下の @media にまとめてある。 */
 .analysis-page .novel-text h2 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     font-weight: 700;
     margin: 0 0 2.5rem;
     text-align: center;
@@ -46,14 +59,66 @@
     line-height: 1.5;
 }
 
-/* セクション見出し（h3）── 各章の小見出し。ブルーの縦ラインで章を区切る */
+/* h2の「── ○○」部分。1行で流すとスマホで「男は、楽 / 屋から出ない」のように
+   語の途中で折れて読みにくい。block にして ── の前で必ず改行させ、
+   曲名（主題）と副題を上下に分ける。副題は一段小さくして主従をはっきりさせる。
+   曲名だけのh2（セレナーデ）にはこのspanが無いので影響しない。 */
+.analysis-page .novel-text h2 .h2-sub {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.88em;
+    letter-spacing: 0.02em;
+}
+
+/* 曲名＋副題の2行組み（.h2-split が付いたh2だけ）。
+   text-align:center だと行ごとに独立して中央に寄るため、長さの違う2行は
+   左端がバラバラになる。そこで width:fit-content で見出しの箱を文字幅まで縮め、
+   margin-inline:auto で箱ごと中央へ。中身は左寄せなので2行の左端が揃う。
+   ── が無い1行のh2（セレナーデ）はこのクラスを付けないので中央寄せのまま。 */
+.analysis-page .novel-text h2.h2-split {
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    text-align: left;
+}
+
+/* セクション見出し（h3）── 各章の小見出し。ブルーの縦ラインで章を区切る。
+   ここはPC向けの値。スマホ用の値は下の @media にまとめてある。 */
 .analysis-page .novel-text h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     margin: 3.5rem 0 1.5rem;
     padding-left: 0.85rem;
     border-left: 4px solid var(--analysis-accent);
     line-height: 1.5;
+}
+
+/* h3の改行制御。
+   日本語は文字単位でどこでも折れるため、長い見出しはスマホで
+   「ジャストサイ / ズ」のように1〜2文字だけ次行に落ちて見苦しい。
+   text-wrap: balance も試したが、文字数で均等割りするだけで意味の切れ目を
+   無視し、「バズ / るために」のように語の途中で割れて逆に悪化したため不採用。
+   そこで長いh3のHTMLに <br> を入れ、「、」「──」という意味の切れ目で
+   折るようにした。ただしPCでは1行に収まるので、そこでは <br> を無効化する。 */
+.analysis-page .novel-text h3 br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .analysis-page .novel-text h3 br {
+        display: inline;
+    }
+
+    /* スマホの見出しサイズ。PCの値のままだと本文幅に対して大きすぎ、
+       長い見出しが1〜2文字だけ次行に落ちる。ここで一段小さくする。
+       h2の副題(.h2-sub)は em 指定なので h2 に連動して自動で縮む。 */
+    .analysis-page .novel-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .analysis-page .novel-text h3 {
+        font-size: 1.05rem;
+    }
 }
 
 /* 歌詞引用 ── blockquote。淡いブルーの左ラインで本文と区別 */

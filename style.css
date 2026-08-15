@@ -2501,6 +2501,23 @@ body.note-page .note-summary-lead {
     line-height: 1.9;
     color: #28272c;
     margin: 0 0 1.3em;
+    /* 日本語はカタカナ語の途中でも折り返すため「プロジェ／クト」「Webサイ／ト」の
+       ように語が割れる。keep-all で語中の改行を禁止し、代わりにHTML側の <wbr> で
+       文節の切れ目だけを改行位置として許可する。 */
+    word-break: keep-all;
+}
+
+/* スマホ。この要約カードには元々スマホ用の指定が無く、PCと同じ左右48pxの
+   余白が効いていた。375px幅では本文に280px弱しか残らず、折り返しが
+   詰まって読みにくくなるため、余白を詰めて行長を確保する。 */
+@media (max-width: 768px) {
+    body.note-page .note-summary {
+        padding: 28px 20px;
+    }
+
+    body.note-page .note-summary-lead {
+        font-size: 1.05rem;
+    }
 }
 
 body.note-page .note-summary-list {
