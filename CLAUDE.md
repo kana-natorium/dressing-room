@@ -318,7 +318,7 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 書く場所の対応：
 
 - 全ページ共通 … VIGNETTE / NAVIGATION / FOOTER / RESPONSIVE / ANIMATIONS / JS ANIMATION STYLES / REDUCED MOTION
-- TOP（index.html） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
+- TOP（index.html / `body.top-page`） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
 - 小説3ページ＋Note共通の土台 … CHAPTER PAGE STYLES ほか
 - フライデー・ナイト（friday-night.html / `body.friday-night`） … FRIDAY NIGHT PAGE OVERRIDES
 - Production Note（note.html / `body.note-page`） … NOTE PAGE
