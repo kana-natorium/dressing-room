@@ -133,6 +133,38 @@ mainには触っていません。
 
 ## 作業ログ
 
+### 2026-08-19
+
+**やったこと（考察ページの見出しとTOPリンクの折り返し調整）**
+
+- 考察4ページの見出しサイズをPCとスマホで分離（`interpretation.css`）
+  - h2: PC `1.9rem` / スマホ `1.2rem`
+  - h3: PC `1.25rem` / スマホ `1.05rem`
+  - h2の副題（`.h2-sub`）は `0.88em` の相対指定なのでh2に自動追従する
+- h2を「曲名」「── 副題」の2行組みに（`.h2-split` / `.h2-sub`）
+  - `width: fit-content` ＋ `margin-inline: auto` で、長さの違う2行の左端を揃えている
+- h3の折り返し対策
+  - `text-wrap: balance` は**不採用**。文字数で均等割りするだけで意味の切れ目を無視し、
+    「バズ / るために」のように語の途中で割れて悪化した
+  - 長いh3のHTMLに `<br>` を入れ、「、」「──」で折る方式にした
+  - PCでは1行に収まるので `h3 br { display: none }` で無効化、スマホでのみ有効
+  - `<br>` を入れたのは実機で溢れを確認した3本のみ（catherine 1本 / serenade 2本）
+- `note.html` の要約カード（`.note-summary`）
+  - スマホ用の指定が無くPCと同じ左右48pxの余白が効いていたため `28px 20px` に
+  - リード文に `word-break: keep-all` ＋ `<wbr>` で「プロジェ / クト」の語割れを防止
+- TOPの考察リンク（`.card-analysis-link` / `.card-analysis-row`）
+  - `white-space: nowrap` で「→」だけが次行に落ちるのを防止
+  - `flex-wrap: wrap` を追加し、幅が足りない時だけ縦積みになるように
+  - スマホは `0.9rem` に統一（4本すべて）＋ `gap` を詰めて横並び1行に収めた
+- `style.css` を触ったので全9ページの `?v=61` → `?v=62`
+
+**メモ**
+
+- 日本語の見出しは文字単位でどこでも折れる。`text-wrap: balance` は英文向けで、
+  日本語の「意味の切れ目で折る」用途には使えない。`<br>` か `<wbr>` で明示する。
+- 幅が足りない時は「文字サイズ」「文言」「並べ方」のどれかを譲る必要がある。
+  今回は文言（`歌詞考察` / `MV考察` は対象が違うので残す）を優先した。
+
 ### 2026-08-10
 
 **やったこと（VercelでBasic認証をかけた確認環境の構築）**
@@ -286,7 +318,7 @@ CSSを追加・修正するときは、対象ページのセクション内に�
 書く場所の対応：
 
 - 全ページ共通 … VIGNETTE / NAVIGATION / FOOTER / RESPONSIVE / ANIMATIONS / JS ANIMATION STYLES / REDUCED MOTION
-- TOP（index.html） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
+- TOP（index.html / `body.top-page`） … HERO / STORIES / ABOUT / HERO RABBIT MOTIF
 - 小説3ページ＋Note共通の土台 … CHAPTER PAGE STYLES ほか
 - フライデー・ナイト（friday-night.html / `body.friday-night`） … FRIDAY NIGHT PAGE OVERRIDES
 - Production Note（note.html / `body.note-page`） … NOTE PAGE
