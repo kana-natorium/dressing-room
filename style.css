@@ -632,8 +632,9 @@ body::before {
     transform: translateX(0);
 }
 
-/* 考察ページへのテキストリンク（カードの下に控えめに添える） */
-.card-analysis-link {
+/* 考察ページへのテキストリンク（カードの下に控えめに添える）。
+   TOP専用なので body.top-page でスコープする。 */
+body.top-page .card-analysis-link {
     justify-self: start;
     margin-top: -12px;
     color: var(--white);
@@ -645,7 +646,7 @@ body::before {
     white-space: nowrap;
 }
 
-.card-analysis-link:hover {
+body.top-page .card-analysis-link:hover {
     opacity: 0.6;
 }
 
@@ -653,7 +654,7 @@ body::before {
    リンク側の nowrap で「→」だけが落ちるのは防いであるが、2本を横に並べると
    スマホでは画面幅に入りきらない。文字を縮めても文言を削っても情報が落ちるので、
    flex-wrap で入る時だけ横並び・入らない時は縦積み、と幅に応じて切り替える。 */
-.card-analysis-row {
+body.top-page .card-analysis-row {
     display: flex;
     flex-wrap: wrap;
     /* 縦1.1em ── 万一2行に折り返した時、下線どうしが詰まって
@@ -666,11 +667,11 @@ body::before {
    文言の「歌詞考察／MV考察」は考察の対象が違うことを示すので削らない。
    サイズは考察リンク4本すべてに当てる。2本だけ小さいと並んだ時に差が見えるため。 */
 @media (max-width: 768px) {
-    .card-analysis-link {
+    body.top-page .card-analysis-link {
         font-size: 0.9rem;
     }
 
-    .card-analysis-row {
+    body.top-page .card-analysis-row {
         gap: 1.1em 1em;
     }
 }
