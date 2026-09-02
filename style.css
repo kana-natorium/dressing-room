@@ -44,6 +44,9 @@
    〔DRESSING ROOM（dressing-room.html / body.chapter2-page）〕
      - (L2499) CHAPTER2 PAGE … 背景ピンク #fce2f1
 
+   〔ABOUT（about.html / body.about-page）〕
+     - (L3270) ABOUT PAGE … 背景=noteと同じグレー #e6e6e8／お問い合わせフォーム
+
    〔Catherine（catherine.html / body.catherine）〕
      - (L2525) CATHERINE PAGE OVERRIDES … ほぼモノクロの暗い世界
      - (L2649) CATHERINE STAR ANIMATION … 流れて消える星（歌詞の視覚化）
@@ -141,7 +144,7 @@ body::after {
     z-index: 9998;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page)::after {
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page)::after {
     background: radial-gradient(ellipse at center, transparent 60%, rgba(40, 40, 40, 0.15) 100%);
 }
 
@@ -927,11 +930,11 @@ body.top-page .card-analysis-row {
   text-shadow: none !important;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .footer-logo,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .footer-text,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .about-text,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .about-text a,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .about-credit {
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .footer-logo,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .footer-text,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .about-text,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .about-text a,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .about-credit {
   color: var(--white) !important;
   text-shadow: none !important;
 }
@@ -1448,13 +1451,13 @@ main {
     padding: 40px;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) {
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) {
     background: #F9A2D5;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page) .footer {
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .footer {
     background: #E3297C;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
     background-size: 40px 40px;
@@ -2638,6 +2641,11 @@ body.note-page .note-game-link-row a:focus-visible {
     border-bottom-color: #c05d7c;
 }
 
+/* リンク行が続く時は、行間として詰める（本文との2.4emは1本目だけでよい） */
+body.note-page .note-game-link-row + .note-game-link-row {
+    margin-top: 0.6em;
+}
+
 /* ========================================
    CHAPTER2 PAGE (背景 #fcfcfe)
    ★【DRESSING ROOM（dressing-room.html / body.chapter2-page）専用】背景ピンク #fce2f1
@@ -3261,5 +3269,192 @@ body.catherine .skull-label {
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* ========================================
+   ABOUT PAGE (背景グレー #e6e6e8)
+   ★【ABOUT（about.html / body.about-page）専用】
+   　#e6e6e8＝note.htmlと同じMVのクローゼットの壁のグレー（＝楽屋＝舞台裏の色）。
+   　サイトの説明とお問い合わせという事務的なページなので、傷はnoteより少なくして、
+   　下部（フォーム周辺）は傷なしで静かに保つ。アニメーションも付けない。
+   ======================================== */
+body.about-page {
+    background-color: #e6e6e8;
+    background-image:
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png');
+    background-size: 116px 78px, 92px 62px, 104px 70px, 88px 59px, 120px 80px, 84px 56px;
+    background-position: 7vw 120px, 80vw 96px, calc(50% - 540px) 32vh, calc(50% + 480px) 28vh, 10vw 48vh, 86vw 54vh;
+    background-repeat: no-repeat;
+}
+
+body.about-page .chapter-hero,
+body.about-page .footer {
+    background-color: #e6e6e8;
+    background-image:
+        url('assets/kizu.png'),
+        url('assets/kizu.png');
+    background-size: 92px 62px, 108px 72px;
+    background-position: 8vw 118px, 88vw 126px;
+    background-repeat: no-repeat;
+}
+
+/* TOP導線だけの帯。小説ページのような演出ボタンを置かないので高さを詰める */
+body.about-page .chapter-nav {
+    min-height: auto;
+    /* 上下は非対称。上を厚めにして、本文カードとの間を空けている */
+    padding: 59px 20px 56px;
+    background-color: #e6e6e8;
+    background-image: none;
+}
+
+body.about-page .novel-wrapper {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 箱の中のピンクグラデーションを消す（note.htmlと同じ扱い） */
+body.about-page .novel-wrapper::before {
+    background: none;
+}
+
+/* 傷はページ上部〜中部だけ。フォームのある下部には置かない */
+body.about-page .about-main {
+    padding: 0 20px;
+    background-color: #e6e6e8;
+    background-image:
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png'),
+        url('assets/kizu.png');
+    background-size: 112px 75px, 90px 60px, 118px 79px, 86px 58px, 104px 70px, 96px 64px, 120px 80px, 84px 56px;
+    background-position: 4vw 6%, 92vw 10%, 6vw 18%, 90vw 24%, 3vw 31%, 93vw 38%, 8vw 45%, 89vw 52%;
+    background-repeat: no-repeat;
+}
+
+/* ページ下部のTOP導線。考察ページの .analysis-back-link と同じ考え方の控えめな文字リンク。
+   あちらは .analysis-page スコープなので流用できず、ここに同等のものを書いている。 */
+body.about-page .about-back-link {
+    color: #c05d7c;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(192, 93, 124, 0.35);
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+body.about-page .about-back-link:hover,
+body.about-page .about-back-link:focus-visible {
+    opacity: 0.65;
+    border-bottom-color: #c05d7c;
+}
+
+/* お問い合わせフォーム */
+body.about-page .about-form {
+    margin-top: 2.4em;
+}
+
+body.about-page .about-form-row {
+    margin-bottom: 1.4em;
+}
+
+body.about-page .about-form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #6b6870;
+}
+
+body.about-page .about-form-input {
+    width: 100%;
+    height: 38px;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: inherit;
+    background: #fff;
+    border: 1px solid #c9c6cd;
+    border-radius: 4px;
+}
+
+body.about-page .about-form-textarea {
+    height: auto;
+    line-height: 1.8;
+    resize: vertical;
+}
+
+/* outline を消す代わりに、枠線＋リングでフォーカス位置が必ず見えるようにする(a11y) */
+body.about-page .about-form-input:focus {
+    outline: none;
+    border-color: #c05d7c;
+    box-shadow: 0 0 0 2px rgba(192, 93, 124, 0.18);
+}
+
+/* スパム対策のハニーポット。人間には見せない */
+body.about-page .about-form-honeypot {
+    display: none;
+}
+
+body.about-page .about-form-actions {
+    margin-top: 2em;
+    text-align: center;
+}
+
+body.about-page .about-form-submit {
+    padding: 12px 40px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    color: #fff;
+    background: #cf6b7f;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+body.about-page .about-form-submit:hover,
+body.about-page .about-form-submit:focus-visible {
+    background: #bd5c70;
+}
+
+@media (max-width: 768px) {
+    /* 幅が狭いと傷が本文に被るので、枚数を減らして端に寄せる */
+    body.about-page {
+        background-image:
+            url('assets/kizu.png'),
+            url('assets/kizu.png'),
+            url('assets/kizu.png');
+        background-size: 96px 64px, 84px 56px, 104px 70px;
+        background-position: 2vw 110px, 90vw 30vh, 4vw 52vh;
+    }
+
+    body.about-page .about-main {
+        background-image:
+            url('assets/kizu.png'),
+            url('assets/kizu.png'),
+            url('assets/kizu.png'),
+            url('assets/kizu.png');
+        background-size: 90px 60px, 84px 56px, 96px 64px, 88px 59px;
+        background-position: 1vw 8%, 94vw 20%, 2vw 34%, 92vw 48%;
+    }
+
+    body.about-page .chapter-hero,
+    body.about-page .footer {
+        background-image:
+            url('assets/kizu.png');
+        background-size: 84px 56px;
+        background-position: 4vw 118px;
     }
 }
