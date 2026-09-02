@@ -3307,8 +3307,8 @@ body.about-page .footer {
 /* TOP導線だけの帯。小説ページのような演出ボタンを置かないので高さを詰める */
 body.about-page .chapter-nav {
     min-height: auto;
-    /* 上を5px足してリンクを少し下げている */
-    padding: 29px 20px 56px;
+    /* 上下は非対称。上を厚めにして、本文カードとの間を空けている */
+    padding: 59px 20px 56px;
     background-color: #e6e6e8;
     background-image: none;
 }
