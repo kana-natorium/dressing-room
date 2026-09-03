@@ -168,8 +168,13 @@ body::before {
    ======================================== */
 
 .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
+    /* 画面一杯に見せたいが、無限には伸ばさない。
+       素の 100vh だとズームアウトのたびにヒーローが画面を独占し続けて、
+       中身は縮むのに下のNOVELセクションがいつまでも出てこない。
+       900px で打ち止めることで、ズームアウトすると次のセクションが見えてくる。
+       通常の画面高（〜900px）では今までどおり画面一杯になる。 */
+    min-height: min(100vh, 900px);
+    min-height: min(100dvh, 900px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1164,6 +1169,11 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(
     .nav {
         padding: 15px 20px;
         padding-top: calc(15px + var(--safe-top));
+    }
+
+    /* PCの1.7remだとスマホでは大きすぎるので下げる */
+    .nav-logo {
+        font-size: 1.05rem;
     }
 
     .nav-links {
