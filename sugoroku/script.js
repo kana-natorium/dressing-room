@@ -8,11 +8,11 @@ const events = {
   6: { text: "Geminiさんがキラリーン：3マス進む", type: "move", value: 3 },
   8: { text: "レスポンシブ崩壊：4マス戻る", type: "move", value: -4 },
   10: { text: "iPhone実機確認で表示ズレ発見：1回休み", type: "rest", value: 1 },
-  12: { text: "かなの1pxチェック発動：もう一度サイコロ", type: "extraRoll", value: 1 },
-  14: { text: "あかりが杏仁豆腐を要求：進行停止", type: "stop" },
+  12: { text: "1pxのズレを見逃さなかった：もう一度サイコロ", type: "extraRoll", value: 1 },
+  14: { text: "おやつに杏仁豆腐を食べだす：進行停止", type: "stop" },
   16: { text: "ClaudeCodeとCodexのレビュー合戦が始まる：1回休み", type: "rest", value: 1 },
   18: { text: "pushに失敗：2マス戻る", type: "move", value: -2 },
-  20: { text: "Codexの使用感をXに書いたら、中の人が見ていた。しばらく挙動を慎重に確認する。1回休み。", type: "rest", value: 1 },
+  20: { text: "CodexのUIダサいとXに書いたら、中の人からいいねがついた。しばらく挙動を慎重に確認する。1回休み。", type: "rest", value: 1 },
   21: { text: "ClaudeCodeがmainにpush：3マス進む", type: "move", value: 3 },
   24: { text: `ゴール：${clearText}`, type: "goal" }
 };
