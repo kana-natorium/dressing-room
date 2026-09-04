@@ -42,18 +42,13 @@ body {
   justify-content: center;
   font-family: "Noto Serif CJK JP", "Noto Serif JP", serif;
   color: var(--ink);
-  /* メインサイトの note.html と同じ考え方で、単色を下地に敷いてから装飾を重ねる。
-     単色の background-color は body の高さに関係なく画面全体へ伸びるので、
-     中身が短くても塗り残しが出ない。おかげで min-height で高さを盛る必要がなく、
-     ズームアウトしてもEXITの下に余白が伸びない。
-     グラデーションは fixed で画面基準に固定し、body の高さに影響されないようにしている。 */
-  background-color: var(--bg);
+  /* 背景はファイル末尾の「FRIDAY NIGHT ALIGNMENT OVERRIDE v2」で丸ごと差し替わる。
+     ここに background-color などを書いても向こうの shorthand で初期値へ戻されるため、
+     下地・繰り返し・固定の指定はすべて最終の body ルール側に置いている。 */
   background-image:
     radial-gradient(circle at top left, rgba(239, 154, 167, 0.28), transparent 32rem),
     radial-gradient(circle at bottom right, rgba(145, 201, 221, 0.34), transparent 34rem),
     linear-gradient(135deg, #fff8ef 0%, var(--bg) 50%, #eef7f4 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .game {
@@ -567,10 +562,19 @@ button:disabled {
    #b5731f をそのまま全面に敷くと文字が読みにくいので、
    明るくした近縁色でグラデを組み、四隅に原色を滲ませる */
 body {
-  background:
+  /* 単色を下地に敷いてから装飾を重ねる（メインサイトの note.html と同じ考え方）。
+     単色の background-color は body の高さに関係なく画面全体へ伸びるので、
+     中身が短くても塗り残しが出ない。#ddb476 は下のグラデの中間色。
+     グラデーションは fixed で画面基準に固定し、body の高さに影響されないようにしている。
+     shorthand の background は使わない。使うと未指定のサブプロパティが初期値へ戻り、
+     ここで足した下地・繰り返し・固定がまとめて消えるため。 */
+  background-color: #ddb476;
+  background-image:
     radial-gradient(circle at top left, rgba(181, 115, 31, 0.35), transparent 32rem),
     radial-gradient(circle at bottom right, rgba(181, 115, 31, 0.28), transparent 34rem),
     linear-gradient(135deg, #e8c894 0%, #ddb476 50%, #d2a35c 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* サイコロを振るボタン：ソファの青(#2133D1) */
