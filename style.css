@@ -144,7 +144,7 @@ body::after {
     z-index: 9998;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page)::after {
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.serenade-lyric-analysis):not(.serenade-analysis):not(.about-page)::after {
     background: radial-gradient(ellipse at center, transparent 60%, rgba(40, 40, 40, 0.15) 100%);
 }
 
@@ -949,11 +949,11 @@ body.top-page .card-analysis-row {
   text-shadow: none !important;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .footer-logo,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .footer-text,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .about-text,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .about-text a,
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .about-credit {
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.serenade-lyric-analysis):not(.serenade-analysis):not(.about-page) .footer-logo,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.serenade-lyric-analysis):not(.serenade-analysis):not(.about-page) .footer-text,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.serenade-lyric-analysis):not(.serenade-analysis):not(.about-page) .about-text,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.serenade-lyric-analysis):not(.serenade-analysis):not(.about-page) .about-text a,
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.serenade-lyric-analysis):not(.serenade-analysis):not(.about-page) .about-credit {
   color: var(--white) !important;
   text-shadow: none !important;
 }
@@ -1320,7 +1320,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -1329,7 +1329,7 @@ body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(
 
 ::-webkit-scrollbar-thumb {
     background: var(--pink-main);
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -1476,14 +1476,14 @@ main {
     padding: 40px;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) {
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page):not(.serenade-lyric-analysis):not(.serenade-analysis) {
     background: #F9A2D5;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
     background-size: 40px 40px;
 }
 
-body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page) .footer {
-    background: #E3297C;
+body:not(.friday-night):not(.chapter2-page):not(.catherine):not(.note-page):not(.about-page):not(.serenade-lyric-analysis):not(.serenade-analysis) .footer {
+    background: #E3297C;    
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
     background-size: 40px 40px;
 }

@@ -22,6 +22,12 @@
     --analysis-line-dim: rgba(230, 230, 230, 0.2);
 }
 
+/* セレナーデ歌詞考察ページTOPへ戻るボタン*/
+.analysis-page.serenade-lyric-analysis {
+    --analysis-accent: #493499;
+    --analysis-line: rgba(73, 52, 153, 0.4);
+}
+
 /* 考察タイトル(h1)は文が長くなるので折り返しを許可。
    小説ページ用のスマホ nowrap（style.css）をこのページだけ上書きする。
    サイズも小説ページ（clamp(2rem,5vw,3.5rem)）より一段小さくする。曲名＋「MV考察」
@@ -82,6 +88,16 @@
     text-align: left;
 }
 
+/* 曲名（セレナーデ）+副題の2行組みのうち、副題の改行制御。
+   語の途中で折れて読みにくい。そこでHTMLに <br> を入れ、「、」「──」という
+   意味の切れ目で折るようにした。ただしPCでは1行に収まるので、そこでは <br> を無効化する。 */
+.analysis-page .novel-text h2.h2-hung .h2-sub br {
+    display: none;
+}
+
+
+
+
 /* セクション見出し（h3）── 各章の小見出し。ブルーの縦ラインで章を区切る。
    ここはPC向けの値。スマホ用の値は下の @media にまとめてある。 */
 .analysis-page .novel-text h3 {
@@ -131,6 +147,10 @@
     opacity: 0.95;
 }
 
+
+
+
+
 /* Catherine考察 ── 見出しの罫線を、暗いページ背景と同じ黒で引く。 */
 .analysis-page.catherine .novel-text h3 {
     border-left-color: #2e2e2e;
@@ -175,10 +195,26 @@
     color: #e6148b;
 }
 
-/* セレナーデ考察 ── スクロール進捗バー。共通の往復アニメーションを保ち、指定された赤系3色で読了位置を示す。 */
+/* セレナーデMV考察 ── スクロール進捗バー。共通の往復アニメーションを保ち、指定された赤系3色で読了位置を示す。 */
 body.analysis-page.serenade-analysis .reading-progress {
-    background-image: linear-gradient(90deg, #cd211d, #ca401d, #ff704d) !important;
+    background-image: linear-gradient(90deg, #FF1A6C,#cd211d, #ca401d, #ff704d) !important;
+     box-shadow: 0 0 10px rgba(255, 112, 77, 0.5) !important;
 }
+
+/* セレナーデMV考察　読了バーのスクロールバーの色を赤系にする */
+body.analysis-page.serenade-analysis::-webkit-scrollbar-thumb {
+  background: #cd211d !important;
+}
+
+body.analysis-page.serenade-analysis::-webkit-scrollbar-thumb:hover {
+  background: #cd211d !important;
+}
+
+
+
+
+
+
 
 /* 締めの一文 ── 小説への誘導文 */
 .analysis-page .analysis-closing {
@@ -223,6 +259,16 @@ body.analysis-page.serenade-analysis .reading-progress {
 .analysis-page .analysis-links a:hover {
     opacity: 0.6;
 }
+
+
+/* スマホでは「→ リンク」を必ず次の行に揃える */
+@media (max-width: 768px) {
+    .analysis-page .analysis-links a {
+        display: block;
+    }
+}
+
+
 
 /* 考察ページ下部のTOP導線。小説ページの演出ボタンとは分けて、文字リンクとして見せる。 */
 .analysis-page .analysis-back-link {
@@ -342,3 +388,67 @@ body.serenade-analysis .chapter-number {
 body.serenade-analysis .chapter-title {
     color: #170909 !important;
 }
+
+/* セレナーデ歌詞考察 ── 。
+   h3の縦線・関連リンク・TOPへ戻るまで、ページ内の導線色をこれで統一する。 */
+
+body.serenade-lyric-analysis,
+body.serenade-lyric-analysis .chapter-hero,
+body.serenade-lyric-analysis .chapter-nav,
+body.serenade-lyric-analysis .footer {
+    background: #f2ecd2 !important;
+
+}
+
+body.serenade-lyric-analysis .novel-wrapper {
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 15px 50px #ab9d6d !important;
+}
+
+body.serenade-lyric-analysis .chapter-number {
+    color: #cd211d !important;
+    -webkit-text-fill-color: #cd211d !important;
+}
+
+body.serenade-lyric-analysis .chapter-title {
+    color: #493499 !important;
+}
+    
+/* 歌詞引用 ── blockquote。淡いブルーの左ラインで本文と区別 */
+body.analysis-page.serenade-lyric-analysis .novel-text blockquote {
+    margin: 2rem 0;
+    padding: 0.2rem 0 0.2rem 1.4rem;
+    border-left: 1.5px solid;
+    font-style: italic;
+    line-height: 1.95;
+    opacity: 0.95;
+    border-left-color:#493499;
+}
+
+body.analysis-page.serenade-lyric-analysis .novel-text h3 {
+    border-left-color: #493499;
+}
+
+
+body.analysis-page.serenade-lyric-analysis .analysis-links {
+    border-top-color: rgba(72, 52, 153, 0.2);
+}
+
+body.analysis-page.serenade-lyric-analysis .analysis-links a {
+    color: #493499;;
+}
+
+/* セレナーデ歌詞考察 ── スクロール進捗バー。共通の往復アニメーションを保ち、指定された赤系3色で読了位置を示す。 */
+body.analysis-page.serenade-lyric-analysis .reading-progress {
+    background-image: linear-gradient(90deg, #FF1A6C,#cd211d, #ca401d, #ff704d) !important;
+}
+
+/* セレナーデ歌詞考察　読了バーのスクロールバーの色を赤系にする */
+body.analysis-page.serenade-lyric-analysis::-webkit-scrollbar-thumb {
+  background: #cd211d !important;
+}
+
+body.analysis-page.serenade-lyric-analysis::-webkit-scrollbar-thumb:hover {
+  background: #cd211d !important;
+}
+
